@@ -1,0 +1,380 @@
+@charset "UTF-8";
+
+
+/*ログイン画面*/
+
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+
+/* fontawesome */
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+/* Simple Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* body */
+body {
+  background: #e9e9e9;
+  color: #5e5e5e;
+  font: 400 87.5%/1.5em 'Open Sans', sans-serif;
+  margin: 0 0 0 0;					/* マージンなし（後で個別に設定） */
+  padding: 0 0 0 0;					/* パディングなし（後で個別に設定） */
+  font-size: 16px;
+}
+
+/* Form Layout */
+.form-wrapper {
+  background: #fafafa;
+  margin: 2em auto;
+  padding: 0 1em;
+  max-width: 370px;
+}
+
+h1 {
+  text-align: center;
+  padding: 1em 0;
+}
+
+form {
+  padding: 0 1.5em;
+}
+
+.form-item {
+  margin-bottom: 0.75em;
+  width: 100%;
+}
+
+.form-item input {
+  background: #fafafa;
+  border: none;
+  border-bottom: 2px solid #e9e9e9;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  height: 20px;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.form-item input:focus {
+  border-bottom: 2px solid #c0c0c0;
+  outline: none;
+}
+
+.button-panel {
+  margin: 2em 0 0;
+  width: 100%;
+}
+
+.button-panel .button {
+  background: rgb(73, 64, 53);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}
+
+.button:hover {
+  background: #dd9c5f;
+}
+
+.form-footer {
+  font-size: 1em;
+  padding: 2em 0;
+  text-align: center;
+}
+
+.form-footer a {
+  color: #8c8c8c;
+  text-decoration: none;
+  transition: border-color 0.3s;
+}
+
+.form-footer a:hover {
+  border-bottom: 1px dotted #8c8c8c;
+}
+
+.images {
+  margin: 0 auto 0 auto;	/* 中央揃え */
+  width: 700px;			/* 幅を固定 */
+}
+
+/*ログイン画面ここまで*/
+
+
+
+
+
+/* 名刺管理のすべてのページに適用 */
+
+/* wrapperクラス */
+.wrapper {
+  margin: 0 auto 0 auto;	/* 中央揃え */
+  min-height: 100vh;  /*小さいの*/
+  position: relative;/*←相対位置*/
+  padding-bottom: 0px;/*footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+/* h2タグを付けたページの見出し */
+h2 {
+  font-size: 18px;
+  border-bottom-width: 2px;	/* 茶色でドットの下線を付ける */
+  border-bottom-style: dotted;
+  border-bottom-color: saddlebrown;
+  margin-top: 20px 0px 20px 0px;
+  padding-top: 10px 10px 10px 10px;
+}
+/* 画像 */
+img {
+  border-style: none;		/* 枠なし */
+}
+
+
+/* =======
+
+id="nav"
+
+#nav li {
+  display: inline;		/* インラインで横に表示する
+  /* list-style-type; none;	 先頭の記号をなくす
+  padding-right: 30px;		/* 区切りを空ける
+}
+#nav {
+  margin: 0 0 0 0;
+  padding: 15px 30px 12px 30px;
+  background-image: url(../images/menu-bg.png);
+}
+#nav li a:link {
+  color: yellow;
+  text-decoration: none;
+}
+#nav li a:visited {
+  color: yellow;
+  text-decoration: none;
+}
+#nav li a:hover {
+  color: skyblue;
+  text-decoration: none;
+}
+#nav li a:active {
+  color: hotpink;
+  text-decoration: none;
+}
+=========*/
+
+/* id="footer" */
+#footer {
+  /*background-image: url(../images/footer-bg.png);*/
+  background-repeat: repeat-x;
+  background-color: rgb(73, 64, 53);
+  margin-top: 30px;
+  text-align: center;	/* 中央揃え */
+  width: 100%;
+  padding: 20px 0px;
+  font-size: smaller;
+  color: rgb(255, 255, 255);
+  position: absolute; /*位置*/
+  bottom: 0; /*下固定*/
+}
+/* form */
+form {
+  padding: 6px;
+  color: black;
+}
+input[name=user_id] {
+  width: 16em;
+}
+input[name=password] {
+  width: 16em;
+}
+input[type=submit], input[type=reset] {
+  width: 6em;
+}
+input[name=businesscard_id]{
+  width: 8em;
+}
+input[name=company_name]{
+  width: 20em;
+}
+input[name=department_name]{
+  width: 20em;
+}
+input[name=post_name]{
+  width: 20em;
+}
+input[name=full_name]{
+  width: 16em;
+}
+input[name=zip_code]{
+  width: 8em;
+}
+input[name=address]{
+  width: 30em;
+}
+input[name=tel]{
+  width: 12em;
+}
+input[name=fax]{
+  width: 12em;
+}
+input[name=email]{
+  width: 16em;
+}
+textarea[name=remarks]{
+  width: 50em;
+  height: 4em;
+}
+div#table {
+  width: 700px;
+  height: 350px;
+  overflow: auto;		/* はみ出した場合は、スクロールバーを表示する */
+}
+table#list th, table#list td {
+  border-bottom-width: 1px;	/* 黒色でドットの下線を付ける */
+  border-bottom-style: dotted;
+  border-bottom-color: black;
+  padding: 4px 16px 4px 0;
+  text-align: left;
+  white-space: nowrap;		/* 折り返さない */
+}
+/* 一覧のデータ行 */
+table#list tr.data_row:hover {
+  background-color: yellow;
+}
+
+/* エラーメッセージ */
+#error_message {
+  color: red;
+}
+
+
+/*============
+nav
+=============*/
+nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: -300px;
+  bottom: 0;
+  width: 300px;
+  background: #ffffff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: all .5s;
+  z-index: 3;
+  opacity: 0;
+}
+.open nav {
+  left: 0;
+  opacity: 1;
+}
+nav .inner {
+  padding: 25px;
+}
+nav .inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav .inner ul li {
+  position: relative;
+  margin: 0;
+  border-bottom: 1px solid #333;
+}
+nav .inner ul li a {
+  display: block;
+  color: #333;
+  font-size: 14px;
+  padding: 1em;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+nav .inner ul li a:hover {
+  background: #e4e4e4;
+}
+@media screen and (max-width: 767px) {
+  nav {
+    left: -220px;
+    width: 220px;
+  }
+}
+/*============
+.toggle_btn
+=============*/
+.toggle_btn {
+  display: block;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  transition: all .5s;
+  cursor: pointer;
+  z-index: 3;
+}
+.toggle_btn span {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #333;
+  border-radius: 4px;
+  transition: all .5s;
+}
+.toggle_btn span:nth-child(1) {
+  top: 4px;
+}
+.toggle_btn span:nth-child(2) {
+  top: 14px;
+}
+.toggle_btn span:nth-child(3) {
+  bottom: 4px;
+}
+.open .toggle_btn span {
+  background-color: #fff;
+}
+.open .toggle_btn span:nth-child(1) {
+  -webkit-transform: translateY(10px) rotate(-315deg);
+  transform: translateY(10px) rotate(-315deg);
+}
+.open .toggle_btn span:nth-child(2) {
+  opacity: 0;
+}
+.open .toggle_btn span:nth-child(3) {
+  -webkit-transform: translateY(-10px) rotate(315deg);
+  transform: translateY(-10px) rotate(315deg);
+}
+/*============
+#mask
+=============*/
+#mask {
+  display: none;
+  transition: all .5s;
+}
+.open #mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .8;
+  z-index: 2;
+  cursor: pointer;
+}
+
