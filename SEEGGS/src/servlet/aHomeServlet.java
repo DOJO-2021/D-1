@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class aHomeServlet
+ * Servlet implementation class AHomeServlet
  */
 @WebServlet("/AHomeServlet")
 public class AHomeServlet extends HttpServlet {

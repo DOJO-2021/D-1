@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>AResult</title>
+<title>Afavor</title>
 </head>
 <body>
 
