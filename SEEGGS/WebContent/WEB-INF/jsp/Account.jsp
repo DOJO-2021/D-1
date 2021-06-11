@@ -17,7 +17,7 @@
       a href以下に遷移先のServletを記述してください。-->
 
     <h1 id="logo">
-     <a href="Login.html"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></a>
+     <a href="/SEEGGS/LoginServlet"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></a>
    </h1>
    <!-- 真ん中ロゴ（ここまで） -->
 
@@ -29,9 +29,8 @@
     action以下に遷移先のServletを記述してください。
     a href以下に遷移先のServletを記述してください。-->
 
-
 <div class="scrollArea2">
-<form method="GET" action="Home.html">
+<form method="POST" action="AccountServlet">
 <div class="form-wrapper4">
   <h1>新規アカウント作成</h1>
   <form>
@@ -97,7 +96,7 @@
     </div>
   </form>
   <div class="form-footer">
-    <p><a href="Login.html"><u>ログイン画面にもどる</u></a></p>
+    <p><a href="LoginServlet"><u>ログイン画面にもどる</u></a></p>
   </div>
 </div>
 
