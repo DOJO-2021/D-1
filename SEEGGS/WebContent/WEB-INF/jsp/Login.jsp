@@ -7,7 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>SEEGGS | LOGIN</title>
-<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="/css/common.css">
 </head>
 <body>
 <div class="wrapper">
@@ -18,7 +18,7 @@
       a href以下に遷移先のServletを記述してください。-->
 
     <h1 id="logo">
-     <a href="Login.html"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></a>
+     <a href="/SEEGGS/LoginServlet"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></a>
    </h1>
    <!-- 真ん中ロゴ（ここまで） -->
 
@@ -26,41 +26,12 @@
 
   <!-- メイン（ここから） -->
 
-  <!--右側ハンバーガーメニューここから
-      a href以下に遷移先のServletを記述してください。-->
-
-  <div id="navArea">
-
-    <nav>
-      <div class="inner">
-        <ul>
-          <li><a href="Home.html">ホーム</a></li>
-          <li><a href="#">マイプロフィール</a></li>
-          <li><a href="User.html">ユーザー情報</a></li>
-          <li><a href="Board.html">掲示板</a></li>
-          <li><a href="Favor.html">お気に入り一覧</a></li>
-          <li><a href="Login.html">ログアウト</a></li>
-        </ul>
-      </div>
-    </nav>
-
-    <div class="toggle_btn">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-
-    <div id="mask"></div>
-
-  </div>
-
-  <!--右側ハンバーガーメニューここまで-->
 
   <!--ログインフォームここから
     action以下に遷移先のServletを記述してください。
     a href以下に遷移先のServletを記述してください。-->
 
-  <form method="GET" action="Home.html">
+  <form method="POST" action="/SEEGGS/LoginServlet">
 <div class="form-wrapper">
   <h1>ログイン</h1>
   <form>
@@ -77,7 +48,7 @@
     </div>
   </form>
   <div class="form-footer">
-    <p><a href="#"><u>新規アカウント登録はこちら</u></a></p>
+    <p><a href="/SEEGGS/AccountServlet"><u>新規アカウント登録はこちら</u></a></p>
   </div>
 </div>
 
@@ -114,29 +85,6 @@ $(document).ready(function() {
   });
 
 });
-
-//ハンバーガーメニューのjs
-
-(function($) {
-  var $nav   = $('#navArea');
-  var $btn   = $('.toggle_btn');
-  var $mask  = $('#mask');
-  var open   = 'open'; // class指定
-  // menuオープン
-  $btn.on( 'click', function() {
-    if ( ! $nav.hasClass( open ) ) {
-      $nav.addClass( open );
-    } else {
-      $nav.removeClass( open );
-    }
-  });
-  // ポップアップ閉じる
-  $mask.on('click', function() {
-    $nav.removeClass( open );
-  });
-} )(jQuery);
-
-//ハンバーガーメニューのjsここまで
 
 </script>
 </body>
