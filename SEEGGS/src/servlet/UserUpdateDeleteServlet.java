@@ -11,12 +11,14 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDAO;
+import model.ResultBeans;
+import model.UserBeans;
 
 /**
  * Servlet implementation class UpdateDeleteServlet
  */
-@WebServlet("/UpdateDeleteServlet")
-public class UpdateDeleteServlet extends HttpServlet {
+@WebServlet("/UserUpdateDeleteServlet")
+public class UserUpdateDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
@@ -46,23 +48,23 @@ public class UpdateDeleteServlet extends HttpServlet {
 		// 更新または削除を行う
 		UserDAO uDao = new UserDAO();
 		if (request.getParameter("SUBMIT").equals("更新")) {
-			if (uDao.update(new User(u_number, name, company, nickname, birthplace, thisisme, hobby, word))) {	// 更新成功
+			if (uDao.update(new UserBeans(u_number, photo, name, company, nickname, birthplace, thisisme, hobby, future, word))) {	// 更新成功
 				request.setAttribute("result",
-				new Result("更新成功！", "データを更新しました。", "/SEEGGS/AHomeServlet"));
+				new ResultBeans("データを更新しました。", "/SEEGGS/AHomeServlet"));
 			}
 			else {												// 更新失敗
 				request.setAttribute("result",
-				new Result("更新失敗！", "データを更新できませんでした。", "/SEEGGS/AHomeServlet"));
+				new ResultBeans("データを更新できませんでした。", "/SEEGGS/AHomeServlet"));
 			}
 		}
 		else {
 			if (uDao.delete(u_number)) {	// 削除成功
 				request.setAttribute("result",
-				new Result("削除成功！", "ユーザーを削除しました。", "/SEEGGS/AHomeServlet"));
+				new ResultBeans("ユーザーを削除しました。", "/SEEGGS/AHomeServlet"));
 			}
 			else {						// 削除失敗
 				request.setAttribute("result",
-				new Result("削除失敗！", "ユーザーを削除できませんでした。", "/SEEGGS/AHomeServlet"));
+				new ResultBeans("ユーザーを削除できませんでした。", "/SEEGGS/AHomeServlet"));
 			}
 		}
 
