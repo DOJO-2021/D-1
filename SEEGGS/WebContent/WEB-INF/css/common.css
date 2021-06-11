@@ -25,31 +25,47 @@ body {
   font-size: 16px;
 }
 
-/* Form Layout */
+.mother {
+  display: inline-block;
+}
+
+/* フォームレイアウト */
 .form-wrapper {
   background: #fafafa;
   margin: 2em auto;
   padding: 0 1em;
   max-width: 370px;
+
 }
 
-
+/* ホーム画面ユーザー情報ボタン　*/
 .form-wrapper2 {
   margin: 0em auto;
   padding: 0 1em;
   max-width: 470px;
-  position: static;
-  margin-right: 20%;
-  flex: 1 1 auto;
+  position: relative;
+  top: 85px;
 }
 
+/*　ホーム画面掲示板ボタン　*/
 .form-wrapper3 {
   margin: 0em auto;
   padding: 0 1em;
   max-width: 470px;
   margin-top: 15px;
-  margin-right: 20%;
+  position: relative;
+  top: 85px;
 }
+
+/* 新規アカウント登録画面フォーム */
+.form-wrapper4 {
+  background: #fafafa;
+  margin: 2em auto;
+  padding: 0 1em;
+  max-width: 500px;
+}
+
+
 
 h1 {
   text-align: center;
@@ -88,6 +104,21 @@ form {
 }
 
 .button-panel .button {
+  background: rgb(73, 64, 53);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 200%;
+  height: 130px;
+}
+
+.button-panel2 .button {
   background: rgb(73, 64, 53);
   border: none;
   color: #fff;
@@ -141,7 +172,7 @@ html{
 }
 
 .popup-overlay{
-  /*Hides pop-up when there is no "active" class*/
+  z-index: 2;
   visibility:hidden;
   position:absolute;
   background:#ffffff;
@@ -149,6 +180,7 @@ html{
   width:50%;
   height:50%;
   left:25%;
+  float: 1 1 auto;
 }
 .popup-overlay.active{
   visibility:visible;
@@ -168,13 +200,11 @@ html{
 }
 
 button{
+  z-index: 1;
   display:inline-block;
-  margin:.20rem;
-  margin-top: 10%;
-  margin-right: 30%;
-  /*
-  position: relative;  今の位置を基準にする
-  left: 400px;  左から20px */
+  position: relative;
+  top: 150px;
+  right: 5%;
 }
 
 /*プロフィールのクリックポップアップここまで*/
@@ -332,7 +362,7 @@ nav {
   display: block;
   position: fixed;
   top: 0;
-  left: -300px;
+  right: -300px;
   bottom: 0;
   width: 300px;
   background: #ffffff;
@@ -344,7 +374,7 @@ nav {
   opacity: 0;
 }
 .open nav {
-  left: 0;
+  right: 0;
   opacity: 1;
 }
 nav .inner {
@@ -411,7 +441,7 @@ nav .inner ul li a:hover {
   bottom: 4px;
 }
 .open .toggle_btn span {
-  background-color: #fff;
+  background-color: rgb(0, 0, 0);
 }
 .open .toggle_btn span:nth-child(1) {
   -webkit-transform: translateY(10px) rotate(-315deg);
@@ -444,3 +474,16 @@ nav .inner ul li a:hover {
   cursor: pointer;
 }
 
+/*User.htmlスクロールボックスここから*/
+
+.scrollArea{
+  z-index: 1;
+  width: 800px;                /* 横幅指定 */
+  height: 400px;               /* 縦幅指定 */
+  border: 1px solid #000;      /* わかりやすくボーダーを引く */
+  overflow-y: scroll;          /* 縦方向にスクロール可能にする */
+  position: relative;
+  top: 150px;
+  left: 300px;
+}
+/*User.htmlスクロールボックスここまで*/
