@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,7 @@
       a href以下に遷移先のServletを記述してください。-->
 
     <h1 id="logo">
-     <a href="login.html"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></a>
+     <a href="Login.html"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></a>
    </h1>
    <!-- 真ん中ロゴ（ここまで） -->
 
@@ -33,12 +34,12 @@
     <nav>
       <div class="inner">
         <ul>
-          <li><a href="home.html">ホーム</a></li>
+          <li><a href="Home.html">ホーム</a></li>
           <li><a href="#">マイプロフィール</a></li>
-          <li><a href="user.html">ユーザー情報</a></li>
-          <li><a href="board.html">掲示板</a></li>
-          <li><a href="favor.html">お気に入り一覧</a></li>
-          <li><a href="login.html">ログアウト</a></li>
+          <li><a href="User.html">ユーザー情報</a></li>
+          <li><a href="Board.html">掲示板</a></li>
+          <li><a href="Favor.html">お気に入り一覧</a></li>
+          <li><a href="Login.html">ログアウト</a></li>
         </ul>
       </div>
     </nav>
@@ -59,7 +60,7 @@
     action以下に遷移先のServletを記述してください。
     a href以下に遷移先のServletを記述してください。-->
 
-  <form method="GET" action="home.html">
+  <form method="GET" action="Home.html">
 <div class="form-wrapper">
   <h1>ログイン</h1>
   <form>
@@ -71,7 +72,7 @@
       <label for="PW"></label>
       <input type="PW" name="PW" required="required" placeholder="PW"></input>
     </div>
-    <div class="button-panel">
+    <div class="button-panel2">
       <input type="submit" class="button" title="Login" value="Login"></input>
     </div>
   </form>
@@ -83,6 +84,7 @@
   <!--ログインフォームここまで-->
 
   <!-- メイン（ここまで） -->
+
 
 
   <!-- フッター（ここから） -->

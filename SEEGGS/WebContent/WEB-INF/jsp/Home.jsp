@@ -1,25 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>SEEGGS | LOGIN</title>
+<title>SEEGGS | HOME</title>
 <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
 <body>
 <div class="wrapper">
   <!-- ヘッダー（ここから） -->
 
-
-    <!--真ん中ロゴここから
+    <!--左上ロゴここから
       a href以下に遷移先のServletを記述してください。-->
 
-    <h1 id="logo">
-     <a href="login.html"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></a>
-   </h1>
-   <!-- 真ん中ロゴ（ここまで） -->
+        <a href="Login.html"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
+
+      <!-- 左上ロゴ（ここまで） -->
 
   <!-- ヘッダー（ここまで） -->
 
@@ -33,12 +32,12 @@
     <nav>
       <div class="inner">
         <ul>
-          <li><a href="home.html">ホーム</a></li>
+          <li><a href="Home.html">ホーム</a></li>
           <li><a href="#">マイプロフィール</a></li>
-          <li><a href="user.html">ユーザー情報</a></li>
-          <li><a href="board.html">掲示板</a></li>
-          <li><a href="favor.html">お気に入り一覧</a></li>
-          <li><a href="login.html">ログアウト</a></li>
+          <li><a href="User.html">ユーザー情報</a></li>
+          <li><a href="Board.html">掲示板</a></li>
+          <li><a href="Favor.html">お気に入り一覧</a></li>
+          <li><a href="Login.html">ログアウト</a></li>
         </ul>
       </div>
     </nav>
@@ -55,43 +54,52 @@
 
   <!--右側ハンバーガーメニューここまで-->
 
-  <!--ログインフォームここから
-    action以下に遷移先のServletを記述してください。
-    a href以下に遷移先のServletを記述してください。-->
+  <!--プロフィールのポップアップここから
+  a href以下に遷移先のServletを記述してください。-->
 
-  <form method="GET" action="home.html">
-<div class="form-wrapper">
-  <h1>ログイン</h1>
-  <form>
-    <div class="form-item">
-      <label for="ID"></label>
-      <input type="ID" name="ID" required="required" placeholder="ID"></input>
-    </div>
-    <div class="form-item">
-      <label for="PW"></label>
-      <input type="PW" name="PW" required="required" placeholder="PW"></input>
-    </div>
-    <div class="button-panel">
-      <input type="submit" class="button" title="Login" value="Login"></input>
-    </div>
-  </form>
-  <div class="form-footer">
-    <p><a href="#"><u>新規アカウント登録はこちら</u></a></p>
+
+  <div class="popup-overlay">
+    <!--以下プロフィール中身を記述してください-->
+     <div class="popup-content">
+        <p>マイプロフィール</p>
+     </div>
   </div>
+  <!--以下オープンのためのボタン-->
+  <button class="open"><img src="images/プロフィール.png" width="200" height="300" alt="SEEGGS"></button>
+
+  <!--プロフィールのポップアップここまで-->
+
+<div class="mother">
+  <!--ユーザー情報リンクボタンここから-->
+    <div class="form-wrapper2">
+        <div class="button-panel">
+          <a herf="User.html"><input type="submit" class="button" title="Login" value="ユーザー情報"></input></a>
+        </div>
+    </div>
+  <!--ユーザー情報リンクボタンここまで-->
+
+  <!--掲示板リンクボタンここから-->
+
+    <div class="form-wrapper3">
+      <div class="button-panel">
+          <a herf="Board.html"><input type="submit" class="button" title="Login" value="掲示板"></input></a>
+      </div>
+    </div>
+
+  <!--掲示板リンクボタンここまで-->
 </div>
-
-  <!--ログインフォームここまで-->
-
   <!-- メイン（ここまで） -->
 
 
   <!-- フッター（ここから） -->
   <div id="footer">
-    <p>&copy;Copyright D1ユニコーンのたまご. All rights reserved.</p>
+    <p>&copy; D1ユニコーンのたまご. All rights reserved.</p>
   </div>
   <!-- フッター（ここまで） -->
 
 </div>
+
+
 
 
 <!-- 以下js及びjQuery処理の記述 -->
@@ -113,7 +121,7 @@ $(document).ready(function() {
 
 });
 
-//ハンバーガーメニューのjs
+//ハンバーガーメニューここから
 
 (function($) {
   var $nav   = $('#navArea');
@@ -134,7 +142,23 @@ $(document).ready(function() {
   });
 } )(jQuery);
 
-//ハンバーガーメニューのjsここまで
+//ハンバーガーメニューここまで
+
+
+
+//プロフィールポップアップのjs
+
+//「マイプロフィール」ボタンがクリックされたときに、activeを .popup および .popup-content に追加
+$(".open").on("click", function(){
+  $(".popup-overlay, .popup-content").addClass("active");
+});
+
+//「閉じる」ボタンがクリックされたときに、activeを .popup および .popup-content から削除
+$(".close, .popup-overlay").on("click", function(){
+  $(".popup-overlay, .popup-content").removeClass("active");
+});
+
+//プロフィールポップアップのjsここまで
 
 </script>
 </body>
