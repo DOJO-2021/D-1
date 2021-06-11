@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDAO;
-
+import model.ResultBeans;
+import model.UserBeans;
 /**
  * Servlet implementation class AccountServlet
  */
@@ -54,9 +55,10 @@ public class AccountServlet extends HttpServlet {
 				}
 				// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
+				String photo = request.getParameter("PHOTO");
 				String name = request.getParameter("NAME");
-				String nickname = request.getParameter("NICKNAME");
 				String company = request.getParameter("COMPANY");
+				String nickname = request.getParameter("NICKNAME");
 				String hobby = request.getParameter("HOBBY");
 				String birthplace = request.getParameter("BIRTHPLACE");
 				String thisisme = request.getParameter("THISISME");
@@ -67,13 +69,13 @@ public class AccountServlet extends HttpServlet {
 
 				// 登録処理を行う
 				UserDAO uDao = new UserDAO();
-				if (uDao.insert(new Account(0, name, nickname, company, hobby, birthplace, thisisme, future, word))) {	// 登録成功
+				if (uDao.insert(new UserBeans(0, photo, name, company, nickname, hobby, birthplace, thisisme, future, word))) {	// 登録成功
 					request.setAttribute("result",
-					new Result("登録完了", "/SEEGGS/HomeServlet"));
+					new ResultBeans("登録完了", "/SEEGGS/HomeServlet"));
 				}
 				else {												// 登録失敗
 					request.setAttribute("result",
-					new Result("登録を正常に行うことができませんでした", "/SEEGS/HomeServlet"));
+					new ResultBeans("登録を正常に行うことができませんでした", "/SEEGS/HomeServlet"));
 				}
 
 				// 結果ページにフォワードする

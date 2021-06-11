@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDAO;
+import model.UserBeans;
 
 /**
  * Servlet implementation class UserServlet
@@ -67,7 +69,7 @@ public class UserServlet extends HttpServlet {
 
 			// 検索処理を行う
 			UserDAO uDao = new UserDAO();
-			List<Personal> cardList = uDao.select(new Personal(0, photo, name, company, nickname, birthplace, thisisme, hobby, future, word));
+			List<UserBeans> cardList = uDao.select(new UserBeans(0, photo, name, company, nickname, birthplace, thisisme, hobby, future, word));
 
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("cardList", cardList);
