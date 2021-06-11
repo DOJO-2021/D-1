@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.FavorDAO;
+import model.FavorBeans;
 
 /**
  * Servlet implementation class UserServlet
@@ -60,7 +61,7 @@ public class FavorServlet extends HttpServlet {
 
 			// 検索処理を行う
 			FavorDAO fDao = new FavorDAO();
-			List<Favorite> cardList = fDao.select(new Favorite(0, 0));
+			List<FavorBeans> cardList = fDao.select(new FavorBeans(0, 0));
 
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("favorList", favorList);
