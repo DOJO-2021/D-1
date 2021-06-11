@@ -487,3 +487,17 @@ nav .inner ul li a:hover {
   left: 300px;
 }
 /*User.htmlスクロールボックスここまで*/
+
+/*Account.htmlスクロールボックスここから*/
+
+.scrollArea2{
+  z-index: 1;
+  width: 500px;                /* 横幅指定 */
+  height: 400px;               /* 縦幅指定 */
+  border: 0.5px solid #666666;      /* わかりやすくボーダーを引く */
+  overflow-y: scroll;          /* 縦方向にスクロール可能にする */
+  position: relative;
+  left: 450px;
+}
+/*Account.htmlスクロールボックスここまで*/
+

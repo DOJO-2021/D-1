@@ -9,10 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import dao.UserDAO;
-import model.ResultBeans;
-import model.UserBeans;
 /**
  * Servlet implementation class AccountServlet
  */
@@ -32,12 +28,15 @@ public class AccountServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	/*
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/SEEGGS/LoginServlet");
 			return;
 		}
+		*/
+
 		// 登録ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Account.jsp");
 				dispatcher.forward(request, response);
@@ -67,6 +66,7 @@ public class AccountServlet extends HttpServlet {
 
 				// 画像のアップロード方法について要確認
 
+				/*
 				// 登録処理を行う
 				UserDAO uDao = new UserDAO();
 				if (uDao.insert(new UserBeans(0, photo, name, company, nickname, hobby, birthplace, thisisme, future, word))) {	// 登録成功
@@ -77,6 +77,7 @@ public class AccountServlet extends HttpServlet {
 					request.setAttribute("result",
 					new ResultBeans("登録を正常に行うことができませんでした", "/SEEGS/HomeServlet"));
 				}
+				*/
 
 				// 結果ページにフォワードする
 				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Result.jsp");
