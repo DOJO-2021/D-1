@@ -1,7 +1,7 @@
 package servlet;
-
+?
 import java.io.IOException;
-
+?
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,18 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-
-import dao.FavorDAO;
-import model.FavorBeans;
+?
+import dao.BoardUpdateDeleteDAO;
 import model.ResultBeans;
-
+?
 /**
  * Servlet implementation class UpdateDeleteServlet
  */
 @WebServlet("/ThreadUpdateDeleteServlet")
 public class ThreadUpdateDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+?
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -31,16 +30,17 @@ public class ThreadUpdateDeleteServlet extends HttpServlet {
 			response.sendRedirect("/SEEGGS/LoginServlet");
 			return;
 		}
-
+?
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		int u_number = Integer.parseInt(request.getParameter("U_NUMBER"));
 		int m_number = Integer.parseInt(request.getParameter("M_NUMBER"));
-
+		int type = Integer.parseInt(request.getParameter("TYPE"));
+		String coments = request.getParameter("COMENTS");
+?
 		// 更新または削除を行う
-		FavorDAO fDao = new FavorDAO();
+		BoardUpdateDeleteDAO budDao = new BoardUpdateDeleteDAO();
 		if (request.getParameter("SUBMIT").equals("更新")) {
-			if (fDao.update(new FavorBeans(u_number, m_number))) {	// 更新成功
+			if (budDao.update (m_number, type, coments)) {	// 更新成功
 				request.setAttribute("result",
 				new ResultBeans("データを更新しました。", "/SEEGGS/AHomeServlet"));
 			}
@@ -50,7 +50,7 @@ public class ThreadUpdateDeleteServlet extends HttpServlet {
 			}
 		}
 		else {
-			if (fDao.delete(u_number)) {	// 削除成功
+			if (foDao.delete(m_number)) {	// 削除成功
 				request.setAttribute("result",
 				new ResultBeans("ユーザーを削除しました。", "/SEEGGS/AHomeServlet"));
 			}
@@ -59,10 +59,9 @@ public class ThreadUpdateDeleteServlet extends HttpServlet {
 				new ResultBeans("ユーザーを削除できませんでした。", "/SEEGGS/AHomeServlet"));
 			}
 		}
-
+?
 		// 結果ページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/AResult.jsp");
 		dispatcher.forward(request, response);
 	}
 }
-
