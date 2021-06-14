@@ -1,0 +1,104 @@
+create table youser (id varchar(30) unique, password varchar(30) not null, photo varchar(100) not null, name varchar(30)primary key not null, company varchar(45) not null, nickname varchar(20) not null,									
+birthplace varchar(10) not null, thisisme varchar(5) not null, hobby varchar(150) not null, future varchar(150) not null, word varchar(150) not null);	
+
+
+create table forum(m_number int primary key auto_increment, type int, contents varchar(1000))	
+
+create table favorite(id varchar(30), m_number int primary key, contents varchar(1000))								
+
+insert into
+	youser
+values
+	('itirou',
+	'password',
+	'rabbit.png',
+	'兎田太郎',
+	'兎田ファーム',
+	'ウサギ',
+	'青森県',
+	'楽',
+	'お菓子作り',
+	'全国展開',
+	'パパパパーン'
+	)
+
+insert into
+	youser
+values
+	('zirou',
+	'password',
+	'bear.png',
+	'熊野花子',
+	'Bearフーズ',
+	'ベアー',
+	'愛媛県',
+	'重',
+	'筋トレ',
+	'デパ地下出店',
+	'押忍'
+	)
+
+insert into
+	youser
+values
+	('saburou',
+	'password',
+	'bird.png',
+	'鳥田次郎',
+	'焼き鳥貴族',
+	'トリキ',
+	'鹿児島県',
+	'翔',
+	'旅行',
+	'東京進出',
+	'バーバーチキン'
+	)
+
+insert into
+	youser
+values
+	('sirou',
+	'password',
+	'meow.png',
+	'猫山里美',
+	'猫山商事',
+	'ねこ',
+	'北海道',
+	'寝',
+	'映画鑑賞',
+	'海外進出',
+	'ガーガーバード'
+	)
+
+insert into
+	youser
+values
+	('gorou',
+	'password',
+	'dog.png',
+	'犬養智',
+	'Dog cafe Inukai',
+	'ワンさん',
+	'東京都',
+	'走',
+	'マラソン',
+	'店舗拡大',
+	'ぐわぁぐわぁ'
+	)
+
+insert into
+	youser
+values
+	('rokurou',
+	'password',
+	'moo.png',
+	'牛久羊',
+	'モーモージャパン',
+	'ぎゅう',
+	'神奈川県',
+	'福',
+	'食べ歩き',
+	'アジア進出',
+	'くわぁくわぁ'
+	)
+ALTER TABLE favorite ADD FOREIGN KEY(m_number) REFERENCES forum(m_number);
