@@ -17,7 +17,7 @@
     <!--左上ロゴここから
       a href以下に遷移先のServletを記述してください。-->
 
-        <a href="Login.html"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
+        <a href="/SEEGGS/HomeServlet"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
 
       <!-- 左上ロゴ（ここまで） -->
 
@@ -33,12 +33,12 @@
     <nav>
       <div class="inner">
         <ul>
-          <li><a href="Home.html">ホーム</a></li>
-          <li><a href="#">マイプロフィール</a></li>
-          <li><a href="User.html">ユーザー情報</a></li>
-          <li><a href="Board.html">掲示板</a></li>
-          <li><a href="Favor.html">お気に入り一覧</a></li>
-          <li><a href="Login.html">ログアウト</a></li>
+          <li><a href="HomeServlet">ホーム</a></li>
+          <li><a href="ProfileServlet">マイプロフィール</a></li>
+          <li><a href="UserServlet">ユーザー情報</a></li>
+          <li><a href="BoardServlet">掲示板</a></li>
+          <li><a href="FavorServlet">お気に入り一覧</a></li>
+          <li><a href="LogoutServlet">ログアウト</a></li>
         </ul>
       </div>
     </nav>
@@ -59,7 +59,7 @@
   action以下に遷移先を記述してください-->
 
   <div class="mother">
-  <form method="get" action="#" class="search_container">
+  <form method="get" action="SerchServlet" class="search_container">
     <input type="text" size="25" placeholder="　キーワード検索">
     <input type="submit" value="&#xf002">
   </form>
@@ -74,7 +74,7 @@
       <!--ノウハウ共有スレッドボタンここから-->
         <div class="form-wrapper2">
             <div class="button-panel3">
-              <a herf="User.html"><input type="submit" class="button" title="Login" value="ノウハウ共有掲示板"></input></a>
+              <a href="/SEEGGS/ThreadServlet"><input type="submit" class="button" title="Login" value="ノウハウ共有掲示板"></input></a>
             </div>
         </div>
       <!--ノウハウ共有スレッドボタンここまで-->
@@ -82,7 +82,7 @@
       <!--エラー共有スレッドボタンここから-->
         <div class="form-wrapper3">
           <div class="button-panel3">
-              <a herf="Board.html"><input type="submit" class="button" title="Login" value="エラー共有掲示板"></input></a>
+              <a href="/SEEGGS/ThreadServlet"><input type="submit" class="button" title="Login" value="エラー共有掲示板"></input></a>
           </div>
         </div>
       <!--エラー共有スレッドボタンここまで-->
@@ -90,7 +90,7 @@
       <!--お悩み相談スレッドボタンここから-->
       <div class="form-wrapper3">
         <div class="button-panel3">
-            <a herf="Board.html"><input type="submit" class="button" title="Login" value="お悩み相談掲示板"></input></a>
+            <a href="/SEEGGS/ThreadServlet"><input type="submit" class="button" title="Login" value="お悩み相談掲示板"></input></a>
         </div>
       </div>
       <!--お悩み相談スレッドボタンここまで-->
@@ -100,7 +100,7 @@
       <!--質問スレッドボタンここから-->
         <div class="form-wrapper2">
             <div class="button-panel3">
-              <a herf="User.html"><input type="submit" class="button" title="Login" value="講師に質問！"></input></a>
+              <a href="/SEEGGS/ThreadServlet"><input type="submit" class="button" title="Login" value="講師に質問！"></input></a>
             </div>
         </div>
       <!--質問スレッドボタンここまで-->
@@ -108,7 +108,7 @@
       <!--ジモトークスレッドボタンここから-->
         <div class="form-wrapper3">
           <div class="button-panel3">
-              <a herf="Board.html"><input type="submit" class="button" title="Login" value="ジモトーーーク！"></input></a>
+              <a href="/SEEGGS/ThreadServlet"><input type="submit" class="button" title="Login" value="ジモトーーーク！"></input></a>
           </div>
         </div>
       <!--ジモトークスレッドスレッドボタンここまで-->
@@ -116,7 +116,7 @@
       <!--休日何してるスレッドボタンここから-->
       <div class="form-wrapper3">
         <div class="button-panel3">
-            <a herf="Board.html"><input type="submit" class="button" title="Login" value="休日何してる？"></input></a>
+            <a href="/SEEGGS/ThreadServlet"><input type="submit" class="button" title="Login" value="休日何してる？"></input></a>
         </div>
       </div>
       <!--休日何してるスレッドボタンここまで-->

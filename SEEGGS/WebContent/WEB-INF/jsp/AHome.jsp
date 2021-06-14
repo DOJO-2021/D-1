@@ -10,124 +10,124 @@
 </head>
 <body>
 <div class="wrapper">
-  <!-- ƒwƒbƒ_[i‚±‚±‚©‚çj -->
+  <!-- ãƒ˜ãƒƒãƒ€ãƒ¼ï¼ˆã“ã“ã‹ã‚‰ï¼‰ -->
 
-    <!--¶ãƒƒS‚±‚±‚©‚ç
-      a hrefˆÈ‰º‚É‘JˆÚæ‚ÌServlet‚ğ‹Lq‚µ‚Ä‚­‚¾‚³‚¢B-->
-      
+    <!--å·¦ä¸Šãƒ­ã‚´ã“ã“ã‹ã‚‰
+      a hrefä»¥ä¸‹ã«é·ç§»å…ˆã®Servletã‚’è¨˜è¿°ã—ã¦ãã ã•ã„ã€‚-->
+
         <a href="Login.html"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
-      
-      <!-- ¶ãƒƒSi‚±‚±‚Ü‚Åj -->
 
-  <!-- ƒwƒbƒ_[i‚±‚±‚Ü‚Åj -->
+      <!-- å·¦ä¸Šãƒ­ã‚´ï¼ˆã“ã“ã¾ã§ï¼‰ -->
 
-  <!-- ƒƒCƒ“i‚±‚±‚©‚çj -->
-  
-  <!--‰E‘¤ƒnƒ“ƒo[ƒK[ƒƒjƒ…[‚±‚±‚©‚ç
-      a hrefˆÈ‰º‚É‘JˆÚæ‚ÌServlet‚ğ‹Lq‚µ‚Ä‚­‚¾‚³‚¢B-->
+  <!-- ãƒ˜ãƒƒãƒ€ãƒ¼ï¼ˆã“ã“ã¾ã§ï¼‰ -->
+
+  <!-- ãƒ¡ã‚¤ãƒ³ï¼ˆã“ã“ã‹ã‚‰ï¼‰ -->
+
+  <!--å³å´ãƒãƒ³ãƒãƒ¼ã‚¬ãƒ¼ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã“ã“ã‹ã‚‰
+      a hrefä»¥ä¸‹ã«é·ç§»å…ˆã®Servletã‚’è¨˜è¿°ã—ã¦ãã ã•ã„ã€‚-->
 
   <div id="navArea">
 
     <nav>
       <div class="inner">
         <ul>
-          <li><a href="Home.html">ƒz[ƒ€</a></li>
-          <li><a href="#">ƒ}ƒCƒvƒƒtƒB[ƒ‹</a></li>
-          <li><a href="User.html">ƒ†[ƒU[î•ñ</a></li>
-          <li><a href="Board.html">Œf¦”Â</a></li>
-          <li><a href="Favor.html">‚¨‹C‚É“ü‚èˆê——</a></li>
-          <li><a href="Login.html">ƒƒOƒAƒEƒg</a></li>
+          <li><a href="Home.html">ãƒ›ãƒ¼ãƒ </a></li>
+          <li><a href="#">ãƒã‚¤ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«</a></li>
+          <li><a href="User.html">ãƒ¦ãƒ¼ã‚¶ãƒ¼æƒ…å ±</a></li>
+          <li><a href="Board.html">æ²ç¤ºæ¿</a></li>
+          <li><a href="Favor.html">ãŠæ°—ã«å…¥ã‚Šä¸€è¦§</a></li>
+          <li><a href="Login.html">ãƒ­ã‚°ã‚¢ã‚¦ãƒˆ</a></li>
         </ul>
       </div>
     </nav>
-  
+
     <div class="toggle_btn">
       <span></span>
       <span></span>
       <span></span>
     </div>
-  
-    <div id="mask"></div>
-  
-  </div>
-  
-  <!--‰E‘¤ƒnƒ“ƒo[ƒK[ƒƒjƒ…[‚±‚±‚Ü‚Å-->
 
-  <!--ƒvƒƒtƒB[ƒ‹‚Ìƒ|ƒbƒvƒAƒbƒv‚±‚±‚©‚ç
-  a hrefˆÈ‰º‚É‘JˆÚæ‚ÌServlet‚ğ‹Lq‚µ‚Ä‚­‚¾‚³‚¢B-->
+    <div id="mask"></div>
+
+  </div>
+
+  <!--å³å´ãƒãƒ³ãƒãƒ¼ã‚¬ãƒ¼ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã“ã“ã¾ã§-->
+
+  <!--ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã“ã“ã‹ã‚‰
+  a hrefä»¥ä¸‹ã«é·ç§»å…ˆã®Servletã‚’è¨˜è¿°ã—ã¦ãã ã•ã„ã€‚-->
 
 
   <div class="popup-overlay">
-    <!--ˆÈ‰ºƒvƒƒtƒB[ƒ‹’†g‚ğ‹Lq‚µ‚Ä‚­‚¾‚³‚¢-->
+    <!--ä»¥ä¸‹ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ä¸­èº«ã‚’è¨˜è¿°ã—ã¦ãã ã•ã„-->
      <div class="popup-content">
-        <p>ƒ}ƒCƒvƒƒtƒB[ƒ‹</p>
+        <p>ãƒã‚¤ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«</p>
      </div>
   </div>
-  <!--ˆÈ‰ºƒI[ƒvƒ“‚Ì‚½‚ß‚Ìƒ{ƒ^ƒ“-->
-  <button class="open"><img src="images/ƒvƒƒtƒB[ƒ‹.png" width="200" height="300" alt="SEEGGS"></button>
-  
-  <!--ƒvƒƒtƒB[ƒ‹‚Ìƒ|ƒbƒvƒAƒbƒv‚±‚±‚Ü‚Å-->
+  <!--ä»¥ä¸‹ã‚ªãƒ¼ãƒ—ãƒ³ã®ãŸã‚ã®ãƒœã‚¿ãƒ³-->
+  <button class="open"><img src="images/ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«.png" width="200" height="300" alt="SEEGGS"></button>
+
+  <!--ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ã®ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã“ã“ã¾ã§-->
 
 <div class="mother">
-  <!--ƒ†[ƒU[î•ñƒŠƒ“ƒNƒ{ƒ^ƒ“‚±‚±‚©‚ç-->
+  <!--ãƒ¦ãƒ¼ã‚¶ãƒ¼æƒ…å ±ãƒªãƒ³ã‚¯ãƒœã‚¿ãƒ³ã“ã“ã‹ã‚‰-->
     <div class="form-wrapper2">
         <div class="button-panel">
-          <a herf="User.html"><input type="submit" class="button" title="Login" value="ƒ†[ƒU[î•ñ"></input></a>
+          <a herf="User.html"><input type="submit" class="button" title="Login" value="ãƒ¦ãƒ¼ã‚¶ãƒ¼æƒ…å ±"></input></a>
         </div>
     </div>
-  <!--ƒ†[ƒU[î•ñƒŠƒ“ƒNƒ{ƒ^ƒ“‚±‚±‚Ü‚Å-->
+  <!--ãƒ¦ãƒ¼ã‚¶ãƒ¼æƒ…å ±ãƒªãƒ³ã‚¯ãƒœã‚¿ãƒ³ã“ã“ã¾ã§-->
 
-  <!--Œf¦”ÂƒŠƒ“ƒNƒ{ƒ^ƒ“‚±‚±‚©‚ç-->
+  <!--æ²ç¤ºæ¿ãƒªãƒ³ã‚¯ãƒœã‚¿ãƒ³ã“ã“ã‹ã‚‰-->
 
     <div class="form-wrapper3">
       <div class="button-panel">
-          <a herf="Board.html"><input type="submit" class="button" title="Login" value="Œf¦”Â"></input></a>
+          <a herf="Board.html"><input type="submit" class="button" title="Login" value="æ²ç¤ºæ¿"></input></a>
       </div>
     </div>
 
-  <!--Œf¦”ÂƒŠƒ“ƒNƒ{ƒ^ƒ“‚±‚±‚Ü‚Å-->
+  <!--æ²ç¤ºæ¿ãƒªãƒ³ã‚¯ãƒœã‚¿ãƒ³ã“ã“ã¾ã§-->
 </div>
-  <!-- ƒƒCƒ“i‚±‚±‚Ü‚Åj -->
-  
+  <!-- ãƒ¡ã‚¤ãƒ³ï¼ˆã“ã“ã¾ã§ï¼‰ -->
 
-  <!-- ƒtƒbƒ^[i‚±‚±‚©‚çj -->
+
+  <!-- ãƒ•ãƒƒã‚¿ãƒ¼ï¼ˆã“ã“ã‹ã‚‰ï¼‰ -->
   <div id="footer">
-    <p>&copy; D1ƒ†ƒjƒR[ƒ“‚Ì‚½‚Ü‚². All rights reserved.</p>
+    <p>&copy; D1ãƒ¦ãƒ‹ã‚³ãƒ¼ãƒ³ã®ãŸã¾ã”. All rights reserved.</p>
   </div>
-  <!-- ƒtƒbƒ^[i‚±‚±‚Ü‚Åj -->
+  <!-- ãƒ•ãƒƒã‚¿ãƒ¼ï¼ˆã“ã“ã¾ã§ï¼‰ -->
 
 </div>
 
 
 
 
-<!-- ˆÈ‰ºjs‹y‚ÑjQueryˆ—‚Ì‹Lq -->
+<!-- ä»¥ä¸‹jsåŠã³jQueryå‡¦ç†ã®è¨˜è¿° -->
 
 <script src="scripts/jquery-3.4.1.min.js"></script>
 <script>
 'use strict';
 
 $(document).ready(function() {
-  /* [ƒƒOƒCƒ“]ƒ{ƒ^ƒ“‚ğƒNƒŠƒbƒN‚µ‚½‚Æ‚«‚Ìˆ— */
+  /* [ãƒ­ã‚°ã‚¤ãƒ³]ãƒœã‚¿ãƒ³ã‚’ã‚¯ãƒªãƒƒã‚¯ã—ãŸã¨ãã®å‡¦ç† */
   $('#submit').on('click', function() {
     if (!$('#user_id').val() || !$('#password').val()) {
-      $('#error_message').text('¦ID‚ÆƒpƒXƒ[ƒh‚ğ“ü—Í‚µ‚Ä‚­‚¾‚³‚¢I');
-      return false;	/* ‘—M‚µ‚È‚¢ */
+      $('#error_message').text('â€»IDã¨ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’å…¥åŠ›ã—ã¦ãã ã•ã„ï¼');
+      return false;	/* é€ä¿¡ã—ãªã„ */
     }
     $('error_message').text(null);
-    return true;	/* ‘—M‚·‚é */
+    return true;	/* é€ä¿¡ã™ã‚‹ */
   });
 
 });
 
-//ƒnƒ“ƒo[ƒK[ƒƒjƒ…[‚±‚±‚©‚ç
+//ãƒãƒ³ãƒãƒ¼ã‚¬ãƒ¼ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã“ã“ã‹ã‚‰
 
 (function($) {
   var $nav   = $('#navArea');
   var $btn   = $('.toggle_btn');
   var $mask  = $('#mask');
-  var open   = 'open'; // classw’è
-  // menuƒI[ƒvƒ“
+  var open   = 'open'; // classæŒ‡å®š
+  // menuã‚ªãƒ¼ãƒ—ãƒ³
   $btn.on( 'click', function() {
     if ( ! $nav.hasClass( open ) ) {
       $nav.addClass( open );
@@ -135,29 +135,29 @@ $(document).ready(function() {
       $nav.removeClass( open );
     }
   });
-  // ƒ|ƒbƒvƒAƒbƒv•Â‚¶‚é
+  // ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—é–‰ã˜ã‚‹
   $mask.on('click', function() {
     $nav.removeClass( open );
   });
 } )(jQuery);
 
-//ƒnƒ“ƒo[ƒK[ƒƒjƒ…[‚±‚±‚Ü‚Å
+//ãƒãƒ³ãƒãƒ¼ã‚¬ãƒ¼ãƒ¡ãƒ‹ãƒ¥ãƒ¼ã“ã“ã¾ã§
 
 
 
-//ƒvƒƒtƒB[ƒ‹ƒ|ƒbƒvƒAƒbƒv‚Ìjs
+//ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã®js
 
-//uƒ}ƒCƒvƒƒtƒB[ƒ‹vƒ{ƒ^ƒ“‚ªƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«‚ÉAactive‚ğ .popup ‚¨‚æ‚Ñ .popup-content ‚É’Ç‰Á
+//ã€Œãƒã‚¤ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ã€ãƒœã‚¿ãƒ³ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã¨ãã«ã€activeã‚’ .popup ãŠã‚ˆã³ .popup-content ã«è¿½åŠ 
 $(".open").on("click", function(){
   $(".popup-overlay, .popup-content").addClass("active");
 });
 
-//u•Â‚¶‚évƒ{ƒ^ƒ“‚ªƒNƒŠƒbƒN‚³‚ê‚½‚Æ‚«‚ÉAactive‚ğ .popup ‚¨‚æ‚Ñ .popup-content ‚©‚çíœ
+//ã€Œé–‰ã˜ã‚‹ã€ãƒœã‚¿ãƒ³ãŒã‚¯ãƒªãƒƒã‚¯ã•ã‚ŒãŸã¨ãã«ã€activeã‚’ .popup ãŠã‚ˆã³ .popup-content ã‹ã‚‰å‰Šé™¤
 $(".close, .popup-overlay").on("click", function(){
   $(".popup-overlay, .popup-content").removeClass("active");
 });
 
-//ƒvƒƒtƒB[ƒ‹ƒ|ƒbƒvƒAƒbƒv‚Ìjs‚±‚±‚Ü‚Å
+//ãƒ—ãƒ­ãƒ•ã‚£ãƒ¼ãƒ«ãƒãƒƒãƒ—ã‚¢ãƒƒãƒ—ã®jsã“ã“ã¾ã§
 
 </script>
 </body>
