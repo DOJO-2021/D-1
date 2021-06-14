@@ -24,12 +24,12 @@ public class UserUpdateDeleteDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 			// SQL文を準備する(変更有・？)
-			String sql = "select * from PERSONAL where U_number like ? and Name like ? and Company like ? and Nickname like ?";
+			String sql = "select * from Youser where Id like ? and Name like ? and Company like ? and Nickname like ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる(変更有)
-			if (param.getU_number() != 0) {
-				pStmt.setString(1, "%" + param.getU_number() + "%");
+			if (param.getId() != null) {
+				pStmt.setString(1, "%" + param.getId() + "%");
 			}
 			else {
 				pStmt.setString(1, "%");
@@ -60,7 +60,8 @@ public class UserUpdateDeleteDAO {
 			// 結果表をコレクションにコピーする (変更有)
 			while (rs.next()) {
 				UserBeans ucard = new UserBeans(
-				rs.getInt("u_number"),
+				rs.getString("id"),
+				rs.getString("password"),
 				rs.getString("photo"),
 				rs.getString("name"),
 				rs.getString("company"),

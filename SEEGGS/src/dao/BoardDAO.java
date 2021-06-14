@@ -8,12 +8,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import model.BoardBeans;
+
 //変更有(以下Personalの部分でエラー5箇所)
 public class BoardDAO {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
-	public List<Personal> select(Personal param) {
+	public List<BoardBeans> select(BoardBeans param) {
 		Connection conn = null;
-		List<Personal> PersonalList = new ArrayList<Personal>();
+		List<BoardBeans> BoardList = new ArrayList<BoardBeans>();
 
 		try {
 			// JDBCドライバを読み込む
@@ -23,86 +25,44 @@ public class BoardDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 			// SQL文を準備する(変更有・？)
-			String sql = "select , number, knowhow , error, problem, question, local, private, mark, "
-					+ "from form where number like ? and know how like ? and error like? "
-					+ "and problem like?  and question like?  and local like? and private like? and mark like?";
+			String sql = "select contents from Favorite where M_number like ?  and type like ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる(変更有)
-			if (param.getnumber() != null) {
-				pStmt.setString(1, "%" + param.getNumber() + "%");
+			if (param.getM_number() != 0) {
+				pStmt.setString(1, "%" + param.getM_number() + "%");
 			}
 			else {
 				pStmt.setString(1, "%");
 			}
-			if (param.getknowhow() != null) {
-				pStmt.setString(2, "%" + param.getKnowhow() + "%");
+			if (param.getType() != 0) {
+				pStmt.setString(2, "%" + param.getType() + "%");
 			}
 			else {
 				pStmt.setString(2, "%");
 			}
-			if (param.geterror() != null) {
-				pStmt.setString(3, "%" + param.getError() + "%");
-			}
-			else {
-				pStmt.setString(3, "%");
-			}
-			if (param.getproblem() != null) {
-				pStmt.setString(4, "%" + param.getProblem() + "%");
-			}
-			else {
-				pStmt.setString(4, "%");
-			}
-			if (param.getquestion() != null) {
-				pStmt.setString(5, "%" + param.getQuestion() + "%");
-			}
-			else {
-				pStmt.setString(5, "%");
-			}
-			if (param.getlocal() != null) {
-				pStmt.setString(6, "%" + param.getLocal() + "%");
-			}
-			else {
-				pStmt.setString(6, "%");
-			}
-			if (param.getprivate() != null) {
-				pStmt.setString(7, "%" + param.getPrivate() + "%");
-			}
-			else {
-				pStmt.setString(7, "%");
-			}
-			if (param.getmark() != null) {
-				pStmt.setString(8, "%" + param.getMark() + "%");
-			}
-			else {
-				pStmt.setString(8, "%");
-			}
+
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
 			// 結果表をコレクションにコピーする (変更有)
 			while (rs.next()) {
-				Personal = new Personal(
-				rs.getInt("number"),
-				rs.getInt("knowhow"),
-				rs.getString("error"),
-				rs.getString("problem"),
-				rs.getString("question"),
-				rs.getString("local"),
-				rs.getString("private"),
-				rs.getString("mark")
+				BoardBeans Ccard = new BoardBeans(
+				rs.getInt("M_number"),
+				rs.getInt("Type"),
+				rs.getString("Contents")
 				);
-				Personal.add(List);
+				BoardList.add(Ccard);
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			PersonallList = null;
+			BoardList = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			PersonalList = null;
+			BoardList = null;
 		}
 		finally {
 			// データベースを切断
@@ -112,12 +72,68 @@ public class BoardDAO {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					PersonalList = null;
+					BoardList = null;
 				}
 			}
 		}
 
 		// 結果を返す
-		return PersonalList;
+		return BoardList;
 	}
+	//お気に入りの登録
+			public boolean insert(BoardBeans bcard) {
+				Connection conn = null;
+				boolean result = false;
+
+				try {
+					// JDBCドライバを読み込む
+					Class.forName("org.h2.Driver");
+
+					// データベースに接続する
+					conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
+
+					// SQL文を準備する
+					String sql = "insert into FORUM values (null, ?, ?)";
+					PreparedStatement pStmt = conn.prepareStatement(sql);
+
+					// SQL文を完成させる
+					if (bcard.getType() != 0) {
+						pStmt.setInt(1, bcard.getType());
+					}
+					else {
+						pStmt.setString(1, "null");
+					}
+					if (bcard.getContents() != null) {
+						pStmt.setString(2, bcard.getContents());
+					}
+					else {
+						pStmt.setString(2, "null");
+					}
+
+					// SQL文を実行する
+					if (pStmt.executeUpdate() == 1) {
+						result = true;
+					}
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				}
+				finally {
+					// データベースを切断
+					if (conn != null) {
+						try {
+							conn.close();
+						}
+						catch (SQLException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+
+				// 結果を返す
+				return result;
+			}
 }

@@ -21,7 +21,7 @@ public class LoginDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 			//select文を準備する
-			String sql = "select count(*) from login where ID = ? and PASSWORD = ?";
+			String sql = "select count(*) from youser where ID = ? and PASSWORD = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, id);
 			pStmt.setString(2, password);

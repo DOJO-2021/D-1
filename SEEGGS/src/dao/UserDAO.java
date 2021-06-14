@@ -25,12 +25,12 @@ public class UserDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 			// SQL文を準備する(変更有・？)
-			String sql = "select * from PERSONAL where U_number like ? and Name like ? and Company like ? and Nickname like ?";
+			String sql = "select * from Youser where id like  ? and Name like ? and Company like ? and Nickname like ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる(変更有)
-			if (param.getU_number() != 0) {
-				pStmt.setString(1, "%" + param.getU_number() + "%");
+			if (param.getId() != null) {
+				pStmt.setString(1, "%" + param.getId() + "%");
 			}
 			else {
 				pStmt.setString(1, "%");
@@ -61,7 +61,8 @@ public class UserDAO {
 			// 結果表をコレクションにコピーする (変更有)
 			while (rs.next()) {
 				UserBeans ucard = new UserBeans(
-				rs.getInt("u_number"),
+				rs.getString("Id"),
+				rs.getString("password"),
 				rs.getString("photo"),
 				rs.getString("name"),
 				rs.getString("company"),
@@ -113,63 +114,75 @@ public class UserDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 				// SQL文を準備する
-				String sql = "insert into Personal values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				String sql = "insert into youser values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (ucard.getPhoto() != null) {
-					pStmt.setString(1, ucard.getPhoto());
+				if (ucard.getId() != null) {
+					pStmt.setString(1, ucard.getId());
 				}
 				else {
 					pStmt.setString(1, "null");
 				}
-				if (ucard.getName() != null) {
-					pStmt.setString(2, ucard.getName());
+				if (ucard.getPassword() != null) {
+					pStmt.setString(2, ucard.getPassword());
 				}
 				else {
 					pStmt.setString(2, "null");
 				}
-				if (ucard.getCompany() != null) {
-					pStmt.setString(3, ucard.getCompany());
+				if (ucard.getPhoto() != null) {
+					pStmt.setString(3, ucard.getPhoto());
 				}
 				else {
 					pStmt.setString(3, "null");
 				}
-				if (ucard.getNickname() != null) {
-					pStmt.setString(4, ucard.getNickname());
+				if (ucard.getName() != null) {
+					pStmt.setString(4, ucard.getName());
 				}
 				else {
 					pStmt.setString(4, "null");
 				}
-				if (ucard.getBirthplace() != null) {
-					pStmt.setString(5, ucard.getBirthplace());
+				if (ucard.getCompany() != null) {
+					pStmt.setString(5, ucard.getCompany());
 				}
 				else {
 					pStmt.setString(5, "null");
 				}
-				if (ucard.getThisisme() != null) {
-					pStmt.setString(6, ucard.getThisisme());
+				if (ucard.getNickname() != null) {
+					pStmt.setString(6, ucard.getNickname());
 				}
 				else {
 					pStmt.setString(6, "null");
 				}
-				if (ucard.getHobby() != null) {
-					pStmt.setString(7, ucard.getHobby());
+				if (ucard.getBirthplace() != null) {
+					pStmt.setString(7, ucard.getBirthplace());
 				}
 				else {
 					pStmt.setString(7, "null");
 				}
-				if (ucard.getFuture() != null) {
-					pStmt.setString(8, ucard.getFuture());
+				if (ucard.getThisisme() != null) {
+					pStmt.setString(8, ucard.getThisisme());
 				}
 				else {
 					pStmt.setString(8, "null");
 				}
-				if (ucard.getWord() != null) {
-					pStmt.setString(9, ucard.getWord());
+				if (ucard.getHobby() != null) {
+					pStmt.setString(9, ucard.getHobby());
 				}
 				else {
 					pStmt.setString(9, "null");
+				}
+				if (ucard.getFuture() != null) {
+					pStmt.setString(10, ucard.getFuture());
+				}
+				else {
+					pStmt.setString(10, "null");
+				}
+				if (ucard.getWord() != null) {
+					pStmt.setString(11, ucard.getWord());
+				}
+				else {
+					pStmt.setString(11, "null");
 				}
 
 				// SQL文を実行する
@@ -212,7 +225,7 @@ public class UserDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 				// SQL文を準備する
-				String sql = "update Personal set Photo =?, Name = ?, Company = ?, Nickname = ?, Birthplace = ?, Thisisme = ?, Hobby = ?, Future = ?, Word = ? where U_number = ?";
+				String sql = "update youser set Photo =?, Name = ?, Company = ?, Nickname = ?, Birthplace = ?, Thisisme = ?, Hobby = ?, Future = ?, Word = ? where Id = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
@@ -270,7 +283,7 @@ public class UserDAO {
 				else {
 					pStmt.setString(9, "null");
 				}
-				pStmt.setInt(10, ucard.getU_number());
+				pStmt.setString(10, ucard.getId());
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {

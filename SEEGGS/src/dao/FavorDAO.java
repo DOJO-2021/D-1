@@ -10,9 +10,9 @@ import java.util.List;
 import model.FavorBeans;
 public class FavorDAO {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
-	public List<favorite> select(favorite param) {                     //「-」は【メソッド】をたたんで広げている。
+	public List<FavorBeans> select(FavorBeans param) {                     //「-」は【メソッド】をたたんで広げている。
 		Connection conn = null;
-		List<favorite> cardList = new ArrayList<favorite>();
+		List<FavorBeans> cardList = new ArrayList<FavorBeans>();
 
 		try {
 			// JDBCドライバを読み込む
