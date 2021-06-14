@@ -88,7 +88,7 @@
     <div class="form-item">
         <label for="PW">顔写真の登録</label>
         <input type="file" name="example" accept="image/jpeg, image/png">
-    </div></input>
+    </div>
 </div>
 
     <div class="button-panel2">
