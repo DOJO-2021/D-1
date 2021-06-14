@@ -29,6 +29,21 @@ body {
   display: inline-block;
 }
 
+/* Board.htmlパネル位置調整用マザー */
+.mother2 {
+  display: inline-block;
+  position:relative;
+  top: 90px;
+  right: 300px;
+}
+
+.mother3 {
+  display: inline-block;
+  position:relative;
+  top: 90px;
+  right: 200px;
+}
+
 /* フォームレイアウト */
 .form-wrapper {
   background: #fafafa;
@@ -47,7 +62,7 @@ body {
   top: 85px;
 }
 
-/*　ホーム画面掲示板ボタン　*/
+/*　ホーム画面掲示板ボタン・掲示板カテゴリボタン1　*/
 .form-wrapper3 {
   margin: 0em auto;
   padding: 0 1em;
@@ -64,8 +79,6 @@ body {
   padding: 0 1em;
   max-width: 500px;
 }
-
-
 
 h1 {
   text-align: center;
@@ -133,6 +146,21 @@ form {
   width: 100%;
 }
 
+.button-panel3 .button {
+  background: rgb(73, 64, 53);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 150%;
+  height: 100px;
+}
+
 .button:hover {
   background: #dd9c5f;
 }
@@ -179,10 +207,11 @@ html{
   border:3px solid #666666;
   width:50%;
   height:50%;
-  left:25%;
+  left:25%; 
   float: 1 1 auto;
 }
 .popup-overlay.active{
+  z-index: 2;
   visibility:visible;
   text-align:center;
   margin-top: 10%;
@@ -239,12 +268,12 @@ img {
 
 /* =======
 
-id="nav"
+id="nav" 
 
 #nav li {
-  display: inline;		/* インラインで横に表示する
-  /* list-style-type; none;	 先頭の記号をなくす
-  padding-right: 30px;		/* 区切りを空ける
+  display: inline;		/* インラインで横に表示する 
+  /* list-style-type; none;	 先頭の記号をなくす 
+  padding-right: 30px;		/* 区切りを空ける 
 }
 #nav {
   margin: 0 0 0 0;
@@ -283,6 +312,9 @@ id="nav"
   position: absolute; /*位置*/
   bottom: 0; /*下固定*/
 }
+
+
+
 /* form */
 form {
   padding: 6px;
@@ -501,3 +533,34 @@ nav .inner ul li a:hover {
 }
 /*Account.htmlスクロールボックスここまで*/
 
+
+/*Board.htmlの検索バーここから*/
+.search_container{
+  position: relative;
+  top: -190px;
+  left: 650px;
+  box-sizing: border-box;
+}
+.search_container input[type="text"]{
+  border: 1px solid #999;
+  padding: 3px 5px;
+  border-radius: 20px;
+  height: 2.0em;
+  width: 245px;
+  overflow: hidden;
+}
+.search_container input[type="text"]:focus {
+  outline: 0;
+}
+.search_container input[type="submit"]{
+  cursor: pointer;
+  font-family: FontAwesome;
+  font-size: 1.3em;
+  border: none;
+  background: none;
+  color: #dd9c5f;
+  outline : none;
+  display: inline-block;
+  vertical-align: middle;
+}
+/*Board.htmlの検索バーここから*/
