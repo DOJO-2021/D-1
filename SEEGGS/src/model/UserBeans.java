@@ -2,7 +2,8 @@ package model;
 import java.io.Serializable;
 
 public class UserBeans implements Serializable {
-	private int u_number ;
+	private String id ;
+	private String password;
 	private String photo;
 	private String name;
 	private String company;
@@ -14,10 +15,11 @@ public class UserBeans implements Serializable {
 	private String word;
 
 	//BCクラスの引数のあるコンストラクタ
-	public UserBeans(int u_number, String photo, String name, String company, String nickname, String birthplace, String thisisme,
+	public UserBeans(String id, String password, String photo, String name, String company, String nickname, String birthplace, String thisisme,
 			String hobby, String future, String word) {
 		super();
-		this.u_number = u_number;
+		this.id = id;
+		this.password=password;
 		this.photo = photo;
 		this.name = name;
 		this.company = company;
@@ -32,7 +34,8 @@ public class UserBeans implements Serializable {
 	//引数がないコンストラクタ
 	public UserBeans() {
 		super();
-		this.u_number =0;
+		this.id="";
+		this.password="";
 		this.photo = "";
 		this.name = "";
 		this.company = "";
@@ -43,12 +46,17 @@ public class UserBeans implements Serializable {
 		this.future = "";
 		this.word = "";
 	}
-
-	public int getU_number() {
-		return u_number;
+	public String getId() {
+		return id;
 	}
-	public void setU_number(int u_number) {
-		this.u_number = u_number;
+	public void setId(String id) {
+		this.id = id;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	public String getPhoto() {
 		return photo;
@@ -104,4 +112,6 @@ public class UserBeans implements Serializable {
 	public void setWord(String word) {
 		this.word = word;
 	}
+
+
 }
