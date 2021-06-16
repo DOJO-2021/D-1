@@ -24,7 +24,7 @@ public class UserUpdateDeleteDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 			// SQL文を準備する(変更有・？)
-			String sql = "select * from Youser where Id like ? and Name like ? and Company like ? and Nickname like ?";
+			String sql = "select * from USER where ID like ? and NAME like ? and COMPANY like ? and NICKNAME like ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる(変更有)
@@ -113,63 +113,75 @@ public class UserUpdateDeleteDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 				// SQL文を準備する
-				String sql = "insert into Personal values (null, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				String sql = "insert into USER values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (ucard.getPhoto() != null) {
-					pStmt.setString(1, ucard.getPhoto());
+				if (ucard.getId() != null) {
+					pStmt.setString(1, ucard.getId());
 				}
 				else {
 					pStmt.setString(1, "null");
 				}
-				if (ucard.getName() != null) {
-					pStmt.setString(2, ucard.getName());
+				if (ucard.getPassword() != null) {
+					pStmt.setString(2, ucard.getPassword());
 				}
 				else {
 					pStmt.setString(2, "null");
 				}
-				if (ucard.getCompany() != null) {
-					pStmt.setString(3, ucard.getCompany());
+				if (ucard.getPhoto() != null) {
+					pStmt.setString(3, ucard.getPhoto());
 				}
 				else {
 					pStmt.setString(3, "null");
 				}
-				if (ucard.getNickname() != null) {
-					pStmt.setString(4, ucard.getNickname());
+				if (ucard.getName() != null) {
+					pStmt.setString(4, ucard.getName());
 				}
 				else {
 					pStmt.setString(4, "null");
 				}
-				if (ucard.getBirthplace() != null) {
-					pStmt.setString(5, ucard.getBirthplace());
+				if (ucard.getCompany() != null) {
+					pStmt.setString(5, ucard.getCompany());
 				}
 				else {
 					pStmt.setString(5, "null");
 				}
-				if (ucard.getThisisme() != null) {
-					pStmt.setString(6, ucard.getThisisme());
+				if (ucard.getNickname() != null) {
+					pStmt.setString(6, ucard.getNickname());
 				}
 				else {
 					pStmt.setString(6, "null");
 				}
-				if (ucard.getHobby() != null) {
-					pStmt.setString(7, ucard.getHobby());
+				if (ucard.getBirthplace() != null) {
+					pStmt.setString(7, ucard.getBirthplace());
 				}
 				else {
 					pStmt.setString(7, "null");
 				}
-				if (ucard.getFuture() != null) {
-					pStmt.setString(8, ucard.getFuture());
+				if (ucard.getThisisme() != null) {
+					pStmt.setString(8, ucard.getThisisme());
 				}
 				else {
 					pStmt.setString(8, "null");
 				}
-				if (ucard.getWord() != null) {
-					pStmt.setString(9, ucard.getWord());
+				if (ucard.getHobby() != null) {
+					pStmt.setString(9, ucard.getHobby());
 				}
 				else {
 					pStmt.setString(9, "null");
+				}
+				if (ucard.getFuture() != null) {
+					pStmt.setString(10, ucard.getFuture());
+				}
+				else {
+					pStmt.setString(10, "null");
+				}
+				if (ucard.getWord() != null) {
+					pStmt.setString(11, ucard.getWord());
+				}
+				else {
+					pStmt.setString(11, "null");
 				}
 
 				// SQL文を実行する
@@ -212,7 +224,7 @@ public class UserUpdateDeleteDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 				// SQL文を準備する
-				String sql = "update Personal set Photo =?, Name = ?, Company = ?, Nickname = ?, Birthplace = ?, Thisisme = ?, Hobby = ?, Future = ?, Word = ? where U_number = ?";
+				String sql = "update USER set PHOTO =?, NAME = ?, COMPANY = ?, NICKNAME = ?, BIRTHPLACE = ?, THISISME = ?, HOBBY = ?, FUTURE = ?, WORD = ? where ID = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
@@ -270,7 +282,7 @@ public class UserUpdateDeleteDAO {
 				else {
 					pStmt.setString(9, "null");
 				}
-				pStmt.setInt(10, ucard.getU_number());
+				pStmt.setString(10, ucard.getId());
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
@@ -300,7 +312,7 @@ public class UserUpdateDeleteDAO {
 		}
 
 		// 引数numberで指定されたレコードを削除し、成功したらtrueを返す
-		public boolean delete(int U_number) {
+		public boolean delete(String Id) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -312,11 +324,11 @@ public class UserUpdateDeleteDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 				// SQL文を準備する
-				String sql = "delete from Personal where u_number=?";
+				String sql = "delete from User where Id=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				pStmt.setInt(1, U_number);
+				pStmt.setString(1, Id);
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {

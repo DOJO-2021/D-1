@@ -33,8 +33,8 @@ public class UserUpdateDeleteServlet extends HttpServlet {
 		}
 
 		// リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
-		int u_number = Integer.parseInt(request.getParameter("U_NUMBER"));
+		String id = request.getParameter("id");
+		String password = request.getParameter("password");
 		String photo = request.getParameter("PHOTO");
 		String name = request.getParameter("NAME");
 		String company = request.getParameter("COMPANY");
@@ -58,7 +58,7 @@ public class UserUpdateDeleteServlet extends HttpServlet {
 			}
 		}
 		else {
-			if (uDao.delete(u_number)) {	// 削除成功
+			if (uDao.delete(id)) {	// 削除成功
 				request.setAttribute("result",
 				new ResultBeans("ユーザーを削除しました。", "/SEEGGS/AHomeServlet"));
 			}

@@ -37,58 +37,60 @@
 
     <div class="form-item">
       <label for="ID">ログインID</label>
-      <input type="ID" name="ID" required="required" placeholder=""></input>
+      <input type="text" name="id" required="required" placeholder=""></input>
     </div>
 
     <div class="form-item">
-      <label for="PW">ログインパスワード</label>
-      <input type="PW" name="PW" required="required" placeholder=""></input>
+      <label for="PASSWORD">ログインパスワード</label>
+      <input type="password" name="password" required="required" placeholder=""></input>
+    </div>
+
+    <div class="form-item">
+        <label for="PHOTO">顔写真の登録</label>
+        <input type="file" name="photo" accept="image/jpeg, image/png">
     </div>
 
     <div class="form-item">
     　<label for="NAME">名前</label>
-    　<input type="NAME" name="NAME" required="required" placeholder=""></input>
+    　<input type="text" name="name" required="required" placeholder=""></input>
     </div>
 
     <div class="form-item">
     　<label for="COMPANY">会社名</label>
-    　<input type="PW" name="PW" required="required" placeholder=""></input>
+    　<input type="text" name="cpmpany" required="required" placeholder=""></input>
     </div>
 
     <div class="form-item">
         <label for="NICKNAME">ニックネーム</label>
-        <input type="PW" name="PW" required="required" placeholder=""></input>
-    </div>
-
-    <div class="form-item">
-        <label for="BIRTHPLACE">出身地</label>
-        <input type="PW" name="PW" required="required" placeholder=""></input>
-    </div>
-
-    <div class="form-item">
-        <label for="ME">自分を一文字で表すと…</label>
-        <input type="PW" name="PW" required="required" placeholder=""></input>
+        <input type="text" name="nickname" required="required" placeholder=""></input>
     </div>
 
     <div class="form-item">
         <label for="HOBBY">趣味は？</label>
-        <input type="PW" name="PW" required="required" placeholder=""></input>
+        <input type="text" name="hobby" required="required" placeholder=""></input>
+    </div>
+
+    <div class="form-item">
+        <label for="BIRTHPLACE">出身地</label>
+        <input type="text" name="birthplace" required="required" placeholder=""></input>
+    </div>
+
+    <div class="form-item">
+        <label for="THISISME">自分を一文字で表すと…</label>
+        <input type="text" name="thisisme" required="required" placeholder=""></input>
     </div>
 
     <div class="form-item">
         <label for="FUTURE">コロナが収まったらやりたいことは？</label>
-        <input type="PW" name="PW" required="required" placeholder=""></input>
+        <input type="text" name="future" required="required" placeholder=""></input>
     </div>
 
     <div class="form-item">
         <label for="WORD">研修の意気込みをどうぞ！</label>
-        <input type="PW" name="PW" required="required" placeholder=""></input>
+        <input type="text" name="word" required="required" placeholder=""></input>
     </div>
 
-    <div class="form-item">
-        <label for="PW">顔写真の登録</label>
-        <input type="file" name="example" accept="image/jpeg, image/png">
-    </div>
+    </form>
 </div>
 
     <div class="button-panel2">
