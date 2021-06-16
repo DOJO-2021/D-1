@@ -16,15 +16,15 @@
 
     <!--左上ロゴここから
       a href以下に遷移先のServletを記述してください。-->
-      
-        <a href="/SEEGGS/HomeServlet"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
-      
+
+        <a href="/SEEGGS/AHomeServlet"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
+
     <!-- 左上ロゴ（ここまで） -->
 
   <!-- ヘッダー（ここまで） -->
 
   <!-- メイン（ここから） -->
-  
+
   <!--右側ハンバーガーメニューここから
       a href以下に遷移先のServletを記述してください。-->
 
@@ -33,7 +33,7 @@
     <nav>
       <div class="inner">
         <ul>
-          <li><a href="HomeServlet">ホーム</a></li>
+          <li><a href="AHomeServlet">ホーム</a></li>
           <li><a href="ProfileServlet">マイプロフィール</a></li>
           <li><a href="UserServlet">ユーザー情報</a></li>
           <li><a href="BoardServlet">掲示板</a></li>
@@ -42,17 +42,17 @@
         </ul>
       </div>
     </nav>
-  
+
     <div class="toggle_btn">
       <span></span>
       <span></span>
       <span></span>
     </div>
-  
+
     <div id="mask"></div>
-  
+
   </div>
-  
+
   <!--右側ハンバーガーメニューここまで-->
 
   <!--スクロールボックスここから-->
@@ -70,7 +70,7 @@
       <div class="textBox" name="" value=${e.}>
         <div class="TexitBox_before" value=${e.}>投稿者名</div>
         あっとほーむSEEGGS!
-                
+
         <!--お気に入りボタンここから-->
         <div class="mother4">
         <div class="product__fav-item">
@@ -81,6 +81,7 @@
         </div>
         </div>
         <!--お気に入りボタンここまで-->
+         </c:forEach>
       </div>
   <!--スレッドここまで-->
 </div>
@@ -88,7 +89,7 @@
 
 
   <!-- メイン（ここまで） -->
-  
+
 
   <!-- フッター（ここから） -->
   <div id="footer">

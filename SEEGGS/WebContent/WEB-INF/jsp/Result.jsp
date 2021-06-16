@@ -16,15 +16,15 @@
 
     <!--左上ロゴここから
       a href以下に遷移先のServletを記述してください。-->
-      
-        <a href="Login.html"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
-      
+
+        <a href="/SEEGGS/HomeServlet"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
+
     <!-- 左上ロゴ（ここまで） -->
 
   <!-- ヘッダー（ここまで） -->
 
   <!-- メイン（ここから） -->
-  
+
   <!--右側ハンバーガーメニューここから
       a href以下に遷移先のServletを記述してください。-->
 
@@ -42,17 +42,17 @@
         </ul>
       </div>
     </nav>
-  
+
     <div class="toggle_btn">
       <span></span>
       <span></span>
       <span></span>
     </div>
-  
+
     <div id="mask"></div>
-  
+
   </div>
-  
+
   <!--右側ハンバーガーメニューここまで-->
 
   <!--スクロールボックスここから-->
@@ -80,13 +80,14 @@
           </div>
         </div>
         <!--お気に入りボタンここまで-->
+        </c:forEach>
   </div>
 <!--検索結果ここまで-->
 　<!--スクロールボックスここまで-->
 
 
   <!-- メイン（ここまで） -->
-  
+
 
   <!-- フッター（ここから） -->
   <div id="footer">
