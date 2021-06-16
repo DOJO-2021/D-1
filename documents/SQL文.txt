@@ -1,15 +1,15 @@
-create table youser (id varchar(30) unique, password varchar(30) not null, photo varchar(100) not null, name varchar(30)primary key not null, company varchar(45) not null, nickname varchar(20) not null,									
+create table user (id varchar(30) unique, password varchar(30) not null, photo varchar(100) not null, name varchar(30)primary key not null, company varchar(45) not null, nickname varchar(20) not null,									
 birthplace varchar(10) not null, thisisme varchar(5) not null, hobby varchar(150) not null, future varchar(150) not null, word varchar(150) not null);	
 
 
-create table forum(m_number int primary key auto_increment, type int, contents varchar(1000))	
+create table forum(m_number int(10) primary key auto_increment, type varchar(10), contents varchar(1000))	
 
 create table favorite(id varchar(30), m_number int primary key, contents varchar(1000))								
 
 insert into
-	youser
+	user
 values
-	('itirou',
+	('ichirou',
 	'password',
 	'rabbit.png',
 	'兎田太郎',
@@ -23,9 +23,9 @@ values
 	)
 
 insert into
-	youser
+	user
 values
-	('zirou',
+	('jirou',
 	'password',
 	'bear.png',
 	'熊野花子',
@@ -39,7 +39,7 @@ values
 	)
 
 insert into
-	youser
+	user
 values
 	('saburou',
 	'password',
@@ -55,9 +55,9 @@ values
 	)
 
 insert into
-	youser
+	user
 values
-	('sirou',
+	('shirou',
 	'password',
 	'meow.png',
 	'猫山里美',
@@ -71,7 +71,7 @@ values
 	)
 
 insert into
-	youser
+	user
 values
 	('gorou',
 	'password',
@@ -87,7 +87,7 @@ values
 	)
 
 insert into
-	youser
+	user
 values
 	('rokurou',
 	'password',
@@ -102,3 +102,9 @@ values
 	'くわぁくわぁ'
 	)
 ALTER TABLE favorite ADD FOREIGN KEY(m_number) REFERENCES forum(m_number);
+1	insert into forum values(null,1	,'除了?个?法以外，是否?有?的?法？')
+2	insert into forum values(null, 2, '?把故障画面??来')
+3	insert into forum values(null, 3, '多?有?，我的??解决了')
+4	insert into forum values(null, 4, '?好の発音について教えてください')
+5	insert into forum values(null, 5, '我的故?是?静的?村')
+6	insert into forum values(null, 6, '我的?好是去健身房')
