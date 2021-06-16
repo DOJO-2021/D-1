@@ -10,7 +10,6 @@ import java.util.List;
 
 import model.UserBeans;
 
-//a
 //変更有
 public class UserDAO {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
@@ -62,7 +61,7 @@ public class UserDAO {
 			// 結果表をコレクションにコピーする (変更有)
 			while (rs.next()) {
 				UserBeans ucard = new UserBeans(
-				rs.getString("Id"),
+				rs.getString("id"),
 				rs.getString("password"),
 				rs.getString("photo"),
 				rs.getString("name"),
