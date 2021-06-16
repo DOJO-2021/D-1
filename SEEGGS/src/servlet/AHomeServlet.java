@@ -21,6 +21,9 @@ public class AHomeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		doPost(request, response);
+	}
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
@@ -28,14 +31,13 @@ public class AHomeServlet extends HttpServlet {
 			return;
 		}
 
-		//セッションスコープにインスタンスを保存
-				session.setAttribute("id", id);
+		/*//セッションスコープにインスタンスを保存
+				session.setAttribute("id", id);*/
 
-		// リクエストパラメータを取得する
+		/*// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String u_number = request.getParameter("U_NUMBER");
 		String id = request.getParameter("ID");
-		String password = request.getParameter("PASSWORD");
+		String password = request.getParameter("PASSWORD");*/
 
 		//AHomeページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/AHome.jsp");
