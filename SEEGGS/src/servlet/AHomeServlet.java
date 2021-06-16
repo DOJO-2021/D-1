@@ -1,7 +1,7 @@
 package servlet;
-?
+
 import java.io.IOException;
-?
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,35 +9,35 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-?
+
 /**
  * Servlet implementation class MenuServlet
  */
-@WebServlet("/AHomeServlet")//•ÏX—L
+@WebServlet("/AHomeServlet")//å¤‰æ›´æœ‰
 public class AHomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-?
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// ‚à‚µ‚àƒƒOƒCƒ“‚µ‚Ä‚¢‚È‚©‚Á‚½‚çƒƒOƒCƒ“ƒT[ƒuƒŒƒbƒg‚ÉƒŠƒ_ƒCƒŒƒNƒg‚·‚é
+		// ã‚‚ã—ã‚‚ãƒ­ã‚°ã‚¤ãƒ³ã—ã¦ã„ãªã‹ã£ãŸã‚‰ãƒ­ã‚°ã‚¤ãƒ³ã‚µãƒ¼ãƒ–ãƒ¬ãƒƒãƒˆã«ãƒªãƒ€ã‚¤ãƒ¬ã‚¯ãƒˆã™ã‚‹
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/SEEGGS/LoginServlet");
 			return;
 		}
-?
-		//ƒZƒbƒVƒ‡ƒ“ƒXƒR[ƒv‚ÉƒCƒ“ƒXƒ^ƒ“ƒX‚ğ•Û‘¶
+
+		//ã‚»ãƒƒã‚·ãƒ§ãƒ³ã‚¹ã‚³ãƒ¼ãƒ—ã«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä¿å­˜
 				session.setAttribute("id", id);
-?
-		// ƒŠƒNƒGƒXƒgƒpƒ‰ƒ[ƒ^‚ğæ“¾‚·‚é
+
+		// ãƒªã‚¯ã‚¨ã‚¹ãƒˆãƒ‘ãƒ©ãƒ¡ãƒ¼ã‚¿ã‚’å–å¾—ã™ã‚‹
 		request.setCharacterEncoding("UTF-8");
 		String u_number = request.getParameter("U_NUMBER");
 		String id = request.getParameter("ID");
 		String password = request.getParameter("PASSWORD");
-?
-		//AHomeƒy[ƒW‚ÉƒtƒHƒ[ƒh‚·‚é
+
+		//AHomeãƒšãƒ¼ã‚¸ã«ãƒ•ã‚©ãƒ¯ãƒ¼ãƒ‰ã™ã‚‹
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/AHome.jsp");
 		dispatcher.forward(request, response);
 	}

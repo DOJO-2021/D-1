@@ -37,11 +37,11 @@
   <form>
     <div class="form-item">
       <label for="ID"></label>
-      <input type="ID" name="ID" required="required" placeholder="ID"></input>
+      <input type="id" name="id" required="required" placeholder="ID"></input>
     </div>
     <div class="form-item">
       <label for="PW"></label>
-      <input type="PW" name="PW" required="required" placeholder="PW"></input>
+      <input type="password" name="password" required="required" placeholder="PW"></input>
     </div>
     <div class="button-panel2">
       <input type="submit" class="button" title="Login" value="Login"></input>

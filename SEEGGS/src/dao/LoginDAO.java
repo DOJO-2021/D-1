@@ -12,7 +12,7 @@ public class LoginDAO {
 		Connection conn = null;
 		boolean loginResult = false;
 
-			try {
+		try {
 			//JDBCドライブを読み込む
 			Class.forName("org.h2.Driver");
 
@@ -21,7 +21,7 @@ public class LoginDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 			//select文を準備する
-			String sql = "select count(*) from youser where ID = ? and PASSWORD = ?";
+			String sql = "select count(*) from YOUSER where ID = ? and PASSWORD = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			pStmt.setString(1, id);
 			pStmt.setString(2, password);
@@ -45,16 +45,16 @@ public class LoginDAO {
 		}
 		finally {
 			//データベースを切断
-			if(conn != null) {
-			try {
-				conn.close();
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					loginResult = false;
+				}
 			}
-			catch (SQLException e) {
-			e.printStackTrace();
-			loginResult = false;
-			}
 		}
-		}
-			return loginResult;
-		}
+		return loginResult;
+	}
 }
