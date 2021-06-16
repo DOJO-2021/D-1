@@ -10,6 +10,7 @@ import java.util.List;
 
 import model.UserBeans;
 
+//a
 //変更有
 public class UserDAO {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す

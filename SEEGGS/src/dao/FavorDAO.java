@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+//a
 import model.FavorBeans;
 public class FavorDAO {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す

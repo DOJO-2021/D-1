@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+//a
 //ログインの判定
 public class LoginDAO {
 	public boolean isLoginOK(String id, String password) {
