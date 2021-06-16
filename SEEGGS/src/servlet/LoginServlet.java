@@ -34,47 +34,56 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("ID");
-		String pw = request.getParameter("PW");
+		String id = request.getParameter("id");
+		String pw = request.getParameter("password");
 
 		// ログイン処理を行う(ユーザー)
 		LoginDAO iDao = new LoginDAO();
 		if (iDao.isLoginOK(id, pw)) {	// ログイン成功
 			// セッションスコープにIDを格納する(変更有)
 			HttpSession session = request.getSession();
-			session.setAttribute("id,pw", new LoginBeans(id,pw));
+			session.setAttribute("id", new LoginBeans(id,pw));
 
-			// ホームサーブレットにリダイレクトする(変更有)
-			response.sendRedirect("/SEEGGS/HomeServlet");
+			if(!id.equals("admin"))
+ {
+				// ホームサーブレットにリダイレクトする(変更有)
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/HomeServlet");
+				dispatcher.forward(request, response);
+
+			}
+			else {
+				// 管理者用のホームサーブレットへ
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/AHomeServlet");
+				dispatcher.forward(request, response);
+			}
+
 		}
-		else {									/*// ログイン失敗
+		/*else {									// ログイン失敗
 			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
 			request.setAttribute("result",
 			new ResultBeans("IDまたはPWに間違いがあります。", "/SEEGGS/LoginServlet"));*/
 
 		// 結果ページにフォワードする(変更有)
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Login.jsp");
-			dispatcher.forward(request, response);
+
 			}
 
-		// ログイン処理を行う(管理者)
+		/*// ログイン処理を行う(管理者)
 		LoginDAO aDao = new LoginDAO();
 		if (aDao.isLoginOK(id, pw)) {	// ログイン成功
 			// セッションスコープにIDを格納する(変更有)
 			HttpSession session = request.getSession();
 			session.setAttribute("id,pw", new LoginBeans(id,pw));
 			// ホームサーブレットにリダイレクトする(変更有)
-			response.sendRedirect("/SEEGGS/AHomeServlet");
-		}
-		else {									/*// ログイン失敗
+			response.sendRedirect("/SEEGGS/AHomeServlet");*/
+		/*}
+		else {									// ログイン失敗
 			// リクエストスコープに、タイトル、メッセージ、戻り先を格納する
 			request.setAttribute("result",
-			new ResultBeans("IDまたはPWに間違いがあります。", "/SEEGGS/LoginServlet"));*/
+			new ResultBeans("IDまたはPWに間違いがあります。", "/SEEGGS/LoginServlet"));
 
 
 			// 結果ページにフォワードする(変更有)
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Login.jsp");
 			dispatcher.forward(request, response);
-			}
-	}
+			}*/
 }
