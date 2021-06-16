@@ -10,7 +10,6 @@ import java.util.List;
 
 import model.UserBeans;
 
-//a
 public class UserUpdateDeleteDAO {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
 	public List<UserBeans> select(UserBeans param) {
@@ -225,7 +224,7 @@ public class UserUpdateDeleteDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 				// SQL文を準備する
-				String sql = "update User set Photo =?, Name = ?, Company = ?, Nickname = ?, Birthplace = ?, Thisisme = ?, Hobby = ?, Future = ?, Word = ? where Id = ?";
+				String sql = "update USER set PHOTO =?, NAME = ?, COMPANY = ?, NICKNAME = ?, BIRTHPLACE = ?, THISISME = ?, HOBBY = ?, FUTURE = ?, WORD = ? where ID = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
@@ -313,7 +312,7 @@ public class UserUpdateDeleteDAO {
 		}
 
 		// 引数numberで指定されたレコードを削除し、成功したらtrueを返す
-		public boolean delete(String id) {
+		public boolean delete(String Id) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -325,11 +324,11 @@ public class UserUpdateDeleteDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 				// SQL文を準備する
-				String sql = "delete from User where id=?";
+				String sql = "delete from User where Id=?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				pStmt.setString(1, id);
+				pStmt.setString(1, Id);
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {

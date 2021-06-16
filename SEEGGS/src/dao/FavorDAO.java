@@ -7,13 +7,13 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-//a
 import model.FavorBeans;
+
 public class FavorDAO {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
 	public List<FavorBeans> select(FavorBeans param) {                     //「-」は【メソッド】をたたんで広げている。
 		Connection conn = null;
-		List<FavorBeans> cardList = new ArrayList<FavorBeans>();
+		List<FavorBeans> FavorList = new ArrayList<FavorBeans>();
 
 		try {
 			// JDBCドライバを読み込む
@@ -22,49 +22,42 @@ public class FavorDAO {
 			// データベースに接続する
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
-			// SQL文を準備する　あいまい検索　会社名　氏名　住所
-			String sql = "select ";
+			// SQL文を準備する　ログインIDと投稿管理番号による検索
+			String sql = "select * from Favorite where Id = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる　前後にあいまい検索
-			if (param.getCompany() != null) {
-				pStmt.setString(1, "%" + param.getCompany() + "%"); //番号はSQL文のWhere句の？順番通りWHERE １NUMBER LIKE ? AND ２NAME LIKE ? AND ３ADDRESS LIKE ?
+			if (param.getId() != null) {
+				pStmt.setString(1, "%" + param.getId() + "%"); //番号はSQL文のWhere句の？順番通りWHERE １NUMBER LIKE ? AND ２NAME LIKE ? AND ３ADDRESS LIKE ?
 			}
 			else {
 				pStmt.setString(1, "%");
 			}
-			if (param.getName() != null) {
-				pStmt.setString(2, "%" + param.getName() + "%");
-			}
-			else {
-				pStmt.setString(2, "%");
-			}
-			if (param.getAddress() != null) {
-				pStmt.setString(3, "%" + param.getAddress() + "%");
-			}
-			else {
-				pStmt.setString(3, "%");
-			}
+
+
+
 
 			// SQL文を実行し、結果表を取得する
 			ResultSet rs = pStmt.executeQuery();
 
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
-				favorite card = new favorite(
-				rs.getInt("u_number"),
+				FavorBeans Fcard = new FavorBeans(
+				rs.getString("id"),
+				rs.getInt("m_number"),
+				rs.getString("contents")
 
 				);
-				cardList.add(card);
+				FavorList.add(Fcard);
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			cardList = null;
+			FavorList = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			cardList = null;
+			FavorList = null;
 		}
 		finally {
 			// データベースを切断
@@ -74,14 +67,113 @@ public class FavorDAO {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					cardList = null;
+					FavorList = null;
 				}
 			}
 		}
 
 		// 結果を返す
-		return cardList;
+		return FavorList;
+	}
+
+	public boolean insert(FavorBeans Fcard) {
+		Connection conn = null;
+		boolean result = false;
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
+
+			// SQL文を準備する
+			String sql = "insert into Favorite values (?, 0, ?)";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+			if (Fcard.getId() != null) {
+				pStmt.setString(1, Fcard.getId());
+			}
+			else {
+				pStmt.setString(1, "null");
+			}
+			if (Fcard.getContents() != null) {
+				pStmt.setString(2, Fcard.getContents());
+			}
+			else {
+				pStmt.setString(2, "null");
+			}
+
+			// SQL文を実行する
+			if (pStmt.executeUpdate() == 1) {
+				result = true;
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+			}
+		}
+
+		// 結果を返す
+		return result;
 	}
 
 
+	// 引数numberで指定されたレコードを削除し、成功したらtrueを返す
+			public boolean delete(String Id) {
+				Connection conn = null;
+				boolean result = false;
+
+				try {
+					// JDBCドライバを読み込む
+					Class.forName("org.h2.Driver");
+
+					// データベースに接続する
+					conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
+
+					// SQL文を準備する
+					String sql = "delete from Favorite where Id=?";
+					PreparedStatement pStmt = conn.prepareStatement(sql);
+
+					// SQL文を完成させる
+					pStmt.setString(1, Id);
+
+					// SQL文を実行する
+					if (pStmt.executeUpdate() == 1) {
+						result = true;
+					}
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+				}
+				catch (ClassNotFoundException e) {
+					e.printStackTrace();
+				}
+				finally {
+					// データベースを切断
+					if (conn != null) {
+						try {
+							conn.close();
+						}
+						catch (SQLException e) {
+							e.printStackTrace();
+						}
+					}
+				}
+
+				// 結果を返す
+				return result;
+			}
 }

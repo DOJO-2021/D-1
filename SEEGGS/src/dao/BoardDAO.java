@@ -10,7 +10,6 @@ import java.util.List;
 
 import model.BoardBeans;
 
-//a
 //変更有(以下Personalの部分でエラー5箇所)
 public class BoardDAO {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す

@@ -10,7 +10,6 @@ import java.util.List;
 
 import model.BoardBeans;
 
-//a
 //変更有(以下Personalの部分でエラー5箇所)
 public class BoardUpdateDeleteDAO {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
@@ -132,7 +131,7 @@ public class BoardUpdateDeleteDAO {
 			}
 
 			// 引数numberで指定されたレコードを削除し、成功したらtrueを返す
-			public boolean delete(int m_number) {
+			public boolean delete(int M_number) {
 				Connection conn = null;
 				boolean result = false;
 
@@ -144,11 +143,11 @@ public class BoardUpdateDeleteDAO {
 					conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 					// SQL文を準備する
-					String sql = "delete from Fourm where m_number = ?";
+					String sql = "delete from FOURM where M_number = ?";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
 
 					// SQL文を完成させる
-					pStmt.setInt(1, m_number);
+					pStmt.setInt(1, M_number);
 
 					// SQL文を実行する
 					if (pStmt.executeUpdate() == 1) {
