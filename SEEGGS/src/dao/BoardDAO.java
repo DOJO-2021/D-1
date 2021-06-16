@@ -25,22 +25,13 @@ public class BoardDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 			// SQL文を準備する(変更有・？)
-			String sql = "select contents from Favorite where M_number like ?  and type like ?";
+			String sql = "select * from Forum where m_number = ?  and type = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる(変更有)
-			if (param.getM_number() != 0) {
-				pStmt.setString(1, "%" + param.getM_number() + "%");
-			}
-			else {
-				pStmt.setString(1, "%");
-			}
-			if (param.getType() != 0) {
-				pStmt.setString(2, "%" + param.getType() + "%");
-			}
-			else {
-				pStmt.setString(2, "%");
-			}
+			pStmt.setInt(1, param.getM_number() );
+
+			pStmt.setInt(2,  param.getType() );
 
 
 			// SQL文を実行し、結果表を取得する
@@ -49,9 +40,9 @@ public class BoardDAO {
 			// 結果表をコレクションにコピーする (変更有)
 			while (rs.next()) {
 				BoardBeans Ccard = new BoardBeans(
-				rs.getInt("M_number"),
-				rs.getInt("Type"),
-				rs.getString("Contents")
+				rs.getInt("m_number"),
+				rs.getInt("type"),
+				rs.getString("contents")
 				);
 				BoardList.add(Ccard);
 			}
@@ -80,7 +71,7 @@ public class BoardDAO {
 		// 結果を返す
 		return BoardList;
 	}
-	//お気に入りの登録
+	//掲示板への投稿
 			public boolean insert(BoardBeans bcard) {
 				Connection conn = null;
 				boolean result = false;
@@ -93,7 +84,7 @@ public class BoardDAO {
 					conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 					// SQL文を準備する
-					String sql = "insert into FORUM values (null, ?, ?)";
+					String sql = "insert into Forum values (null, ?, ?)";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
 
 					// SQL文を完成させる

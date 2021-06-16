@@ -11,6 +11,23 @@ public class BoardDAOTest {
 
 	//select文のtest
 	System.out.println("----------select文テスト----------");
-	List<BoardBeans> BoardList = dao.select(new BoardBeans(null,3,""));
+	List<BoardBeans> BoardList = dao.select(new BoardBeans(4, 4, ""));
+	for(BoardBeans Ccard : BoardList) {
+		System.out.println(Ccard.getM_number());
+		System.out.println(Ccard.getType());
+		System.out.println(Ccard.getContents());
+		System.out.println();
+	}
+
+	// insert()のテスト
+	System.out.println("---------- insert()のテスト ----------");
+	BoardBeans insRec = new BoardBeans(0, 6,"hello world");
+	if (dao.insert(insRec)) {
+		System.out.println("登録成功！");
+	}
+	else {
+		System.out.println("登録失敗！");
+	}
+
 	}
 }

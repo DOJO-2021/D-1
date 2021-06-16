@@ -25,7 +25,7 @@ public class UserDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 			// SQL文を準備する(変更有・？)
-			String sql = "select * from Youser where id like  ? and Name like ? and Company like ? and Nickname like ?";
+			String sql = "select * from USER where ID like  ? and NAME like ? and COMPANY like ? and NICKNAME like ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる(変更有)
@@ -114,7 +114,7 @@ public class UserDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 				// SQL文を準備する
-				String sql = "insert into youser values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				String sql = "insert into USER values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
@@ -225,7 +225,7 @@ public class UserDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 				// SQL文を準備する
-				String sql = "update youser set Photo =?, Name = ?, Company = ?, Nickname = ?, Birthplace = ?, Thisisme = ?, Hobby = ?, Future = ?, Word = ? where Id = ?";
+				String sql = "update USER set PHOTO =?, NAME = ?, COMPANY = ?, NICKNAME = ?, BIRTHPLACE = ?, THISISME = ?, HOBBY = ?, FUTURE = ?, WORD = ? where ID = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
