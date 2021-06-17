@@ -21,7 +21,7 @@ public class BoardUpdatedeleteDAOTest {
 
 		//insert()のテスト
 		System.out.println("---------- insert()のテスト ----------");
-		BoardBeans insRec = new BoardBeans(29, 6,"hello world");
+		BoardBeans insRec = new BoardBeans(0, 6,"にほんごとてもむずかしい！");
 		if (dao.insert(insRec)) {
 			System.out.println("登録成功！");
 		}
@@ -29,8 +29,8 @@ public class BoardUpdatedeleteDAOTest {
 			System.out.println("登録失敗！");
 		}
 
-		//挿入したレコードIDを取得する
-		int insM_number = dao.select(insRec).get(0).getM_number();
+				//挿入したレコードIDを取得する
+		int insM_number = 10; //dao.select(insRec).get(0).getM_number();
 
 		// delete()のテスト
 		System.out.println("---------- delete()のテスト ----------");

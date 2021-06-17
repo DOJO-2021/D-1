@@ -10,7 +10,7 @@ public class UserDAOTest {
 
 		// select()のテスト
 		System.out.println("---------- select()のテスト ----------");
-		List<UserBeans> userList = dao.select(new UserBeans("zirou", "", "", "", "", "", "", "", "", "", ""));
+		List<UserBeans> userList = dao.select(new UserBeans("jirou", "", "", "", "", "", "", "", "", "", ""));
 		for (UserBeans card : userList) {
 			System.out.println(card.getId());
 			System.out.println(card.getPassword());
