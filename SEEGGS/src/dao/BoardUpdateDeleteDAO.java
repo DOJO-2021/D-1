@@ -25,7 +25,7 @@ public class BoardUpdateDeleteDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 			// SQL文を準備する(変更有・？)
-			String sql = "select * from Forum where m_number = ?  and type = ?";
+			String sql = "select * from Forum where M_number = ?  and Type = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる(変更有)
@@ -143,7 +143,7 @@ public class BoardUpdateDeleteDAO {
 					conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 					// SQL文を準備する
-					String sql = "delete from FOURM where M_number = ?";
+					String sql = "delete from Forum where M_number = ?";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
 
 					// SQL文を完成させる

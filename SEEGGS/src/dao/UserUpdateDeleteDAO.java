@@ -14,7 +14,7 @@ public class UserUpdateDeleteDAO {
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
 	public List<UserBeans> select(UserBeans param) {
 		Connection conn = null;
-		List<UserBeans> userList = new ArrayList<UserBeans>();
+		List<UserBeans> UserList = new ArrayList<UserBeans>();
 
 		try {
 			// JDBCドライバを読み込む
@@ -24,7 +24,7 @@ public class UserUpdateDeleteDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 			// SQL文を準備する(変更有・？)
-			String sql = "select * from USER where ID like ? and NAME like ? and COMPANY like ? and NICKNAME like ?";
+			String sql = "select * from User where Id like ? and Name like ? and Company like ? and Nickname like ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる(変更有)
@@ -59,7 +59,7 @@ public class UserUpdateDeleteDAO {
 
 			// 結果表をコレクションにコピーする (変更有)
 			while (rs.next()) {
-				UserBeans ucard = new UserBeans(
+				UserBeans Ucard = new UserBeans(
 				rs.getString("id"),
 				rs.getString("password"),
 				rs.getString("photo"),
@@ -72,16 +72,16 @@ public class UserUpdateDeleteDAO {
 				rs.getString("future"),
 				rs.getString("word")
 				);
-				userList.add(ucard);
+				UserList.add(Ucard);
 			}
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
-			userList = null;
+			UserList = null;
 		}
 		catch (ClassNotFoundException e) {
 			e.printStackTrace();
-			userList = null;
+			UserList = null;
 		}
 		finally {
 			// データベースを切断
@@ -91,17 +91,17 @@ public class UserUpdateDeleteDAO {
 				}
 				catch (SQLException e) {
 					e.printStackTrace();
-					userList = null;
+					UserList = null;
 				}
 			}
 		}
 
 		// 結果を返す
-		return userList;
+		return UserList;
 	}
 
 	// 引数cardで指定されたレコードを登録し、成功したらtrueを返す
-		public boolean insert(UserBeans ucard) {
+		public boolean insert(UserBeans Ucard) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -113,72 +113,72 @@ public class UserUpdateDeleteDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 				// SQL文を準備する
-				String sql = "insert into USER values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+				String sql = "insert into User values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (ucard.getId() != null) {
-					pStmt.setString(1, ucard.getId());
+				if (Ucard.getId() != null) {
+					pStmt.setString(1, Ucard.getId());
 				}
 				else {
 					pStmt.setString(1, "null");
 				}
-				if (ucard.getPassword() != null) {
-					pStmt.setString(2, ucard.getPassword());
+				if (Ucard.getPassword() != null) {
+					pStmt.setString(2, Ucard.getPassword());
 				}
 				else {
 					pStmt.setString(2, "null");
 				}
-				if (ucard.getPhoto() != null) {
-					pStmt.setString(3, ucard.getPhoto());
+				if (Ucard.getPhoto() != null) {
+					pStmt.setString(3, Ucard.getPhoto());
 				}
 				else {
 					pStmt.setString(3, "null");
 				}
-				if (ucard.getName() != null) {
-					pStmt.setString(4, ucard.getName());
+				if (Ucard.getName() != null) {
+					pStmt.setString(4, Ucard.getName());
 				}
 				else {
 					pStmt.setString(4, "null");
 				}
-				if (ucard.getCompany() != null) {
-					pStmt.setString(5, ucard.getCompany());
+				if (Ucard.getCompany() != null) {
+					pStmt.setString(5, Ucard.getCompany());
 				}
 				else {
 					pStmt.setString(5, "null");
 				}
-				if (ucard.getNickname() != null) {
-					pStmt.setString(6, ucard.getNickname());
+				if (Ucard.getNickname() != null) {
+					pStmt.setString(6, Ucard.getNickname());
 				}
 				else {
 					pStmt.setString(6, "null");
 				}
-				if (ucard.getBirthplace() != null) {
-					pStmt.setString(7, ucard.getBirthplace());
+				if (Ucard.getBirthplace() != null) {
+					pStmt.setString(7, Ucard.getBirthplace());
 				}
 				else {
 					pStmt.setString(7, "null");
 				}
-				if (ucard.getThisisme() != null) {
-					pStmt.setString(8, ucard.getThisisme());
+				if (Ucard.getThisisme() != null) {
+					pStmt.setString(8, Ucard.getThisisme());
 				}
 				else {
 					pStmt.setString(8, "null");
 				}
-				if (ucard.getHobby() != null) {
-					pStmt.setString(9, ucard.getHobby());
+				if (Ucard.getHobby() != null) {
+					pStmt.setString(9, Ucard.getHobby());
 				}
 				else {
 					pStmt.setString(9, "null");
 				}
-				if (ucard.getFuture() != null) {
-					pStmt.setString(10, ucard.getFuture());
+				if (Ucard.getFuture() != null) {
+					pStmt.setString(10, Ucard.getFuture());
 				}
 				else {
 					pStmt.setString(10, "null");
 				}
-				if (ucard.getWord() != null) {
-					pStmt.setString(11, ucard.getWord());
+				if (Ucard.getWord() != null) {
+					pStmt.setString(11, Ucard.getWord());
 				}
 				else {
 					pStmt.setString(11, "null");
@@ -212,7 +212,7 @@ public class UserUpdateDeleteDAO {
 		}
 
 		// 引数cardで指定されたレコードを更新し、成功したらtrueを返す
-		public boolean update(UserBeans ucard) {
+		public boolean update(UserBeans Ucard) {
 			Connection conn = null;
 			boolean result = false;
 
@@ -224,65 +224,65 @@ public class UserUpdateDeleteDAO {
 				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 				// SQL文を準備する
-				String sql = "update USER set PHOTO =?, NAME = ?, COMPANY = ?, NICKNAME = ?, BIRTHPLACE = ?, THISISME = ?, HOBBY = ?, FUTURE = ?, WORD = ? where ID = ?";
+				String sql = "update User set Photo =?, Name = ?, Company = ?, Nickname = ?, Birthplace = ?, Thisisme = ?, Hobby = ?, Future = ?, Word = ? where Id = ?";
 				PreparedStatement pStmt = conn.prepareStatement(sql);
 
 				// SQL文を完成させる
-				if (ucard.getPhoto() != null) {
-					pStmt.setString(1, ucard.getPhoto());
+				if (Ucard.getPhoto() != null) {
+					pStmt.setString(1, Ucard.getPhoto());
 				}
 				else {
 					pStmt.setString(1, "null");
 				}
-				if (ucard.getName() != null) {
-					pStmt.setString(2,ucard.getName());
+				if (Ucard.getName() != null) {
+					pStmt.setString(2,Ucard.getName());
 				}
 				else {
 					pStmt.setString(2, "null");
 				}
-				if (ucard.getCompany() != null) {
-					pStmt.setString(3, ucard.getCompany());
+				if (Ucard.getCompany() != null) {
+					pStmt.setString(3, Ucard.getCompany());
 				}
 				else {
 					pStmt.setString(3, "null");
 				}
-				if (ucard.getNickname() != null) {
-					pStmt.setString(4, ucard.getNickname());
+				if (Ucard.getNickname() != null) {
+					pStmt.setString(4, Ucard.getNickname());
 				}
 				else {
 					pStmt.setString(4, "null");
 				}
-				if (ucard.getBirthplace() != null) {
-					pStmt.setString(5, ucard.getBirthplace());
+				if (Ucard.getBirthplace() != null) {
+					pStmt.setString(5, Ucard.getBirthplace());
 				}
 				else {
 					pStmt.setString(5, "null");
 				}
-				if (ucard.getThisisme() != null) {
-					pStmt.setString(6, ucard.getThisisme());
+				if (Ucard.getThisisme() != null) {
+					pStmt.setString(6, Ucard.getThisisme());
 				}
 				else {
 					pStmt.setString(6, "null");
 				}
-				if (ucard.getHobby() != null) {
-					pStmt.setString(7, ucard.getHobby());
+				if (Ucard.getHobby() != null) {
+					pStmt.setString(7, Ucard.getHobby());
 				}
 				else {
 					pStmt.setString(7, "null");
 				}
-				if (ucard.getFuture() != null) {
-					pStmt.setString(8, ucard.getFuture());
+				if (Ucard.getFuture() != null) {
+					pStmt.setString(8, Ucard.getFuture());
 				}
 				else {
 					pStmt.setString(8, "null");
 				}
-				if (ucard.getWord() != null) {
-					pStmt.setString(9, ucard.getWord());
+				if (Ucard.getWord() != null) {
+					pStmt.setString(9, Ucard.getWord());
 				}
 				else {
 					pStmt.setString(9, "null");
 				}
-				pStmt.setString(10, ucard.getId());
+				pStmt.setString(10, Ucard.getId());
 
 				// SQL文を実行する
 				if (pStmt.executeUpdate() == 1) {
