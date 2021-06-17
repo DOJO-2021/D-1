@@ -30,10 +30,9 @@
     a href以下に遷移先のServletを記述してください。-->
 
 <div class="scrollArea2">
-<form method="POST" action="AccountServlet">
+<form method="POST" enctype="multipart/form-data"  action="AccountServlet">
 <div class="form-wrapper4">
   <h1>新規アカウント作成</h1>
-  <form>
 
     <div class="form-item">
       <label for="ID">ログインID</label>
@@ -51,13 +50,13 @@
     </div>
 
     <div class="form-item">
-    　<label for="NAME">名前</label>
-    　<input type="text" name="name" required="required" placeholder=""></input>
+    	<label for="NAME">名前</label>
+    	<input type="text" name="name" required="required" placeholder=""></input>
     </div>
 
     <div class="form-item">
     　<label for="COMPANY">会社名</label>
-    　<input type="text" name="cpmpany" required="required" placeholder=""></input>
+    　<input type="text" name="campany" required="required" placeholder=""></input>
     </div>
 
     <div class="form-item">
@@ -90,15 +89,17 @@
         <input type="text" name="word" required="required" placeholder=""></input>
     </div>
 
-    </form>
 </div>
 
     <div class="button-panel2">
-      <input type="submit" class="button" title="Login" value="登録"></input>
+      <input type="submit" class="button" title="Regist" value="登録"></input>
     </div>
+
   </form>
+
+
   <div class="form-footer">
-    <p><a href="LoginServlet"><u>ログイン画面にもどる</u></a></p>
+    <p><a href="LoginServlet">ログイン画面にもどる</a></p>
   </div>
 </div>
 
