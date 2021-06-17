@@ -10,6 +10,7 @@ import java.util.List;
 import model.FavorBeans;
 
 public class FavorDAO {
+//プッシュ
 	// 引数paramで検索項目を指定し、検索結果のリストを返す
 	public List<FavorBeans> select(FavorBeans param) {                     //「-」は【メソッド】をたたんで広げている。
 		Connection conn = null;
@@ -23,13 +24,13 @@ public class FavorDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 			// SQL文を準備する　ログインIDと投稿管理番号による検索
-			String sql = "select * from Favorite where Id = ?";
+			String sql = "select * from Favorite where Id like ? ";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる　前後にあいまい検索
 			if (param.getId() != null) {
-				pStmt.setString(1, "%" + param.getId() + "%"); //番号はSQL文のWhere句の？順番通りWHERE １NUMBER LIKE ? AND ２NAME LIKE ? AND ３ADDRESS LIKE ?
-			}
+				pStmt.setString(1, "%" + param.getId() + "%");
+				}
 			else {
 				pStmt.setString(1, "%");
 			}
@@ -43,9 +44,9 @@ public class FavorDAO {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				FavorBeans Fcard = new FavorBeans(
-				rs.getString("id"),
-				rs.getInt("m_number"),
-				rs.getString("contents")
+				rs.getString("Id"),
+				rs.getInt("M_number"),
+				rs.getString("Contents")
 
 				);
 				FavorList.add(Fcard);
@@ -88,7 +89,7 @@ public class FavorDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 			// SQL文を準備する
-			String sql = "insert into Favorite values (?, 0, ?)";
+			String sql = "insert into Favorite values (?, ? , ?)";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 			if (Fcard.getId() != null) {
 				pStmt.setString(1, Fcard.getId());
@@ -96,11 +97,17 @@ public class FavorDAO {
 			else {
 				pStmt.setString(1, "null");
 			}
-			if (Fcard.getContents() != null) {
-				pStmt.setString(2, Fcard.getContents());
+			if (Fcard.getM_number() != 0) {
+				pStmt.setInt(2, Fcard.getM_number());
 			}
 			else {
 				pStmt.setString(2, "null");
+			}
+			if (Fcard.getContents() != null) {
+				pStmt.setString(3, Fcard.getContents());
+			}
+			else {
+				pStmt.setString(3, "null");
 			}
 
 			// SQL文を実行する
