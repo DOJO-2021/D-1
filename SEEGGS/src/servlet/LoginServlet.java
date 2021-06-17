@@ -48,9 +48,9 @@ public class LoginServlet extends HttpServlet {
 			if(!id.equals("admin"))
  {
 				// ホームサーブレットにリダイレクトする(変更有)
-				response.sendRedirect("/SEEGGS/HomeServlet");
-				//RequestDispatcher dispatcher = request.getRequestDispatcher("/HomeServlet");
-				//dispatcher.forward(request, response);
+
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/HomeServlet");
+				dispatcher.forward(request, response);
 
 			}
 			else {
