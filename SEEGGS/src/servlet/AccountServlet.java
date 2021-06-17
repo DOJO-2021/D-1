@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -19,6 +20,7 @@ import model.UserBeans;
  * Servlet implementation class AccountServlet
  */
 @WebServlet("/AccountServlet")
+@MultipartConfig
 public class AccountServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -64,21 +66,21 @@ public class AccountServlet extends HttpServlet {
 				// リクエストパラメータを取得する
 				request.setCharacterEncoding("UTF-8");
 
-				String id = request.getParameter("ID");
-				String password = request.getParameter("PASSWORD");
+				String id = request.getParameter("id");
+				String password = request.getParameter("password");
 
 				// 画像のアップロード方法について要確認
 
-				Part part = request.getPart("PHOTO");
+				Part part = request.getPart("photo");
 
-				String name = request.getParameter("NAME");
-				String company = request.getParameter("COMPANY");
-				String nickname = request.getParameter("NICKNAME");
-				String hobby = request.getParameter("HOBBY");
-				String birthplace = request.getParameter("BIRTHPLACE");
-				String thisisme = request.getParameter("THISISME");
-				String future = request.getParameter("FUTURE");
-				String word = request.getParameter("WORD");
+				String name = request.getParameter("name");
+				String company = request.getParameter("company");
+				String nickname = request.getParameter("nickname");
+				String hobby = request.getParameter("hobby");
+				String birthplace = request.getParameter("birthplace");
+				String thisisme = request.getParameter("thisisme");
+				String future = request.getParameter("future");
+				String word = request.getParameter("word");
 
 				UserDAO uDao = new UserDAO();
 
@@ -96,12 +98,12 @@ public class AccountServlet extends HttpServlet {
 				try {part.write(path+File.separator+photo);
 					if(uDao.insert (new UserBeans(id, password, photo, name, company, nickname, hobby, birthplace, thisisme, future, word)));
 				} catch(Exception e) {
-						request.setAttribute("result",
-								new ResultBeans("登録を正常に行うことができませんでした", "/SEEGS/HomeServlet"));
+						request.setAttribute("submit",
+								new ResultBeans("登録を正常に行うことができませんでした", "HomeServlet"));
 				}
 
 				// 結果ページにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Result.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("HomeServlet");
 				dispatcher.forward(request, response);
 	}
 
