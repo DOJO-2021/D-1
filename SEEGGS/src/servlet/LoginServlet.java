@@ -48,14 +48,16 @@ public class LoginServlet extends HttpServlet {
 			if(!id.equals("admin"))
  {
 				// ホームサーブレットにリダイレクトする(変更有)
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/HomeServlet");
-				dispatcher.forward(request, response);
+				response.sendRedirect("/SEEGGS/HomeServlet");
+				//RequestDispatcher dispatcher = request.getRequestDispatcher("/HomeServlet");
+				//dispatcher.forward(request, response);
 
 			}
 			else {
 				// 管理者用のホームサーブレットへ
-				RequestDispatcher dispatcher = request.getRequestDispatcher("/AHomeServlet");
-				dispatcher.forward(request, response);
+				response.sendRedirect("/SEEGGS/AHomeServlet");
+				//RequestDispatcher dispatcher = request.getRequestDispatcher("/AHomeServlet");
+				//dispatcher.forward(request, response);
 			}
 
 		}
