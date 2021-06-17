@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.UserDAO;
+import dao.UserUpdateDeleteDAO;
 import model.ResultBeans;
 import model.UserBeans;
 
@@ -46,9 +46,9 @@ public class UserUpdateDeleteServlet extends HttpServlet {
 		String word = request.getParameter("WORD");
 
 		// 更新または削除を行う
-		UserDAO uDao = new UserDAO();
+		UserUpdateDeleteDAO uudDao = new UserUpdateDeleteDAO();
 		if (request.getParameter("SUBMIT").equals("更新")) {
-			if (uDao.update(new UserBeans(u_number, photo, name, company, nickname, birthplace, thisisme, hobby, future, word))) {	// 更新成功
+			if (uudDao.update(new UserBeans(id, password, photo, name, company, nickname, birthplace, thisisme, hobby, future, word))) {	// 更新成功
 				request.setAttribute("result",
 				new ResultBeans("データを更新しました。", "/SEEGGS/AHomeServlet"));
 			}
@@ -58,7 +58,7 @@ public class UserUpdateDeleteServlet extends HttpServlet {
 			}
 		}
 		else {
-			if (uDao.delete(id)) {	// 削除成功
+			if (uudDao.delete(id)) {	// 削除成功
 				request.setAttribute("result",
 				new ResultBeans("ユーザーを削除しました。", "/SEEGGS/AHomeServlet"));
 			}
