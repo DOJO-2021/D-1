@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -56,15 +57,16 @@ public class FavorServlet extends HttpServlet {
 
 			// リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
-			String u_number = request.getParameter("U_NUMBER");
-			String m_number = request.getParameter("M_NUMBER");
+			String id = request.getParameter("id");
+			int m_number = Integer.parseInt(request.getParameter("M_NUMBER"));
+			String contents = request.getParameter("contents");
 
 			// 検索処理を行う
 			FavorDAO fDao = new FavorDAO();
-			List<FavorBeans> cardList = fDao.select(new FavorBeans(0, 0));
+			List<FavorBeans> FavorList = fDao.select(new FavorBeans(id,m_number,contents));
 
 			// 検索結果をリクエストスコープに格納する
-			request.setAttribute("favorList", favorList);
+			request.setAttribute("FavorList", FavorList);
 
 			// 結果ページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Favor.jsp");
