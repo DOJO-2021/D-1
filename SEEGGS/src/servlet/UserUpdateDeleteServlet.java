@@ -73,4 +73,3 @@ public class UserUpdateDeleteServlet extends HttpServlet {
 		dispatcher.forward(request, response);
 	}
 }
-
