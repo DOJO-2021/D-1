@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.BoardUpdateDeleteDAO;
-import model.ResultBeans;
 
 /**
  * Servlet implementation class UpdateDeleteServlet
@@ -33,35 +32,20 @@ public class ThreadUpdateDeleteServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		int m_number = Integer.parseInt(request.getParameter("M_NUMBER"));
-		int type = Integer.parseInt(request.getParameter("TYPE"));
-		String coments = request.getParameter("COMENTS");
+		int m_number = Integer.parseInt(request.getParameter("m_number"));
+//		int type = Integer.parseInt(request.getParameter("type"));
+//		String contents = request.getParameter("contents");
 
-		// 更新または削除を行う
+		// 削除を行う
 		BoardUpdateDeleteDAO budDao = new BoardUpdateDeleteDAO();
-		if (request.getParameter("SUBMIT").equals("更新")) {
-			if (budDao.update (m_number, type, coments)) {	// 更新成功
-				request.setAttribute("result",
-				new ResultBeans("データを更新しました。", "/SEEGGS/AHomeServlet"));
-			}
-			else {												// 更新失敗
-				request.setAttribute("result",
-				new ResultBeans("データを更新できませんでした。", "/SEEGGS/AHomeServlet"));
-			}
-		}
-		else {
-			if (foDao.delete(m_number)) {	// 削除成功
-				request.setAttribute("result",
-				new ResultBeans("ユーザーを削除しました。", "/SEEGGS/AHomeServlet"));
-			}
-			else {						// 削除失敗
-				request.setAttribute("result",
-				new ResultBeans("ユーザーを削除できませんでした。", "/SEEGGS/AHomeServlet"));
-			}
-		}
+		if (request.getParameter("SUBMIT").equals("削除")) {
+			if (budDao.delete (m_number)) {
 
-		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/AResult.jsp");
-		dispatcher.forward(request, response);
+		//AThreadServletにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("AThreadServlet");
+			dispatcher.forward(request, response);
+
+			}
+		}
 	}
 }
