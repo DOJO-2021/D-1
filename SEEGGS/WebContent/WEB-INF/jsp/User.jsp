@@ -14,15 +14,15 @@
 
     <!--左上ロゴここから
       a href以下に遷移先のServletを記述してください。-->
-      
+
       <a href="/SEEGGS/HomeServlet"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
-      
+
       <!-- 左上ロゴ（ここまで） -->
 
   <!-- ヘッダー（ここまで） -->
 
   <!-- メイン（ここから） -->
-  
+
   <!--右側ハンバーガーメニューここから
       a href以下に遷移先のServletを記述してください。-->
 
@@ -40,20 +40,20 @@
         </ul>
       </div>
     </nav>
-  
+
     <div class="toggle_btn">
       <span></span>
       <span></span>
       <span></span>
     </div>
-  
+
     <div id="mask"></div>
-  
+
   </div>
-  
+
   <!--右側ハンバーガーメニューここまで-->
- 
- 
+
+
   <!--スクロールボックスここから
   a href以下に遷移先のServletを記述してください。-->
 
@@ -116,13 +116,13 @@
             <!--以下オープンのためのボタン-->
             <button class="open"><img src="images/プロフィール.png" width="200" height="300" alt="SEEGGS"></button>
     <!--プロフィールのポップアップここまで-->
-</div> 
+</div>
 
     <!--スクロールボックスここまで-->
 
 
     <!-- メイン（ここまで） -->
-  
+
 
     <!-- フッター（ここから） -->
         <div id="footer">
@@ -137,7 +137,7 @@
 
 <!-- 以下js及びjQuery処理の記述 -->
 
-<script src="scripts/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
 <script>
 'use strict';
 
