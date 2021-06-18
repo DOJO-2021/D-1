@@ -16,7 +16,7 @@
     <!--左上ロゴここから
       a href以下に遷移先のServletを記述してください。-->
 
-        <a href="Login.html"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
+        <a href="/SEEGGS/HomeServlet""><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
 
       <!-- 左上ロゴ（ここまで） -->
 
@@ -32,12 +32,12 @@
     <nav>
       <div class="inner">
         <ul>
-          <li><a href="Home.html">ホーム</a></li>
-          <li><a href="#">マイプロフィール</a></li>
-          <li><a href="User.html">ユーザー情報</a></li>
-          <li><a href="Board.html">掲示板</a></li>
-          <li><a href="Favor.html">お気に入り一覧</a></li>
-          <li><a href="Login.html">ログアウト</a></li>
+          <li><a href="HomeServlet">ホーム</a></li>
+          <li><a href="ProfileServlet">マイプロフィール</a></li>
+          <li><a href="UserServlet">ユーザー情報</a></li>
+          <li><a href="BoardServlet">掲示板</a></li>
+          <li><a href="FavorServlet">お気に入り一覧</a></li>
+          <li><a href="LogoutServlet">ログアウト</a></li>
         </ul>
       </div>
     </nav>
@@ -138,7 +138,7 @@
 
 <!-- 以下js及びjQuery処理の記述 -->
 
-<script src="scripts/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
 <script>
 'use strict';
 
