@@ -36,7 +36,7 @@ public class UserServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/SEEGGS/LoginServlet");
+			response.sendRedirect("LoginServlet");
 			return;
 		}
 		// ユーザページにフォワードする
@@ -51,28 +51,30 @@ public class UserServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
 			if (session.getAttribute("id") == null) {
-				response.sendRedirect("/SEEGGS/LoginServlet");
+				response.sendRedirect("LoginServlet");
 				return;
 			}
 
 			// リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
-			String photo = request.getParameter("PHOTO");
-			String name = request.getParameter("NAME");
-			String company = request.getParameter("COMPANY");
-			String nickname = request.getParameter("NICKNAME");
-			String birthplace = request.getParameter("BIRTHPLACE");
-			String thisisme = request.getParameter("THISISME");
-			String hobby = request.getParameter("HOBBY");
-			String future = request.getParameter("FUTURE");
-			String word = request.getParameter("WORD");
+			String id = request.getParameter("id");
+			String password = request.getParameter("password");
+			String photo = request.getParameter("photo");
+			String name = request.getParameter("name");
+			String company = request.getParameter("company");
+			String nickname = request.getParameter("nickname");
+			String birthplace = request.getParameter("birthplace");
+			String thisisme = request.getParameter("thisisme");
+			String hobby = request.getParameter("hobby");
+			String future = request.getParameter("future");
+			String word = request.getParameter("word");
 
 			// 検索処理を行う
 			UserDAO uDao = new UserDAO();
-			List<UserBeans> cardList = uDao.select(new UserBeans(0, photo, name, company, nickname, birthplace, thisisme, hobby, future, word));
+			List<UserBeans> UserList = uDao.select(new UserBeans(id, password, photo, name, company, nickname, birthplace, thisisme, hobby, future, word));
 
 			// 検索結果をリクエストスコープに格納する
-			request.setAttribute("cardList", cardList);
+			request.setAttribute("UserList", UserList);
 
 			// 結果ページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/User.jsp");
