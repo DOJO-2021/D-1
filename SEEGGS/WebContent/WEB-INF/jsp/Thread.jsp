@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -13,7 +13,7 @@
 <body>
 <div class="wrapper">
   <!-- ヘッダー（ここから） -->
- 
+
     <!--左上ロゴここから
       a href以下に遷移先のServletを記述してください。-->
 
@@ -65,27 +65,51 @@
   ${#} ${e.}に対象のEL式を記述してください。
   name以下に記述してください-->
 
-    <c:forEach var="e" items="${#}" ><!--Userテーブルから結果をインポートするときの名称-->
-    <form method="POST" action="/SEEGGS/#">
-      <div class="textBox" name="" value=${e.}>
-        <div class="TexitBox_before" value=${e.}>投稿者名</div>
-        あっとほーむSEEGGS!
+   <!-- <c:forEach var="e" items="${BoardList}" ><!--Userテーブルから結果をインポートするときの名称
+     <form method="POST" action="ThreadServlet">  -->
+     //typeを表示
+<!--       <div class="textBox" name="type" value="${e.type}">
+      <div class="textBox" name="m_number" value="${e.m_number}">
+        <div class="TexitBox_before" value="${e.contents}">投稿者名</div> -->
+
 
         <!--お気に入りボタンここから-->
         <div class="mother4">
         <div class="product__fav-item">
-          <button type="button" class="favorite-button" {favorite_button_attribute product_id=$product.id added_class="fav-items"}>
-            <svg role="img" aria-hidden="true"><use xlink:href="#heart"></use></svg>
+          <button type="button" class="favorite-button" {favorite_button_attribute product_id="product.id" added_class="fav-items"}>
+            <svg role="img" aria-hidden="true"><use xlink:href="heart"></use></svg>
             お気に入り
           </button>
         </div>
         </div>
         <!--お気に入りボタンここまで-->
-       </c:forEach>
       </div>
+      </div>
+     </form>
+<!--   </c:forEach> -->
   <!--スレッドここまで-->
 </div>
 　<!--スクロールボックスここまで-->
+
+
+  <!--投稿フォームここから-->
+  <form method="POST" enctype="multipart/form-data"  action="ThreadServlet">
+    <div class="form-wrapper6">
+      <h1>投稿する</h1>
+
+ <!--    <div class="textBox" name="type" value="${e.type}">
+      <div class="textBox" name="m_number" value="${e.m_number}">
+        <div class="TexitBox_before" value="${e.contents}">投稿者名</div>
+        <input type="PW" class="PW" title="Regist" value="投稿"></input> -->
+      </div>
+
+        <div class="button-panel2">
+          <input type="submit" class="button" title="sendmessage" value="投稿"></input>
+        </div>
+    </div>
+    </div>
+  </form>
+  <!--投稿フォームここまで-->
 
 
   <!-- メイン（ここまで） -->
@@ -106,7 +130,7 @@
 
 <!-- 以下js及びjQuery処理の記述 -->
 
-<script src="js/jquery-3.4.1.min.js"></script>
+<script src="scripts/jquery-3.4.1.min.js"></script>
 <script>
 'use strict';
 
