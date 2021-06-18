@@ -36,7 +36,7 @@ public class FavorServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/SEEGGS/LoginServlet");
+			response.sendRedirect("/LoginServlet");
 			return;
 		}
 		// お気に入りページにフォワードする
@@ -51,14 +51,14 @@ public class FavorServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 			HttpSession session = request.getSession();
 			if (session.getAttribute("id") == null) {
-				response.sendRedirect("/SEEGGS/LoginServlet");
+				response.sendRedirect("/LoginServlet");
 				return;
 			}
 
 			// リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
 			String id = request.getParameter("id");
-			int m_number = Integer.parseInt(request.getParameter("M_NUMBER"));
+			int m_number = Integer.parseInt(request.getParameter("m_number"));
 			String contents = request.getParameter("contents");
 
 			// 検索処理を行う
