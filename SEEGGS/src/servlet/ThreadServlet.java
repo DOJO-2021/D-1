@@ -39,9 +39,12 @@ public class ThreadServlet extends HttpServlet {
 			response.sendRedirect("/LoginServlet");
 			return;
 		}
+			doPost(request,response);
+
 		// スレッドページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
-		dispatcher.forward(request, response);
+//		response.sendRedirect("/WEB-INF/jsp/Thread.jsp");
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
+//		dispatcher.forward(request, response);
 	}
 
 	/**
@@ -54,83 +57,101 @@ public class ThreadServlet extends HttpServlet {
 			response.sendRedirect("/LoginServlet");
 			return;
 		}
+
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		int m_number = Integer.parseInt(request.getParameter("m_number"));
 		int type = Integer.parseInt(request.getParameter("type"));
-		String contents = request.getParameter("contents");
-
-		// 検索処理を行う
-		BoardDAO bDao = new BoardDAO();
-		List<BoardBeans> BoardList = bDao.select(new BoardBeans(m_number,type,contents));
-
-
+//		int m_number = Integer.parseInt(request.getParameter("m_number"));
+//		String contents = request.getParameter("contents");
 		//掲示板の種類ごとに検索結果をスレッドに表示する。
-		if (request.getParameter("SUBMIT").equals("ノウハウ共有掲示板")) {
+		if (type == 1) {
 
-
-			// 検索結果をリクエストスコープに格納する
-			request.setAttribute("BoardList", BoardList);
-
-			// 掲示板ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
-			dispatcher.forward(request, response);
-		}
-
-		if (request.getParameter("SUBMIT").equals("エラー共有掲示板")) {
-
+			// 検索処理を行う
+			BoardDAO bDao = new BoardDAO();
+			List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,type,"null"));
 
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("BoardList", BoardList);
 
 			// 掲示板ページにフォワードする
+			//response.sendRedirect("/WEB-INF/jsp/Thread.jsp");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
 			dispatcher.forward(request, response);
 		}
 
-		if (request.getParameter("SUBMIT").equals("お悩み相談掲示板")) {
+//		if (type == 2) {
+//
+//			// 検索処理を行う
+//			BoardDAO bDao = new BoardDAO();
+//			List<BoardBeans> BoardList = bDao.select(new BoardBeans(m_number,type,contents));
+//
+//			// 検索結果をリクエストスコープに格納する
+//			request.setAttribute("BoardList", BoardList);
+//
+//			// 掲示板ページにフォワードする
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
+//			dispatcher.forward(request, response);
+//		}
+//
+//		if (type == 3) {
+//
+//			// 検索処理を行う
+//			BoardDAO bDao = new BoardDAO();
+//			List<BoardBeans> BoardList = bDao.select(new BoardBeans(m_number,type,contents));
+//
+//			// 検索結果をリクエストスコープに格納する
+//			request.setAttribute("BoardList", BoardList);
+//
+//			// 掲示板ページにフォワードする
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
+//			dispatcher.forward(request, response);
+//		}
+//
+//		if (type == 4) {
+//
+//			// 検索処理を行う
+//			BoardDAO bDao = new BoardDAO();
+//			List<BoardBeans> BoardList = bDao.select(new BoardBeans(m_number,type,contents));
+//
+//			// 検索結果をリクエストスコープに格納する
+//			request.setAttribute("BoardList", BoardList);
+//
+//			// 掲示板ページにフォワードする
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
+//			dispatcher.forward(request, response);
+//		}
+//
+//		if (type == 5) {
+//
+//			// 検索処理を行う
+//			BoardDAO bDao = new BoardDAO();
+//			List<BoardBeans> BoardList = bDao.select(new BoardBeans(m_number,type,contents));
+//
+//			// 検索結果をリクエストスコープに格納する
+//			request.setAttribute("BoardList", BoardList);
+//
+//			// 掲示板ページにフォワードする
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
+//			dispatcher.forward(request, response);
+//		}
+//
+//		if (type == 6) {
+//
+//			// 検索処理を行う
+//			BoardDAO bDao = new BoardDAO();
+//			List<BoardBeans> BoardList = bDao.select(new BoardBeans(m_number,type,contents));
+//
+//			// 検索結果をリクエストスコープに格納する
+//			request.setAttribute("BoardList", BoardList);
+//
+//			// 掲示板ページにフォワードする
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
+//			dispatcher.forward(request, response);
+//		}
 
-
-			// 検索結果をリクエストスコープに格納する
-			request.setAttribute("BoardList", BoardList);
-
-			// 掲示板ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
-			dispatcher.forward(request, response);
+//			// 掲示板ページにフォワードする
+//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
+//			dispatcher.forward(request, response);
 		}
-
-		if (request.getParameter("SUBMIT").equals("講師に質問！")) {
-
-
-			// 検索結果をリクエストスコープに格納する
-			request.setAttribute("BoardList", BoardList);
-
-			// 掲示板ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
-			dispatcher.forward(request, response);
-		}
-
-		if (request.getParameter("SUBMIT").equals("ジモトーーーク！")) {
-
-
-			// 検索結果をリクエストスコープに格納する
-			request.setAttribute("BoardList", BoardList);
-
-			// 掲示板ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
-			dispatcher.forward(request, response);
-		}
-
-		if (request.getParameter("SUBMIT").equals("休日何してる？")) {
-
-
-			// 検索結果をリクエストスコープに格納する
-			request.setAttribute("BoardList", BoardList);
-
-			// 掲示板ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
-			dispatcher.forward(request, response);
-		}
-	}
 
 }
