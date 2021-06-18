@@ -28,43 +28,43 @@ public class UserUpdateDeleteServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("/SEEGGS/LoginServlet");
+			response.sendRedirect("LoginServlet");
 			return;
 		}
 
 		// リクエストパラメータを取得する
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
-		String photo = request.getParameter("PHOTO");
-		String name = request.getParameter("NAME");
-		String company = request.getParameter("COMPANY");
-		String nickname = request.getParameter("NICKNAME");
-		String birthplace = request.getParameter("BIRTHPLACE");
-		String thisisme = request.getParameter("THISISME");
-		String hobby = request.getParameter("HOBBY");
-		String future = request.getParameter("FUTURE");
-		String word = request.getParameter("WORD");
+		String photo = request.getParameter("photo");
+		String name = request.getParameter("name");
+		String company = request.getParameter("company");
+		String nickname = request.getParameter("nickname");
+		String birthplace = request.getParameter("birthplace");
+		String thisisme = request.getParameter("thisisme");
+		String hobby = request.getParameter("hobby");
+		String future = request.getParameter("future");
+		String word = request.getParameter("word");
 
 		// 更新または削除を行う
 		UserUpdateDeleteDAO uudDao = new UserUpdateDeleteDAO();
 		if (request.getParameter("SUBMIT").equals("更新")) {
 			if (uudDao.update(new UserBeans(id, password, photo, name, company, nickname, birthplace, thisisme, hobby, future, word))) {	// 更新成功
 				request.setAttribute("result",
-				new ResultBeans("データを更新しました。", "/SEEGGS/AHomeServlet"));
+				new ResultBeans("データを更新しました。", "AHomeServlet"));
 			}
 			else {												// 更新失敗
 				request.setAttribute("result",
-				new ResultBeans("データを更新できませんでした。", "/SEEGGS/AHomeServlet"));
+				new ResultBeans("データを更新できませんでした。", "AHomeServlet"));
 			}
 		}
 		else {
 			if (uudDao.delete(id)) {	// 削除成功
 				request.setAttribute("result",
-				new ResultBeans("ユーザーを削除しました。", "/SEEGGS/AHomeServlet"));
+				new ResultBeans("ユーザーを削除しました。", "AHomeServlet"));
 			}
 			else {						// 削除失敗
 				request.setAttribute("result",
-				new ResultBeans("ユーザーを削除できませんでした。", "/SEEGGS/AHomeServlet"));
+				new ResultBeans("ユーザーを削除できませんでした。", "AHomeServlet"));
 			}
 		}
 
