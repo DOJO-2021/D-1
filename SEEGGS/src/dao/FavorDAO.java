@@ -44,9 +44,9 @@ public class FavorDAO {
 			// 結果表をコレクションにコピーする
 			while (rs.next()) {
 				FavorBeans Fcard = new FavorBeans(
-				rs.getString("Id"),
-				rs.getInt("M_number"),
-				rs.getString("Contents")
+				rs.getString("id"),
+				rs.getInt("m_number"),
+				rs.getString("contents")
 
 				);
 				FavorList.add(Fcard);
