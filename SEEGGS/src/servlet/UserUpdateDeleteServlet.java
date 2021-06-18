@@ -28,9 +28,8 @@ public class UserUpdateDeleteServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
-			response.sendRedirect("LoginServlet");
-			return;
-		}
+			response.sendRedirect("/SEEGGS/LoginServlet");
+		}else {
 
 		// リクエストパラメータを取得する
 		String id = request.getParameter("id");
@@ -72,4 +71,5 @@ public class UserUpdateDeleteServlet extends HttpServlet {
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/AResult.jsp");
 		dispatcher.forward(request, response);
 	}
+}
 }
