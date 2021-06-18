@@ -9,7 +9,7 @@
 <title>SEEGGS | SEARCH RESULT</title>
 <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
-
+ 
 <body>
 <div class="wrapper">
   <!-- ヘッダー（ここから） -->
