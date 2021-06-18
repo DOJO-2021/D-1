@@ -22,16 +22,30 @@ public class ProfileServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("LoginServlet");
 			return;
 		}
+		// ユーザページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/User.jsp");
+		dispatcher.forward(request, response);
+	}
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	// もしもログインしていなかったらログインサーブレットにリダイレクトする
+	HttpSession session = request.getSession();
+	if (session.getAttribute("id") == null) {
+		response.sendRedirect("LoginServlet");
+		return;
+	}
 		// リクエストパラメータを取得する
 		String id = request.getParameter("id");
 		String password = request.getParameter("password");
