@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 
-<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -15,15 +15,15 @@
 
     <!--左上ロゴここから
       a href以下に遷移先のServletを記述してください。-->
-      
+
         <a href="Login.html"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
-      
+
       <!-- 左上ロゴ（ここまで） -->
 
   <!-- ヘッダー（ここまで） -->
 
   <!-- メイン（ここから） -->
-  
+
   <!--右側ハンバーガーメニューここから
       a href以下に遷移先のServletを記述してください。-->
 
@@ -41,20 +41,20 @@
         </ul>
       </div>
     </nav>
-  
+
     <div class="toggle_btn">
       <span></span>
       <span></span>
       <span></span>
     </div>
-  
+
     <div id="mask"></div>
-  
+
   </div>
-  
+</div>
   <!--右側ハンバーガーメニューここまで-->
- 
- 
+
+
   <!--スクロールボックスここから
   a href以下に遷移先のServletを記述してください。-->
 
@@ -62,12 +62,12 @@
     <!--以下プロフィール中身を記述してください-->
   <div class="popup-content">
     <p>マイプロフィール</p>
-    <c:forEach var="e" items="${cardList}" ><!--Userテーブルから結果をインポートするときの名称-->
-    <form method="POST" action="UserUpdateDeleteServlet">
+    <c:forEach var="e" items="${UserList}" ><!--Userテーブルから結果をインポートするときの名称-->
+    <form method="POST" action="UserServlet">
         <table>
         <tr>
             <td>
-                番号<input type="text" name="ID" value="${e.id}"><br>
+                写真<input type="text" name="photo" value="${e.photo}"><br>
         </td>
         <td>
                 名前<input type="text" name="name" value="${e.name}"><br>
@@ -94,16 +94,18 @@
                 趣味は？<input type="text" name="zip_code" value="${e.hobby}"><br>
         </td>
         <td>
-                研修の意気込みをどうぞ！<input type="text" name="tel" value="${e.future}"><br>
+                今後やりたいこと<input type="text" name="tel" value="${e.future}"><br>
         </td>
     </tr>
     <tr>
         <td>
-                <input type="text" name="fax" value="${e.word}"><br>
+                研修への意気込みをどうぞ！<input type="text" name="fax" value="${e.word}"><br>
         </td>
         <td>
     </tr>
     </table>
+    </form>
+    </c:forEach>
   </div>
  </div>
 
@@ -115,13 +117,13 @@
             <!--以下オープンのためのボタン-->
             <button class="open"><img src="images/プロフィール.png" width="200" height="300" alt="SEEGGS"></button>
     <!--プロフィールのポップアップここまで-->
-</div> 
+</div>
 
     <!--スクロールボックスここまで-->
 
 
     <!-- メイン（ここまで） -->
-  
+
 
     <!-- フッター（ここから） -->
         <div id="footer">
