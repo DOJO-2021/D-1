@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -127,7 +128,7 @@
 ​
 <!-- 以下js及びjQuery処理の記述 -->
 ​
-<script src="scripts/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
 <script>
 'use strict';
 ​
