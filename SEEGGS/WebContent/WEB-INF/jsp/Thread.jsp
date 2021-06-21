@@ -1,4 +1,3 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -8,27 +7,27 @@
 <title>SEEGGS | THREAD</title>
 <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
-​
+
 <body>
 <div class="wrapper">
   <!-- ヘッダー（ここから） -->
-​
+
     <!--左上ロゴここから
       a href以下に遷移先のServletを記述してください。-->
-
+      
         <a href="/SEEGGS/HomeServlet"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
-
+      
     <!-- 左上ロゴ（ここまで） -->
-​
-  <!-- ヘッダー（ここまで） -->
-​
-  <!-- メイン（ここから） -->
 
+  <!-- ヘッダー（ここまで） -->
+
+  <!-- メイン（ここから） -->
+  
   <!--右側ハンバーガーメニューここから
       a href以下に遷移先のServletを記述してください。-->
-​
+
   <div id="navArea">
-​
+
     <nav>
       <div class="inner">
         <ul>
@@ -41,33 +40,32 @@
         </ul>
       </div>
     </nav>
-
+  
     <div class="toggle_btn">
       <span></span>
       <span></span>
       <span></span>
     </div>
-
+  
     <div id="mask"></div>
-
+  
   </div>
-
+  
   <!--右側ハンバーガーメニューここまで-->
-​
-  <!--スクロールボックスここから-->
-<div class="mother">
-<div class="scrollArea3">
-​
 
-  <!-- スレッドここから
- action以下に遷移先のサーブレットを記述してください。
- に対象のEL式を記述してください。
-  name以下に記述してください -->
+  <!--スクロールボックスここから-->
+<div class="mother6">
+<div class="scrollArea3">
+
+  <!--スレッドここから
+　action以下に遷移先のサーブレットを記述してください。
+  対象のEL式を記述してください。
+  name以下に記述してください-->
 <c:forEach var="e" items="${BoardList}" varStatus="status"><!--Userテーブルから結果をインポートするときの名称-->
   <form method="GET" action="ThreadServlet">
-   <div class="textBox" c:out value="${e.m_number}">
-     <div class="TexitBox_before" c:out value="${e.contents}"></div>
-
+   <div class="textBox" c:out value=${e.m_number}>
+     <div class="TexitBox_before" c:out value=${e.contents}></div>
+             
      <!--お気に入りボタンここから-->
      <div class="mother4">
      <div class="product__fav-item">
@@ -83,55 +81,55 @@
   </form>
  </c:forEach>
   <!--スレッドここまで-->
-​
+
 </div><!--スクロール閉じタグ-->
-</div>><!--mother閉じタグ-->
+</div><!--mother6閉じタグ-->
 　<!--スクロールボックスここまで-->
-​
-  <!--投稿フォームここから 呼び分けのhidden数値渡す-->
-​
-  <form method="POST" enctype="multipart/form-data"  action="<c:url value='/Servlet'/>">
+
+  <!--投稿フォームここから-->
+
+  <div class="mother7">
+  <form method="POST" enctype="multipart/form-data"  action="<c:url value='/'/>">
     <div class="form-wrapper6">
-      <h1>投稿する</h1>
-​
-      <div class="textBox" name="type" value="${e.type}">
-        <div class="TexitBox_before" value="${e.contents}"></div>
-        <input type="PW" class="PW" title="Regist" value="投稿"></input>
+      <div class="textBox2" name="" value=${e.type}>
+        <div class="TexitBox2_before" value=${e.contents}></div>
+        <input type="remarks" class="PW" title="Regist" value="投稿"></input>
       </div>
-​
+
         <div class="button-panel2">
           <input type="submit" class="button" title="sendmessage" value="投稿"></input>
         </div>
-
-    </div
-     <input type="hidden" class="PW" title="Regist" value="2"></input>>
+    </div>
+    <!--hidden属性を付与ここから-->
+    <input type="hidden" class="PW" title="Regist" value="1"></input>
+    <!--hidden属性を付与ここまで-->
   </form>
-​
+  </div>
   <!--投稿フォームここまで-->
-​
-​
-  <!-- メイン（ここまで） -->
 
-​
+
+  <!-- メイン（ここまで） -->
+  
+
   <!-- フッター（ここから） -->
   <div id="footer">
     <p>&copy; D1ユニコーンのたまご. All rights reserved.</p>
   </div>
   <!-- フッター（ここまで） -->
-​
-​
-​
+
+
+
 <!--お気に入りボタンSVGアニメーションここから-->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="heart" viewBox="0 0 1792 1792"><path d="M896 1664q-26 0-44-18l-624-602q-10-8-27.5-26T145 952.5 77 855 23.5 734 0 596q0-220 127-344t351-124q62 0 126.5 21.5t120 58T820 276t76 68q36-36 76-68t95.5-68.5 120-58T1314 128q224 0 351 124t127 344q0 221-229 450l-623 600q-18 18-44 18z"/></symbol>
 </svg>
 <!--お気に入りボタンSVGアニメーションここまで-->
-​
+
 <!-- 以下js及びjQuery処理の記述 -->
-​
+
 <script src="js/jquery-3.4.1.min.js"></script>
 <script>
 'use strict';
-​
+
 $(document).ready(function() {
   /* [ログイン]ボタンをクリックしたときの処理 */
   $('#submit').on('click', function() {
@@ -142,11 +140,11 @@ $(document).ready(function() {
     $('error_message').text(null);
     return true;	/* 送信する */
   });
-​
+
 });
-​
+
 //ハンバーガーメニューここから
-​
+
 (function($) {
   var $nav   = $('#navArea');
   var $btn   = $('.toggle_btn');
@@ -165,9 +163,9 @@ $(document).ready(function() {
     $nav.removeClass( open );
   });
 } )(jQuery);
-​
+
 //ハンバーガーメニューここまで
-​
+
 </script>
 </body>
 </html>
