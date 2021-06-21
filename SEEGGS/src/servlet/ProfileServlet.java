@@ -31,8 +31,8 @@ public class ProfileServlet extends HttpServlet {
 			response.sendRedirect("LoginServlet");
 			return;
 		}
-		// ユーザページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/User.jsp");
+		// プロフィールページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Profile.jsp");
 		dispatcher.forward(request, response);
 	}
 
