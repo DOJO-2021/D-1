@@ -25,13 +25,11 @@ public class BoardDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 			// SQL文を準備する(変更有・？)
-			String sql = "select * from Forum where M_number = ?  and Type = ?";
+			String sql = "select * from Forum where Type = ?";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる(変更有)
-			pStmt.setInt(1, param.getM_number() );
-
-			pStmt.setInt(2,  param.getType() );
+			pStmt.setInt(1, param.getType() );
 
 
 			// SQL文を実行し、結果表を取得する
