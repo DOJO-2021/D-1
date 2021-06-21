@@ -64,92 +64,92 @@ public class ThreadServlet extends HttpServlet {
 
 			// 検索処理を行う
 			BoardDAO bDao = new BoardDAO();
-			List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,type,"null"));
+			List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,type,null));
 
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("BoardList", BoardList);
 			request.setAttribute("type", type);
-			
+
 
 			// 掲示板ページにフォワードする
 			//response.sendRedirect("/WEB-INF/jsp/Thread.jsp");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
 			dispatcher.forward(request, response);
-//		}
+		}
 
-//		if (type == 2) {
-//
-//			// 検索処理を行う
-//			BoardDAO bDao = new BoardDAO();
-//			List<BoardBeans> BoardList = bDao.select(new BoardBeans(m_number,type,contents));
-//
-//			// 検索結果をリクエストスコープに格納する
-//			request.setAttribute("BoardList", BoardList);
-//
-//			// 掲示板ページにフォワードする
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
-//			dispatcher.forward(request, response);
-//		}
-//
-//		if (type == 3) {
-//
-//			// 検索処理を行う
-//			BoardDAO bDao = new BoardDAO();
-//			List<BoardBeans> BoardList = bDao.select(new BoardBeans(m_number,type,contents));
-//
-//			// 検索結果をリクエストスコープに格納する
-//			request.setAttribute("BoardList", BoardList);
-//
-//			// 掲示板ページにフォワードする
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
-//			dispatcher.forward(request, response);
-//		}
-//
-//		if (type == 4) {
-//
-//			// 検索処理を行う
-//			BoardDAO bDao = new BoardDAO();
-//			List<BoardBeans> BoardList = bDao.select(new BoardBeans(m_number,type,contents));
-//
-//			// 検索結果をリクエストスコープに格納する
-//			request.setAttribute("BoardList", BoardList);
-//
-//			// 掲示板ページにフォワードする
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
-//			dispatcher.forward(request, response);
-//		}
-//
-//		if (type == 5) {
-//
-//			// 検索処理を行う
-//			BoardDAO bDao = new BoardDAO();
-//			List<BoardBeans> BoardList = bDao.select(new BoardBeans(m_number,type,contents));
-//
-//			// 検索結果をリクエストスコープに格納する
-//			request.setAttribute("BoardList", BoardList);
-//
-//			// 掲示板ページにフォワードする
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
-//			dispatcher.forward(request, response);
-//		}
-//
-//		if (type == 6) {
-//
-//			// 検索処理を行う
-//			BoardDAO bDao = new BoardDAO();
-//			List<BoardBeans> BoardList = bDao.select(new BoardBeans(m_number,type,contents));
-//
-//			// 検索結果をリクエストスコープに格納する
-//			request.setAttribute("BoardList", BoardList);
-//
-//			// 掲示板ページにフォワードする
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
-//			dispatcher.forward(request, response);
-//		}
+		if (type == 2) {
 
-//			// 掲示板ページにフォワードする
-//			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
-//			dispatcher.forward(request, response);
+			// 検索処理を行う
+			BoardDAO bDao = new BoardDAO();
+			List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,type,null));
+
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("BoardList", BoardList);
+			request.setAttribute("type", type);
+
+			// 掲示板ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
+			dispatcher.forward(request, response);
+		}
+
+		if (type == 3) {
+
+			// 検索処理を行う
+			BoardDAO bDao = new BoardDAO();
+			List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,type,null));
+
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("BoardList", BoardList);
+			request.setAttribute("type", type);
+
+			// 掲示板ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
+			dispatcher.forward(request, response);
+		}
+
+		if (type == 4) {
+
+			// 検索処理を行う
+			BoardDAO bDao = new BoardDAO();
+			List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,type,null));
+
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("BoardList", BoardList);
+			request.setAttribute("type", type);
+
+			// 掲示板ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
+			dispatcher.forward(request, response);
+		}
+
+		if (type == 5) {
+
+			// 検索処理を行う
+			BoardDAO bDao = new BoardDAO();
+			List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,type,null));
+
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("BoardList", BoardList);
+			request.setAttribute("type", type);
+
+			// 掲示板ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
+			dispatcher.forward(request, response);
+		}
+
+		if (type == 6) {
+
+			// 検索処理を行う
+			BoardDAO bDao = new BoardDAO();
+			List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,type,null));
+
+			// 検索結果をリクエストスコープに格納する
+			request.setAttribute("BoardList", BoardList);
+			request.setAttribute("type", type);
+
+			// 掲示板ページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
+			dispatcher.forward(request, response);
 
 		}
 	}
