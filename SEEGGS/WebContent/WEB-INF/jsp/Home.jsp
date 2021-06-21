@@ -62,6 +62,50 @@
     <!--以下プロフィール中身を記述してください-->
      <div class="popup-content">
         <p>マイプロフィール</p>
+            <c:forEach var="e" items="${UserList}" ><!--Userテーブルから結果をインポートするときの名称-->
+    <form method="POST" action="UserServlet">
+        <table>
+        <tr>
+            <td>
+                写真<input type="part" name="photo" value="${e.photo}"><br>
+        </td>
+        <td>
+                名前<input type="text" name="name" value="${e.name}"><br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+                会社<input type="text" name="company" value="${e.company}"><br>
+                </td>
+        <td>
+                ニックネーム<input type="text" name="nickname" value="${e.nickname}"><br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+                出身地<input type="text" name="birthplace" value="${e.bithplace}"><br>
+        </td>
+        <td>
+                自分を一文字で表すと…<input type="text" name="address" value="${e.thisisme}"><br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+                趣味は？<input type="text" name="zip_code" value="${e.hobby}"><br>
+        </td>
+        <td>
+                今後やりたいこと<input type="text" name="tel" value="${e.future}"><br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+                研修への意気込みをどうぞ！<input type="text" name="fax" value="${e.word}"><br>
+        </td>
+        <td>
+    </tr>
+    </table>
+    </form>
+    </c:forEach>
      </div>
   </div>
   <!--以下オープンのためのボタン-->
