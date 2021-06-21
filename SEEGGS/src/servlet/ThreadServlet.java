@@ -42,11 +42,9 @@ public class ThreadServlet extends HttpServlet {
 			doPost(request,response);
 
 		// スレッドページにフォワードする
-//		response.sendRedirect("/WEB-INF/jsp/Thread.jsp");
 //		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
 //		dispatcher.forward(request, response);
 	}
-
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -61,8 +59,6 @@ public class ThreadServlet extends HttpServlet {
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		int type = Integer.parseInt(request.getParameter("type"));
-//		int m_number = Integer.parseInt(request.getParameter("m_number"));
-//		String contents = request.getParameter("contents");
 		//掲示板の種類ごとに検索結果をスレッドに表示する。
 		if (type == 1) {
 
@@ -72,12 +68,14 @@ public class ThreadServlet extends HttpServlet {
 
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("BoardList", BoardList);
+			request.setAttribute("type", type);
+			
 
 			// 掲示板ページにフォワードする
 			//response.sendRedirect("/WEB-INF/jsp/Thread.jsp");
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
 			dispatcher.forward(request, response);
-		}
+//		}
 
 //		if (type == 2) {
 //
@@ -152,6 +150,7 @@ public class ThreadServlet extends HttpServlet {
 //			// 掲示板ページにフォワードする
 //			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
 //			dispatcher.forward(request, response);
-		}
 
+		}
+	}
 }
