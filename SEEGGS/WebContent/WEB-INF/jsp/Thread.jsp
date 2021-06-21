@@ -130,7 +130,7 @@
 
 <!-- 以下js及びjQuery処理の記述 -->
 
-<script src="scripts/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
 <script>
 'use strict';
 

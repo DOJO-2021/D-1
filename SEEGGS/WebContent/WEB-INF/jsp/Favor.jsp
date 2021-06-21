@@ -24,12 +24,12 @@
     <nav>
       <div class="inner">
         <ul>
-          <li><a href="Home.html">ホーム</a></li>
-          <li><a href="#">マイプロフィール</a></li>
-          <li><a href="User.html">ユーザー情報</a></li>
-          <li><a href="Board.html">掲示板</a></li>
-          <li><a href="Favor.html">お気に入り一覧</a></li>
-          <li><a href="Login.html">ログアウト</a></li>
+          <li><a href="HomeServlet">ホーム</a></li>
+          <li><a href="ProfileServlet">マイプロフィール</a></li>
+          <li><a href="UserServlet">ユーザー情報</a></li>
+          <li><a href="BoardServlet">掲示板</a></li>
+          <li><a href="FavorServlet">お気に入り一覧</a></li>
+          <li><a href="LogoutServlet">ログアウト</a></li>
         </ul>
       </div>
     </nav>
@@ -43,11 +43,11 @@
   <!--右側ハンバーガーメニューここまで-->
   <!--スクロールボックスここから-->
   <div class="scrollArea3">
-  <!--スレッドここから 
+  <!--スレッドここから
   action以下に遷移先のサーブレットを記述してください。
   ${#} ${e.}に対象のEL式を記述してください。
   name以下に記述してください-->
-  
+
     <c:forEach var="e" items="${FavorList}" ><!--Userテーブルから結果をインポートするときの名称-->
     <form method="POST" action="/SEEGGS/FavorServlet">
       <div class="textBox" name="contents" value= ${e.contents}>
@@ -76,7 +76,7 @@
 </svg>
 <!--お気に入りボタンSVGアニメーションここまで-->
 <!-- 以下js及びjQuery処理の記述 -->
-<script src="scripts/jquery-3.4.1.min.js"></script>
+<script src="js/jquery-3.4.1.min.js"></script>
 <script>
 'use strict';
 $(document).ready(function() {
