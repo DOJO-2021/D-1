@@ -15,15 +15,15 @@
 
     <!--左上ロゴここから
       a href以下に遷移先のServletを記述してください。-->
-      
+
         <a href="/SEEGGS/HomeServlet"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
-      
+
     <!-- 左上ロゴ（ここまで） -->
 
   <!-- ヘッダー（ここまで） -->
 
   <!-- メイン（ここから） -->
-  
+
   <!--右側ハンバーガーメニューここから
       a href以下に遷移先のServletを記述してください。-->
 
@@ -41,17 +41,17 @@
         </ul>
       </div>
     </nav>
-  
+
     <div class="toggle_btn">
       <span></span>
       <span></span>
       <span></span>
     </div>
-  
+
     <div id="mask"></div>
-  
+
   </div>
-  
+
   <!--右側ハンバーガーメニューここまで-->
 
   <!--スクロールボックスここから-->
@@ -59,19 +59,20 @@
 <div class="scrollArea3">
 
   <!--スレッドここから
-　action以下に遷移先のサーブレットを記述してください。
-  対象のEL式を記述してください。
+	action以下に遷移先のサーブレットを記述してください。
+	対象のEL式を記述してください。
   name以下に記述してください-->
 <c:forEach var="e" items="${BoardList}" varStatus="status"><!--Userテーブルから結果をインポートするときの名称-->
-  <form method="GET" action="ThreadServlet">
-   <div class="textBox" c:out value=${e.m_number}>
-     <div class="TexitBox_before" c:out value=${e.contents}></div>
-             
+  <form method="POST" action="ThreadServlet">
+   <input type="text"  value="${e.contents}"></input>
+     <input type="text" class="TexitBox_before" c:out value="${e.m_number}"></input>
+      </c:forEach>
+
      <!--お気に入りボタンここから-->
      <div class="mother4">
      <div class="product__fav-item">
        <button type="button" class="favorite-button" {favorite_button_attribute product_id=$product.id added_class="fav-items"}>
-         <!-- <svg role="img" aria-hidden="true"><use xlink:href="#heart"></use></svg>　-->
+         <!-- <svg role="img" aria-hidden="true"><use xlink:href="#heart"></use></svg> -->
          <svg role="img" aria-hidden="true"></svg>
          お気に入り
        </button>
@@ -80,7 +81,7 @@
      <!--お気に入りボタンここまで-->
    </div>
   </form>
- </c:forEach>
+
   <!--スレッドここまで-->
 
 </div><!--スクロール閉じタグ-->
@@ -92,8 +93,8 @@
   <div class="mother7">
   <form method="POST" enctype="multipart/form-data"  action="<c:url value='/'/>">
     <div class="form-wrapper6">
-      <div class="textBox2" name="" value=${e.type}>
-        <div class="TexitBox2_before" value=${e.contents}></div>
+      <div class="textBox2" name="type" value="${e.type}">
+        <div class="TexitBox2_before" name="contents" value="${e.contents}"></div>
         <input type="remarks" class="PW" title="Regist" value="投稿"></input>
       </div>
 
@@ -110,7 +111,7 @@
 
 
   <!-- メイン（ここまで） -->
-  
+
 
   <!-- フッター（ここから） -->
   <div id="footer">
