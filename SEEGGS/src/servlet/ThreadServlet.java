@@ -41,7 +41,7 @@ public class ThreadServlet extends HttpServlet {
 		}
 			doPost(request,response);
 
-		// スレッドページにフォワードする
+		// スレッドページにフォワードするs
 //		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
 //		dispatcher.forward(request, response);
 	}
