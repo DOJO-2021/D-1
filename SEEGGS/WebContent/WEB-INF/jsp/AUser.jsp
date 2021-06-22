@@ -12,7 +12,7 @@
 <body>
 <div class="wrapper">
   <!-- ヘッダー（ここから） -->
- 
+
     <!--左上ロゴここから
       a href以下に遷移先のServletを記述してください。-->
 
@@ -105,6 +105,11 @@
     </tr>
     </table>
     </form>
+
+    <!-- 更新・削除ボタン -->
+        <input type= "button" name = "Update" value = "更新">
+  　    <input type= "button" name = "Delete" value = "削除">
+
     </c:forEach>
   </div>
  </div>

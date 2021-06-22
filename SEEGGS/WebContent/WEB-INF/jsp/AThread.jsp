@@ -9,7 +9,7 @@
 <title>SEEGGS | THREAD</title>
 <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
- 
+
 <body>
 <div class="wrapper">
   <!-- ヘッダー（ここから） -->
@@ -62,14 +62,13 @@
 
   <!--スレッドここから
 　action以下に遷移先のサーブレットを記述してください。
-  ${#} ${e.}に対象のEL式を記述してください。
+  に対象のEL式を記述してください。
   name以下に記述してください-->
 
-    <c:forEach var="e" items="${#}" ><!--Userテーブルから結果をインポートするときの名称-->
-    <form method="POST" action="/SEEGGS/#">
-      <div class="textBox" name="" value=${e.}>
-        <div class="TexitBox_before" value=${e.}>投稿者名</div>
-        あっとほーむSEEGGS!
+    <c:forEach var="e" items="${BoardList}" varStatus="status" > <!--Userテーブルから結果をインポートするときの名称-->
+    <form method="GET" action="ThreadServlet">
+      <div class="textBox" c:out value=${e.m_number}>
+        <div class="TexitBox_before" c:out value=${e.contents}></div>
 
         <!--お気に入りボタンここから-->
         <div class="mother4">
@@ -81,12 +80,38 @@
         </div>
         </div>
         <!--お気に入りボタンここまで-->
-         </c:forEach>
-      </div>
-  <!--スレッドここまで-->
-</div>
-　<!--スクロールボックスここまで-->
 
+         <!-- 更新・削除ボタン -->
+      <input type= "button" name = "Update" value = "更新">
+      <input type= "button" name = "Delete" value = "削除">
+		</div>
+	  </form>
+     </c:forEach>
+
+  <!--スレッドここまで-->
+</div><!-- スクロール閉じタグ -->
+</div><!-- mother6閉じタグ -->
+<!--スクロールボックスここまで-->
+
+<!-- 投稿フォームここから -->
+	<div class="mother7">
+  <form method="POST" enctype="multipart/form-data"  action="<c:url value='/'/>">
+    <div class="form-wrapper6">
+      <div class="textBox2" name="" value=${e.type}>
+        <div class="TexitBox2_before" value=${e.contents}></div>
+        <input type="remarks" class="PW" title="Regist" value="投稿"></input>
+      </div>
+
+        <div class="button-panel2">
+          <input type="submit" class="button" title="sendmessage" value="投稿"></input>
+        </div>s
+    </div>
+    <!--hidden属性を付与ここから-->
+    <input type="hidden" class="PW" title="Regist" value="2"></input>
+    <!--hidden属性を付与ここまで-->
+  </form>
+  </div>
+  <!--投稿フォームここまで-->
 
   <!-- メイン（ここまで） -->
 
