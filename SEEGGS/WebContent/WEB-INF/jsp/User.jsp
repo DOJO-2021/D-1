@@ -66,7 +66,7 @@
         <table>
         <tr>
             <td>
-                写真<input type="part" name="photo" value="${e.photo}"><br>
+                写真<input type="file" name="photo" value="${e.photo}"><br>
         </td>
         <td>
                 名前<input type="text" name="name" value="${e.name}"><br>
