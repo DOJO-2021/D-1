@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ja">
@@ -63,8 +65,8 @@
   name以下に記述してください-->
 <c:forEach var="e" items="${BoardList}" varStatus="status"><!--Userテーブルから結果をインポートするときの名称-->
   <form method="GET" action="ThreadServlet">
-   <div class="textBox" c:out value=${e.m_number}>
-     <div class="TexitBox_before" c:out value=${e.contents}></div>
+   <div class="textBox" c:out value="${e.m_number}">
+     <div class="TexitBox_before" c:out value="${e.contents}"></div>
 
      <!--お気に入りボタンここから-->
      <div class="mother4">
