@@ -57,64 +57,56 @@
   <!--スクロールボックスここから
   a href以下に遷移先のServletを記述してください。-->
 
-  <div class="popup-overlay">
-    <!--以下プロフィール中身を記述してください-->
-  <div class="popup-content">
-    <p>マイプロフィール</p>
+<div class="scrollArea">
+
     <c:forEach var="e" items="${UserList}" ><!--Userテーブルから結果をインポートするときの名称-->
-    <form method="POST" action="UserServlet">
+    <!-- <form method="POST" action="UserServlet"> -->
         <table>
         <tr>
             <td>
-                写真<input type="file" name="photo" value="${e.photo}"><br>
+                "${e.photo}"<br>
         </td>
         <td>
-                名前<input type="text" name="name" value="${e.name}"><br>
+                名前"${e.name}"<br>
         </td>
     </tr>
     <tr>
         <td>
-                会社<input type="text" name="company" value="${e.company}"><br>
+                会社"${e.company}"<br>
                 </td>
         <td>
-                ニックネーム<input type="text" name="nickname" value="${e.nickname}"><br>
+                ニックネーム"${e.nickname}"<br>
         </td>
     </tr>
     <tr>
         <td>
-                出身地<input type="text" name="birthplace" value="${e.bithplace}"><br>
+                出身地"${e.birthplace}"<br>
         </td>
         <td>
-                自分を一文字で表すと…<input type="text" name="address" value="${e.thisisme}"><br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-                趣味は？<input type="text" name="zip_code" value="${e.hobby}"><br>
-        </td>
-        <td>
-                今後やりたいこと<input type="text" name="tel" value="${e.future}"><br>
+                自分を一文字で表すと…"${e.thisisme}"<br>
         </td>
     </tr>
     <tr>
         <td>
-                研修への意気込みをどうぞ！<input type="text" name="fax" value="${e.word}"><br>
+                趣味は？"${e.hobby}"<br>
+        </td>
+        <td>
+                今後やりたいこと"${e.future}"<br>
+        </td>
+    </tr>
+    <tr>
+        <td>
+                研修への意気込みをどうぞ！"${e.word}"<br>
         </td>
         <td>
     </tr>
     </table>
-    </form>
     </c:forEach>
-  </div>
- </div>
-
-<div class="scrollArea">
-
     <!--プロフィールのポップアップここから
         a href以下に遷移先のServletを記述してください。-->
 
-            <!--以下オープンのためのボタン-->
-            <button class="open"><img src="images/プロフィール.png" width="200" height="300" alt="SEEGGS"></button>
+            <!--以下オープンのためのボタン
+            <button class="open"><img src="images/プロフィール.png" width="200" height="300" alt="SEEGGS"></button>-->
     <!--プロフィールのポップアップここまで-->
 </div>
 
