@@ -25,34 +25,34 @@ public class UserDAO {
 			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 			// SQL文を準備する(変更有・？)
-			String sql = "select * from User where Id like  ? and Name like ? and Company like ? and Nickname like ?";
+			String sql = "select * from User order by id DESC";
 			PreparedStatement pStmt = conn.prepareStatement(sql);
 
 			// SQL文を完成させる(変更有)
-			if (param.getId() != null) {
-				pStmt.setString(1, "%" + param.getId() + "%");
-			}
-			else {
-				pStmt.setString(1, "%");
-			}
-			if (param.getName() != null) {
-				pStmt.setString(2, "%" + param.getName() + "%");
-			}
-			else {
-				pStmt.setString(2, "%");
-			}
-			if (param.getCompany() != null) {
-				pStmt.setString(3, "%" + param.getCompany() + "%");
-			}
-			else {
-				pStmt.setString(3, "%");
-			}
-			if (param.getNickname() != null) {
-				pStmt.setString(4, "%" + param.getNickname() + "%");
-			}
-			else {
-				pStmt.setString(4, "%");
-			}
+//			if (param.getId() != null) {
+//				pStmt.setString(1, "%" + param.getId() + "%");
+//			}
+//			else {
+//				pStmt.setString(1, "%");
+//			}
+//			if (param.getName() != null) {
+//				pStmt.setString(2, "%" + param.getName() + "%");
+//			}
+//			else {
+//				pStmt.setString(2, "%");
+//			}
+//			if (param.getCompany() != null) {
+//				pStmt.setString(3, "%" + param.getCompany() + "%");
+//			}
+//			else {
+//				pStmt.setString(3, "%");
+//			}
+//			if (param.getNickname() != null) {
+//				pStmt.setString(4, "%" + param.getNickname() + "%");
+//			}
+//			else {
+//				pStmt.setString(4, "%");
+//			}
 
 
 			// SQL文を実行し、結果表を取得する
