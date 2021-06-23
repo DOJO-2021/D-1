@@ -40,8 +40,9 @@ public class UserServlet extends HttpServlet {
 			return;
 		}
 		// ユーザページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/User.jsp");
-		dispatcher.forward(request, response);
+	//	RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/User.jsp");
+		//dispatcher.forward(request, response);
+		doPost(request,response);
 	}
 
 	/**
@@ -56,22 +57,22 @@ public class UserServlet extends HttpServlet {
 			}
 
 			// リクエストパラメータを取得する
-			request.setCharacterEncoding("UTF-8");
-			String id = request.getParameter("id");
-			String password = request.getParameter("password");
-			String photo = request.getParameter("photo");
-			String name = request.getParameter("name");
-			String company = request.getParameter("company");
-			String nickname = request.getParameter("nickname");
-			String birthplace = request.getParameter("birthplace");
-			String thisisme = request.getParameter("thisisme");
-			String hobby = request.getParameter("hobby");
-			String future = request.getParameter("future");
-			String word = request.getParameter("word");
+//			request.setCharacterEncoding("UTF-8");
+//			String id = request.getParameter("id");
+//			String password = request.getParameter("password");
+//			String photo = request.getParameter("photo");
+//			String name = request.getParameter("name");
+//			String company = request.getParameter("company");
+//			String nickname = request.getParameter("nickname");
+//			String birthplace = request.getParameter("birthplace");
+//			String thisisme = request.getParameter("thisisme");
+//			String hobby = request.getParameter("hobby");
+//			String future = request.getParameter("future");
+//			String word = request.getParameter("word");
 
 			// 検索処理を行う
 			UserDAO uDao = new UserDAO();
-			List<UserBeans> UserList = uDao.select(new UserBeans(id, password, photo, name, company, nickname, birthplace, thisisme, hobby, future, word));
+			List<UserBeans> UserList = uDao.select(new UserBeans("", "", "", "", "", "", "","","", "", ""));
 
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("UserList", UserList);
