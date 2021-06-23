@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.UserDAO;
+import model.LoginBeans;
 import model.UserBeans;
 
 /**
@@ -49,19 +50,25 @@ public class HomeServlet extends HttpServlet {
 
 			// 検索処理を行う
 			UserDAO uDao = new UserDAO();
-			List<UserBeans> UserList = uDao.select(new UserBeans(id,password,photo, name, company, nickname, birthplace, thisisme, hobby, future, word));
+			List<UserBeans> UserList = uDao.select1(new UserBeans(id,password,photo, name, company, nickname, birthplace, thisisme, hobby, future, word));
 
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("UserList", UserList);
-		}
-		/*
-		//セッションスコープにインスタンスを保存
-		session.setAttribute("id", id);*/
 
-		/*// リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
-		String id = request.getParameter("ID");
-		String password = request.getParameter("PASSWORD");*/
+			// 初回ログイン時はログイン中のユーザー情報をセッションに格納する
+			// （厳密ではないが、取得できたUserListの件数が1件、
+			// かつ、その１件のIDと、セッションにすでにあるログインIDとが一致していればという判定で代用）
+
+			if(UserList.size() == 1) {
+				String uid = UserList.get(0).getId();
+				LoginBeans login = (LoginBeans)session.getAttribute("id");
+				String sid = login.getId();
+
+				if(id.equals(sid)) {
+					session.setAttribute("User", UserList);
+				}
+			}
+		}
 
 		//Homeページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Home.jsp");
