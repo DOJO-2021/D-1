@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <!DOCTYPE html>
 <html>
@@ -57,17 +57,17 @@
   <!--プロフィールのポップアップここから
   a href以下に遷移先のServletを記述してください。-->
 
-
   <div class="popup-overlay">
     <!--以下プロフィール中身を記述してください-->
      <div class="popup-content">
         <p>マイプロフィール</p>
-            <c:forEach var="e" items="${UserList}" ><!--Userテーブルから結果をインポートするときの名称-->
+            <c:forEach var="e" items="${sessionScope.User}" ><!--Userテーブルから結果をインポートするときの名称-->
     <form method="POST" action="UserServlet">
         <table>
         <tr>
             <td>
-                写真<input type="file" name="photo" value="${e.photo}"><br>
+            	<c:set var="path" value="upload\\" />
+                写真<img width="128" height="128" alt="プロフィール画像" src="${path}${e.photo}"><br>
         </td>
         <td>
                 名前<input type="text" name="name" value="${e.name}"><br>
@@ -83,7 +83,7 @@
     </tr>
     <tr>
         <td>
-                出身地<input type="text" name="birthplace" value="${e.bithplace}"><br>
+                出身地<input type="text" name="birthplace" value="${e.birthplace}"><br>
         </td>
         <td>
                 自分を一文字で表すと…<input type="text" name="address" value="${e.thisisme}"><br>
