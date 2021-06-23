@@ -1,0 +1,33 @@
+@charset "UTF-8";
+/*Threadの一覧部分*/
+.mother9 {
+  display: inline-block;
+  position:relative;
+}
+
+.form-item input1 {
+  background: #fafafa;
+  border: none;
+  border-bottom: 2px solid #e9e9e9;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  height: 20px;
+  transition: border-color 0.3s;
+  width: 50%;
+}
+
+textarea1[name=remarks]{
+  width: 100px;
+  height: 50px;
+}
+
+  .TexitBox_before1 {
+    background-color: #fff;
+    color: #333;
+    font-weight: bold;
+    left: 10px;
+    padding: 0px;
+    position: absolute;
+    top: 15px;
+    }

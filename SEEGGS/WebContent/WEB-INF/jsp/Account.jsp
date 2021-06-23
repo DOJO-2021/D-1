@@ -55,8 +55,8 @@
     </div>
 
     <div class="form-item">
-    　<label for="COMPANY">会社名</label>
-    　<input type="text" name="campany" required="required" placeholder=""></input>
+    	<label for="COMPANY">会社名</label>
+    	<input type="text" name="company" required="required" placeholder=""></input>
     </div>
 
     <div class="form-item">

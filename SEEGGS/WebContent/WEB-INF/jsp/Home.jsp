@@ -16,7 +16,7 @@
     <!--左上ロゴここから
       a href以下に遷移先のServletを記述してください。-->
 
-        <a href="/SEEGGS/HomeServlet""><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
+        <a href="/SEEGGS/HomeServlet"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
 
       <!-- 左上ロゴ（ここまで） -->
 
@@ -61,77 +61,88 @@
     <!--以下プロフィール中身を記述してください-->
      <div class="popup-content">
         <p>マイプロフィール</p>
-            <c:forEach var="e" items="${sessionScope.User}" ><!--Userテーブルから結果をインポートするときの名称-->
-    <form method="POST" action="UserServlet">
+        <c:forEach var="e" items="${sessionScope.User}" ><!--Userテーブルから結果をインポートするときの名称-->
+        <form method="POST" action="UserServlet">
         <table>
-        <tr>
-            <td>
-            	<c:set var="path" value="upload\\" />
-                写真<img width="128" height="128" alt="プロフィール画像" src="${path}${e.photo}"><br>
-        </td>
-        <td>
-                名前<input type="text" name="name" value="${e.name}"><br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-                会社<input type="text" name="company" value="${e.company}"><br>
+            <c:set var="path" value="upload\\" />
+            <tr>
+                <td>
+                      <img width="50" height="100" alt="プロフィール画像" src="${path}${e.photo}"><br>
                 </td>
-        <td>
-                ニックネーム<input type="text" name="nickname" value="${e.nickname}"><br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-                出身地<input type="text" name="birthplace" value="${e.birthplace}"><br>
-        </td>
-        <td>
-                自分を一文字で表すと…<input type="text" name="address" value="${e.thisisme}"><br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-                趣味は？<input type="text" name="zip_code" value="${e.hobby}"><br>
-        </td>
-        <td>
-                今後やりたいこと<input type="text" name="tel" value="${e.future}"><br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-                研修への意気込みをどうぞ！<input type="text" name="fax" value="${e.word}"><br>
-        </td>
-        <td>
-    </tr>
-    </table>
-    </form>
-    </c:forEach>
-     </div>
-  </div>
-  <!--以下オープンのためのボタン-->
-  <button class="open"><img src="images/プロフィール.png" width="200" height="300" alt="SEEGGS"></button>
-
-  <!--プロフィールのポップアップここまで-->
-
-<div class="mother">
-  <!--ユーザー情報リンクボタンここから-->
-    <div class="form-wrapper2">
-        <div class="button-panel">
-          <a href="/SEEGGS/UserServlet"><input type="submit" class="button" title="Login" value="ユーザー情報"></input></a>
-        </div>
+            </tr>
+            <tr>
+              <tb>
+                      名前<br><input type="text" name="remarks" value="${e.name}"><br>
+              </td>
+              <td>
+                      会社<br><input type="text" name="remarks" value="${e.company}"><br>
+              </td>
+              <td>
+                      ニックネーム<br><input type="text" name="remarks" value="${e.nickname}"><br>
+              </td>
+              <td>
+                      研修への意気込みをどうぞ！<br><input type="text" name="word" value="${e.word}"><br>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      自分を一文字で表すと…<br><input type="text" name="remarks" value="${e.thisisme}"><br>
+              </td>
+              <td>
+                      出身地<br><input type="text" name="remarks" value="${e.birthplace}"><br>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      今後やりたいこと<br><input type="text" name="remarks" value="${e.future}"><br>
+              </td>
+              <td>
+                      趣味は？<br><input type="text" name="remarks" value="${e.hobby}"><br>
+              </td>
+              <td>
+            </tr>
+          </table>
+          </form>
+          </c:forEach>
+       </div>
     </div>
-  <!--ユーザー情報リンクボタンここまで-->
-
-  <!--掲示板リンクボタンここから-->
-
-    <div class="form-wrapper3">
-      <div class="button-panel">
-          <a href="/SEEGGS/BoardServlet"><input type="submit" class="button" title="Login" value="掲示板"></input></a>
+  
+    <!--使い方ボタンここから-->
+    <div class="mother11">
+      <div class="form-wrapper2">
+        <div class="button-panel4">
+          <figure><a href="Board.html"><img src="images/HomeHowToUseButton.png" width="180" height="250" alt="SEEGGS"></a></figure>
+        </div>
       </div>
     </div>
-
-  <!--掲示板リンクボタンここまで-->
-</div>
+      <!--使い方ボタンここまで-->
+  
+    <!--以下オープンのためのボタン-->
+    <div class="mother">
+      <section id="modalArea" class="modalArea">
+      <figure2><button class="open"><img src="images/HomeProfileButton.png" width="300" height="360" alt="SEEGGS"></button></figure2>
+    　</section>
+    </div>
+    <!--プロフィールのポップアップここまで-->
+  
+  <div class="mother">
+    <!--ユーザー情報リンクボタンここから-->
+      <div class="form-wrapper2">
+          <div class="button-panel">
+            <figure><a href="User.html"><img src="images/HomeUserButton.png" width="300" height="360" alt="SEEGGS"></a></figure>
+          </div>
+      </div>
+  </div>
+    <!--ユーザー情報リンクボタンここまで-->
+  
+    <!--掲示板リンクボタンここから-->
+  <div class="mother">
+      <div class="form-wrapper2">
+        <div class="button-panel">
+          <figure><a href="Board.html"><img src="images/HomeBoardButton.png" width="300" height="360" alt="SEEGGS"></a></figure>
+        </div>
+  </div>
+    <!--掲示板リンクボタンここまで-->
   <!-- メイン（ここまで） -->
 
 

@@ -33,6 +33,7 @@ public class HomeServlet extends HttpServlet {
 		HttpSession session = request.getSession();
 		if (session.getAttribute("id") == null) {
 			response.sendRedirect("/SEEGGS/LoginServlet");
+			return;//リダイレクトとフォワードをおなじServlet内で同時に起こさないための処理
 		}else {
 			// リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");

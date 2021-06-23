@@ -7,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SEEGGS | THREAD</title>
 <link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/Thread.css">
 </head>
 
 <body>
@@ -64,9 +65,13 @@
   name以下に記述してください-->
 <c:forEach var="e" items="${BoardList}" varStatus="status"><!--Userテーブルから結果をインポートするときの名称-->
   <form method="POST" action="ThreadServlet">
-   <input type="text"  value="${e.contents}"></input>
-     <input type="text" class="TexitBox_before" c:out value="${e.m_number}"></input>
+
+   <div class="textBox">
+${e.m_number} ${e.contents}
+     <div class="TexitBox_before" >
       </c:forEach>
+      </div>
+
 
      <!--お気に入りボタンここから-->
      <div class="mother4">
