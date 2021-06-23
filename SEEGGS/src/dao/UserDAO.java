@@ -212,6 +212,95 @@ public class UserDAO {
 			return result;
 		}
 
+		// homeServlet用　1件のみ取ってくる処理
+		public List<UserBeans> select1(UserBeans param) {
+			Connection conn = null;
+			List<UserBeans> UserList = new ArrayList<UserBeans>();
+
+			try {
+				// JDBCドライバを読み込む
+				Class.forName("org.h2.Driver");
+
+				// データベースに接続する
+				conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
+
+				// SQL文を準備する(変更有・？)
+				String sql = "select * from User where Id like  ? and Name like ? and Company like ? and Nickname like ?";
+				PreparedStatement pStmt = conn.prepareStatement(sql);
+
+				// SQL文を完成させる(変更有)
+				if (param.getId() != null) {
+					pStmt.setString(1, "%" + param.getId() + "%");
+				}
+				else {
+					pStmt.setString(1, "%");
+				}
+				if (param.getName() != null) {
+					pStmt.setString(2, "%" + param.getName() + "%");
+				}
+				else {
+					pStmt.setString(2, "%");
+				}
+				if (param.getCompany() != null) {
+					pStmt.setString(3, "%" + param.getCompany() + "%");
+				}
+				else {
+					pStmt.setString(3, "%");
+				}
+				if (param.getNickname() != null) {
+					pStmt.setString(4, "%" + param.getNickname() + "%");
+				}
+				else {
+					pStmt.setString(4, "%");
+				}
+
+
+				// SQL文を実行し、結果表を取得する
+				ResultSet rs = pStmt.executeQuery();
+
+				// 結果表をコレクションにコピーする (変更有)
+				while (rs.next()) {
+					UserBeans Ucard = new UserBeans(
+					rs.getString("id"),
+					rs.getString("password"),
+					rs.getString("photo"),
+					rs.getString("name"),
+					rs.getString("company"),
+					rs.getString("nickname"),
+					rs.getString("birthplace"),
+					rs.getString("thisisme"),
+					rs.getString("hobby"),
+					rs.getString("future"),
+					rs.getString("word")
+					);
+					UserList.add(Ucard);
+				}
+			}
+			catch (SQLException e) {
+				e.printStackTrace();
+				UserList = null;
+			}
+			catch (ClassNotFoundException e) {
+				e.printStackTrace();
+				UserList = null;
+			}
+			finally {
+				// データベースを切断
+				if (conn != null) {
+					try {
+						conn.close();
+					}
+					catch (SQLException e) {
+						e.printStackTrace();
+						UserList = null;
+					}
+				}
+			}
+
+			// 結果を返す
+			return UserList;
+		}
+
 		// 引数cardで指定されたレコードを更新し、成功したらtrueを返す
 		public boolean update(UserBeans Ucard) {
 			Connection conn = null;
