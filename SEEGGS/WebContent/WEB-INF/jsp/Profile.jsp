@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+ <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,57 +54,58 @@
 
   <!--右側ハンバーガーメニューここまで-->
 
-   <div class="popup-overlay">
-    <!--以下プロフィール中身を記述してください-->
-  <div class="popup-content">
-    <p>マイプロフィール</p>
-  <!--Userテーブルから結果をインポートするときの名称-->
-    <form method="POST" action="UserServlet">
-        <table>
-        <tr>
-            <td>
-                写真<input type="text" name="photo" value="photo"><br>
-        </td>
-        <td>
-                名前<input type="text" name="name" value="name"><br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-                会社<input type="text" name="company" value="company"><br>
-                </td>
-        <td>
-                ニックネーム<input type="text" name="nickname" value="nickname"><br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-                出身地<input type="text" name="birthplace" value="bithplace"><br>
-        </td>
-        <td>
-                自分を一文字で表すと…<input type="text" name="address" value="thisisme"><br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-                趣味は？<input type="text" name="zip_code" value="hobby"><br>
-        </td>
-        <td>
-                今後やりたいこと<input type="text" name="tel" value="future"><br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-                研修への意気込みをどうぞ！<input type="text" name="fax" value="word"><br>
-        </td>
-        <td>
-    </tr>
-    </table>
-    		<input type="button" name="update" value="登録">
-    </form>
+  <p>マイプロフィール</p>
+  		<c:forEach var= "e" items="${sessionScope.User}">
+  	<form method="POST" action="ProfileServlet">
+  		<table>
+  		<tr>
+  			<td>
+  			 <c:set var="path" value="upload\\"/>
+  			 	写真<img width="128" height="128" alt="プロフィール画像" src="${path}${e.photo}"><br>
+  			 	 <input type="file" name="photo" accept="image/jpeg, image/png">
+  			</td>
+  			<td>
+  				名前<input type="text" name="name" value="${e.name}"><br>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td>
+  				会社<input type="text" name="company" value="${e.company}"><br>
+  			</td>
+  			<td>
+  				ニックネーム<input type ="text" name="nickname" value="${e.nickname}"><br>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td>
+  				出身地<input type ="text" name="birthplace" value="${e.birthplace}"><br>
+  			</td>
+  			<td>
+  				自分を一文字で表すと<input type= "text" name ="thisisme" value="${e.thisisme }"><br>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td>
+  				趣味は？<input type ="text" name="hobby" value="${e.hobby}"><br>
+  			</td>
+  			<td>
+  				今後やりたいこと<input type="text" name ="future" value="${e.future }"><br>
+  			</td>
+  		</tr>
+  		<tr>
+  			<td>
+  				研修への意気込みをどうぞ!<input type="text" name="word" value="${e.word }">
+  			</td>
+  		</tr>
+  		</table>
+  		<input type="submit" name="SUBMIT" value="更新" onclick="alertFunction1()">
+  	</form>
+  		</c:forEach>
 
   </div>
- </div>
-</div>
-</body>
-</html>
+
+  <script>
+ function alertFunction1(){
+	alert("更新しますか？");
+ }
+  </script>
