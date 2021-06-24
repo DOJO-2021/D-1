@@ -38,6 +38,7 @@ public class BoardDAO {
 			// 結果表をコレクションにコピーする (変更有)
 			while (rs.next()) {
 				BoardBeans Ccard = new BoardBeans(
+				rs.getString("id"),
 				rs.getInt("m_number"),
 				rs.getInt("type"),
 				rs.getString("contents")
@@ -82,21 +83,27 @@ public class BoardDAO {
 					conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 					// SQL文を準備する
-					String sql = "insert into Forum values (null, ?, ?)";
+					String sql = "insert into Forum values (?, null, ?, ?)";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
 
 					// SQL文を完成させる
-					if (bcard.getType() != 0) {
-						pStmt.setInt(1, bcard.getType());
+					if (bcard.getId() != null) {
+						pStmt.setString(1, bcard.getId());
 					}
 					else {
 						pStmt.setString(1, "null");
 					}
-					if (bcard.getContents() != null) {
-						pStmt.setString(2, bcard.getContents());
+					if (bcard.getType() != 0) {
+						pStmt.setInt(2, bcard.getType());
 					}
 					else {
 						pStmt.setString(2, "null");
+					}
+					if (bcard.getContents() != null) {
+						pStmt.setString(3, bcard.getContents());
+					}
+					else {
+						pStmt.setString(3, "null");
 					}
 
 					// SQL文を実行する
