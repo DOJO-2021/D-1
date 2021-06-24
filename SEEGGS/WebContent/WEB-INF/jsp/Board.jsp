@@ -9,7 +9,7 @@
 <title>SEEGGS | BOARD</title>
 <link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
- 
+
 <body>
 <div class="wrapper">
   <!-- ヘッダー（ここから） -->
@@ -59,7 +59,7 @@
   action以下に遷移先を記述してください-->
 
   <div class="mother">
-  <form method="get" action="SerchServlet" class="search_container">
+  <form method="POST" action="SearchServlet" class="search_container">
     <input type="text" size="25" placeholder="　キーワード検索">
     <input type="submit" value="&#xf002">
   </form>
