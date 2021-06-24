@@ -64,7 +64,7 @@ public class AUserServlet extends HttpServlet {
 			request.setAttribute("UserList", UserList);
 
 			// 結果ページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/User.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/AUser.jsp");
 			dispatcher.forward(request, response);
 	}
 
