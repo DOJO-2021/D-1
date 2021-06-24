@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
-
+ 
 <body>
 <div class="wrapper">
   <!-- ヘッダー（ここから） -->
@@ -90,7 +90,7 @@
     <div class="form-wrapper6">
       <div class="textBox2">
         <div class="TexitBox2_before" ></div>
-        <input type="text" name="type" title="内容を書き込んで投稿してみよう！" value="書き込む"></input>
+        <input type="text" name="contents" title="内容を書き込んで投稿してみよう！" value="書き込む"></input>
       </div>
 
         <div class="button-panel2">
@@ -106,7 +106,7 @@
   </table>
   </div>
   <!--投稿フォームここまで-->
-
+ 
   <!-- メイン（ここまで） -->
 
 
