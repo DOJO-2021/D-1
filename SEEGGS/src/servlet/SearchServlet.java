@@ -14,6 +14,7 @@ import javax.servlet.http.HttpSession;
 import dao.BoardDAO;
 import model.BoardBeans;
 
+
 /**
  * Servlet implementation class BoardServlet
  */
@@ -40,6 +41,8 @@ public class SearchServlet extends HttpServlet {
 				return;
 			}
 			doPost(request,response);
+//			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/Result.jsp");
+//			d.forward(request, response);
 	}
 
 	/**
@@ -52,19 +55,21 @@ public class SearchServlet extends HttpServlet {
 			response.sendRedirect("/SEEGGS/LoginServlet");
 			return;
 		}
-
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String contents = request.getParameter("contents");
+		String id = request.getParameter("id");
 
 		// 検索処理を行う
 		BoardDAO bDao = new BoardDAO();
-		List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,0,contents));
+		List<BoardBeans> BoardList = bDao.select(new BoardBeans(id,0,0,contents));
+
+	//	if(contents != null){
 
 		// 検索結果をリクエストスコープに格納する
 		request.setAttribute("BoardList", BoardList);
 		RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/Result.jsp");
 		d.forward(request, response);
 		return;
-	}
+		}
 }
