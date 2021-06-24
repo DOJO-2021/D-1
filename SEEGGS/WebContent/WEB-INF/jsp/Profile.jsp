@@ -54,6 +54,7 @@
 
   <!--右側ハンバーガーメニューここまで-->
 
+<div class=mother>
   <p>マイプロフィール</p>
   		<c:forEach var= "e" items="${sessionScope.User}">
   	<form method="POST" action="ProfileServlet">
@@ -81,7 +82,7 @@
   				出身地<input type ="text" name="birthplace" value="${e.birthplace}"><br>
   			</td>
   			<td>
-  				自分を一文字で表すと<input type= "text" name ="thisisme" value="${e.thisisme }"><br>
+  				自分を一文字で表すと<input type= "text" name ="thisisme" value="${e.thisisme}"><br>
   			</td>
   		</tr>
   		<tr>
@@ -89,12 +90,12 @@
   				趣味は？<input type ="text" name="hobby" value="${e.hobby}"><br>
   			</td>
   			<td>
-  				今後やりたいこと<input type="text" name ="future" value="${e.future }"><br>
+  				今後やりたいこと<input type="text" name ="future" value="${e.future}"><br>
   			</td>
   		</tr>
   		<tr>
   			<td>
-  				研修への意気込みをどうぞ!<input type="text" name="word" value="${e.word }">
+  				研修への意気込みをどうぞ!<input type="text" name="word" value="${e.word}">
   			</td>
   		</tr>
   		</table>
@@ -103,9 +104,71 @@
   		</c:forEach>
 
   </div>
+  </div>
 
   <script>
  function alertFunction1(){
 	alert("更新しますか？");
  }
   </script>
+  <!-- 以下js及びjQuery処理の記述 -->
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script>
+'use strict';
+
+$(document).ready(function() {
+  /* [ログイン]ボタンをクリックしたときの処理 */
+  $('#submit').on('click', function() {
+    if (!$('#user_id').val() || !$('#password').val()) {
+      $('#error_message').text('※IDとパスワードを入力してください！');
+      return false;	/* 送信しない */
+    }
+    $('error_message').text(null);
+    return true;	/* 送信する */
+  });
+
+});
+
+//ハンバーガーメニューここから
+
+(function($) {
+  var $nav   = $('#navArea');
+  var $btn   = $('.toggle_btn');
+  var $mask  = $('#mask');
+  var open   = 'open'; // class指定
+  // menuオープン
+  $btn.on( 'click', function() {
+    if ( ! $nav.hasClass( open ) ) {
+      $nav.addClass( open );
+    } else {
+      $nav.removeClass( open );
+    }
+  });
+  // ポップアップ閉じる
+  $mask.on('click', function() {
+    $nav.removeClass( open );
+  });
+} )(jQuery);
+
+//ハンバーガーメニューここまで
+
+
+
+//プロフィールポップアップのjs
+
+//「マイプロフィール」ボタンがクリックされたときに、activeを .popup および .popup-content に追加
+$(".open").on("click", function(){
+  $(".popup-overlay, .popup-content").addClass("active");
+});
+
+//「閉じる」ボタンがクリックされたときに、activeを .popup および .popup-content から削除
+$(".close, .popup-overlay").on("click", function(){
+  $(".popup-overlay, .popup-content").removeClass("active");
+});
+
+//プロフィールポップアップのjsここまで
+
+</script>
+</body>
+</html>
