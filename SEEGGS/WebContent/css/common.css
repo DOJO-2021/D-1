@@ -66,15 +66,15 @@ body {
   display: inline-block;
   position:relative;
   top: 10px;
-  right: 500px;
+  right: 600px;
 }
 
 /*Thread.jsp投稿部分*/
 .mother7 {
   display: inline-block;
   position:relative;
-  top: 150px;
-  right: 100px;
+  top: -350px;
+  left: 200px;
 }
 
 /*favor.jsp一覧部分*/
@@ -85,6 +85,11 @@ body {
   right: 360px;
 }
 
+/*Threadの一覧部分*/
+.mother9 {
+  display: inline-block;
+  position:relative;
+}
 
 /*Home.jspボタン用*/
 .mother10 {
@@ -369,8 +374,8 @@ html{
   background:#ffffff;
   border:3px solid #666666;
   width:50%;
-  height:50%;
-  left:25%; 
+  height:55%;
+  left:25%;
   float: 1 1 auto;
 }
 .popup-overlay.active{
@@ -387,7 +392,7 @@ html{
 
 .popup-content.active {
   visibility:visible;
-  margin-top: 2%;
+  margin: 2%;
   flex: 1 1 auto;
 }
 
@@ -492,7 +497,7 @@ table#list tr.data_row:hover {
   width: 600px;
   height: 150px;
   }
-  
+
   .textBox::before {
   background-color: #fff;
   color: #333;
@@ -524,7 +529,7 @@ table#list tr.data_row:hover {
   width: 400px;
   height: 150px;
   }
-  
+
   .textBox2::before {
   background-color: #fff;
   color: #333;
@@ -735,7 +740,7 @@ nav .inner ul li a:hover {
   display: inline-block;
   vertical-align: middle;
 }
-/*Board.htmlの検索バーここから*/
+/*Board.htmlの検索バーここまで*/
 
 
 /*Thread.jspのお気に入りボタンここから*/
@@ -769,3 +774,35 @@ ul li.remove span {
   color: #F00;
 }
 /*Thread.jspのお気に入りボタンここまで*/
+
+
+/*Thread.jspテキストボックスレイアウトここから*/
+
+.form-item input1 {
+  background: #fafafa;
+  border: none;
+  border-bottom: 2px solid #e9e9e9;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  height: 20px;
+  transition: border-color 0.3s;
+  width: 50%;
+}
+
+textarea1[name=remarks]{
+  width: 100px;
+  height: 50px;
+}
+
+  .TexitBox_before1 {
+    background-color: #fff;
+    color: #333;
+    font-weight: bold;
+    left: 10px;
+    padding: 0px;
+    position: absolute;
+    top: 15px;
+    }
+
+    /*Thread.jspテキストボックスレイアウトここまで*/

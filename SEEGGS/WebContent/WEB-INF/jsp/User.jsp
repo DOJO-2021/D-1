@@ -60,11 +60,12 @@
 <div class="scrollArea">
 
     <c:forEach var="e" items="${UserList}" ><!--Userテーブルから結果をインポートするときの名称-->
-    <!-- <form method="POST" action="UserServlet"> -->
+    <form method="POST" action="UserServlet">
         <table>
         <tr>
+        	<c:set var="path" value="upload\\" />
             <td>
-                "${e.photo}"<br>
+                <img src="${path}${e.photo}" width="75" height="100"><br>
         </td>
         <td>
                 名前"${e.name}"<br>
@@ -101,6 +102,7 @@
         <td>
     </tr>
     </table>
+    </form>
     </c:forEach>
     <!--プロフィールのポップアップここから
         a href以下に遷移先のServletを記述してください。-->
