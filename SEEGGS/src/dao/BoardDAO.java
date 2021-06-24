@@ -130,6 +130,6 @@ public class BoardDAO {
 				}
 
 				// 結果を返す
-				return result;
+				return result; 
 			}
 }
