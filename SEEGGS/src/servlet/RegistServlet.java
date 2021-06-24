@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.BoardDAO;
+import model.BoardBeans;
+
 
 /**
  * Servlet implementation class RegistServlet
@@ -48,25 +50,23 @@ public class RegistServlet extends HttpServlet {
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
+
 		String id = request.getParameter("id");
-		String m_number = request.getParameter("M_NUMBER");
-		String type = request.getParameter("TYPE");
-		String contents = request.getParameter("CONTENTS");
+//		int m_number = Integer.parseInt(request.getParameter("m_number"));
+		int type = Integer.parseInt(request.getParameter("type"));
+		String contents = request.getParameter("contents");
 
 
 		// 登録処理を行う
 		BoardDAO bDao = new BoardDAO();
-		if (bDao.insert(new Board(0, m_number, type, contents))) {	// 登録成功
-			request.setAttribute("result",
-			new Result("登録成功！", "レコードを登録しました。", "/simpleBC/ResistServlet"));
-		}
-		else {												// 登録失敗
-			request.setAttribute("result",
-			new Result("登録失敗！", "レコードを登録できませんでした。", "/simpleBC/ResistServlet"));
+		if (bDao.insert(new BoardBeans(id, 0, type, contents))) {	// 登録成功
+			// ボードページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Board.jsp");
+			dispatcher.forward(request, response);
 		}
 
-		// スレッドページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
-		dispatcher.forward(request, response);
+//		// ボードページにフォワードする
+//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Board.jsp");
+//		dispatcher.forward(request, response);
 	}
 }

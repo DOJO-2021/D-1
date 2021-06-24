@@ -60,7 +60,7 @@ public class ResultServlet extends HttpServlet {
 
 
 		BoardDAO bDao = new BoardDAO();
-		if (bDao.insert(new  BoardBeans(0,type,contents))) {	// 登録成功
+		if (bDao.insert(new  BoardBeans(null, 0,type,contents))) {	// 登録成功
 
 			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/Board.jsp");
 			d.forward(request, response);

@@ -64,7 +64,7 @@ public class ThreadServlet extends HttpServlet {
 
 			// 検索処理を行う
 			BoardDAO bDao = new BoardDAO();
-			List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,type,null));
+			List<BoardBeans> BoardList = bDao.select(new BoardBeans(null, 0,type,null));
 
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("BoardList", BoardList);
@@ -81,7 +81,7 @@ public class ThreadServlet extends HttpServlet {
 
 			// 検索処理を行う
 			BoardDAO bDao = new BoardDAO();
-			List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,type,null));
+			List<BoardBeans> BoardList = bDao.select(new BoardBeans(null, 0,type,null));
 
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("BoardList", BoardList);
@@ -96,7 +96,7 @@ public class ThreadServlet extends HttpServlet {
 
 			// 検索処理を行う
 			BoardDAO bDao = new BoardDAO();
-			List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,type,null));
+			List<BoardBeans> BoardList = bDao.select(new BoardBeans(null, 0,type,null));
 
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("BoardList", BoardList);
@@ -111,7 +111,7 @@ public class ThreadServlet extends HttpServlet {
 
 			// 検索処理を行う
 			BoardDAO bDao = new BoardDAO();
-			List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,type,null));
+			List<BoardBeans> BoardList = bDao.select(new BoardBeans(null, 0,type,null));
 
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("BoardList", BoardList);
@@ -126,7 +126,7 @@ public class ThreadServlet extends HttpServlet {
 
 			// 検索処理を行う
 			BoardDAO bDao = new BoardDAO();
-			List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,type,null));
+			List<BoardBeans> BoardList = bDao.select(new BoardBeans(null, 0,type,null));
 
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("BoardList", BoardList);
@@ -141,7 +141,7 @@ public class ThreadServlet extends HttpServlet {
 
 			// 検索処理を行う
 			BoardDAO bDao = new BoardDAO();
-			List<BoardBeans> BoardList = bDao.select(new BoardBeans(0,type,null));
+			List<BoardBeans> BoardList = bDao.select(new BoardBeans(null, 0,type,null));
 
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("BoardList", BoardList);
