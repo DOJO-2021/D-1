@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,6 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SEEGGS | SEARCH RESULT</title>
 <link rel="stylesheet" type="text/css" href="css/common.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -62,26 +63,19 @@
 
   <!--検索結果ここから
 　action以下に遷移先のサーブレットを記述してください。
-  ${#} ${e.}に対象のEL式を記述してください。
+に対象のEL式を記述してください。
   name以下に記述してください-->
 
-  <c:forEach var="e" items="${#}" ><!--Userテーブルから結果をインポートするときの名称-->
-  <form method="POST" action="/SEEGGS/#">
-    <div class="textBox" name="" value=${e.}>
-      <div class="TexitBox_before" value=${e.}>投稿者名</div>
-      あっとほーむSEEGGS!</div>
-        <!--お気に入りボタンここから-->
-        <div class="mother4">
-          <div class="product__fav-item">
-            <button type="button" class="favorite-button" {favorite_button_attribute product_id=$product.id added_class="fav-items"}>
-              <svg role="img" aria-hidden="true"><use xlink:href="#heart"></use></svg>
-              お気に入り
-            </button>
-          </div>
-        </div>
-        <!--お気に入りボタンここまで-->
-        </c:forEach>
-  </div>
+<c:forEach var="e" items="${BoardList}" varStatus="status"><!--Userテーブルから結果をインポートするときの名称-->
+  <form method="POST" action="SearchServlet">
+  <div class="TexitBox_before" >${e.m_number} </div>
+  <div class="textBox">${e.contents}</div>
+   </c:forEach>
+    </div>
+   </div>
+  </form>
+
+  <!--スレッドここまで-->
 <!--検索結果ここまで-->
 　<!--スクロールボックスここまで-->
 

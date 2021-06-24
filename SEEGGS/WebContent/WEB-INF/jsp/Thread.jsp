@@ -65,7 +65,7 @@
   name以下に記述してください-->
 
 <c:forEach var="e" items="${BoardList}" varStatus="status"><!--Userテーブルから結果をインポートするときの名称-->
-  <form method="POST" action="ThreadServlet">
+  <form method="POST" action="SearchServlet">
   <div class="TexitBox_before" >${e.m_number} </div>
   <div class="textBox">${e.contents}</div>
    </c:forEach>
