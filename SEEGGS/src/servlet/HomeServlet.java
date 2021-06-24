@@ -37,8 +37,11 @@ public class HomeServlet extends HttpServlet {
 		}else {
 			// リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
+
 			String id = request.getParameter("id");
 			String password = request.getParameter("password");
+
+
 			String photo = request.getParameter("photo");
 			String name = request.getParameter("name");
 			String company = request.getParameter("company");
