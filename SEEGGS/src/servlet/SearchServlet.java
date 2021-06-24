@@ -58,11 +58,10 @@ public class SearchServlet extends HttpServlet {
 		//リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
 		String contents = request.getParameter("contents");
-		String id = request.getParameter("id");
 
 		// 検索処理を行う
 		BoardDAO bDao = new BoardDAO();
-		List<BoardBeans> BoardList = bDao.select(new BoardBeans(id,0,0,contents));
+		List<BoardBeans> BoardList = bDao.select(new BoardBeans(null,0,0,contents));
 
 	//	if(contents != null){
 
