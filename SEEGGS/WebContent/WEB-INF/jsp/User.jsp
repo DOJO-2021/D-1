@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>SEEGGS | USER</title>
-<link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" type="text/css" href="css/User.css">
 </head>
 <body>
 <div class="wrapper">
@@ -57,51 +57,50 @@
   <!--スクロールボックスここから
   a href以下に遷移先のServletを記述してください。-->
 
-<div class="scrollArea">
+<div class="scrollArea4">
 
     <c:forEach var="e" items="${UserList}" ><!--Userテーブルから結果をインポートするときの名称-->
     <form method="POST" action="UserServlet">
+    	<div style="text-align: center">
         <table>
-        <tr>
-        	<c:set var="path" value="upload\\" />
-            <td>
-                <img src="${path}${e.photo}" width="75" height="100"><br>
-        </td>
-        <td>
-                名前"${e.name}"<br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-                会社"${e.company}"<br>
-                </td>
-        <td>
-                ニックネーム"${e.nickname}"<br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-                出身地"${e.birthplace}"<br>
-        </td>
-        <td>
-                自分を一文字で表すと…"${e.thisisme}"<br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-                趣味は？"${e.hobby}"<br>
-        </td>
-        <td>
-                今後やりたいこと"${e.future}"<br>
-        </td>
-    </tr>
-    <tr>
-        <td>
-                研修への意気込みをどうぞ！"${e.word}"<br>
-        </td>
-        <td>
-    </tr>
-    </table>
+			<tr>
+				<c:set var="path" value="upload\\" />
+				<td colspan="2"><img src="${path}${e.photo}" width="75" height="100"></td>
+			</tr>
+			<tr>
+				<th>名前</th>
+				<td>${e.name}</td>
+			</tr>
+			<tr>
+				<th>会社名</th>
+				<td>${e.company}</td>
+			</tr>
+			<tr>
+				<th>ニックネーム</th>
+				<td>${e.nickname}</td>
+			</tr>
+			<tr>
+				<th>出身地</th>
+				<td>${e.birthplace}</td>
+			</tr>
+			<tr>
+				<th>自分を一文字で表すと</th>
+				<td>${e.thisisme}</td>
+			</tr>
+			<tr>
+				<th>趣味は？</th>
+				<td>${e.hobby}</td>
+			</tr>
+			<tr>
+				<th>今後やりたいこと</th>
+				<td>${e.future}</td>
+			</tr>
+			<tr>
+				<th>研修への意気込み</th>
+				<td>${e.word}</td>
+			</tr>
+		</table>
+		</div>
     </form>
     </c:forEach>
     <!--プロフィールのポップアップここから

@@ -33,9 +33,9 @@
         <ul>
           <li><a href="AHomeServlet">ホーム</a></li>
           <li><a href="ProfileServlet">マイプロフィール</a></li>
-          <li><a href="UserServlet">ユーザー情報</a></li>
-          <li><a href="BoardServlet">掲示板</a></li>
-          <li><a href="FavorServlet">お気に入り一覧</a></li>
+          <li><a href="AUserServlet">ユーザー情報</a></li>
+          <li><a href="ABoardServlet">掲示板</a></li>
+          <li><a href="AFavorServlet">お気に入り一覧</a></li>
           <li><a href="LogoutServlet">ログアウト</a></li>
         </ul>
       </div>
