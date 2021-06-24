@@ -56,7 +56,7 @@ public class RegistServlet extends HttpServlet {
 
 		// 登録処理を行う
 		BoardDAO bDao = new BoardDAO();
-		if (bDao.insert(new Board(0, company, department, position, name, postal_code, address, phone, fax, email, remarks))) {	// 登録成功
+		if (bDao.insert(new Board(0, m_number, type, contents))) {	// 登録成功
 			request.setAttribute("result",
 			new Result("登録成功！", "レコードを登録しました。", "/simpleBC/ResistServlet"));
 		}
@@ -65,8 +65,8 @@ public class RegistServlet extends HttpServlet {
 			new Result("登録失敗！", "レコードを登録できませんでした。", "/simpleBC/ResistServlet"));
 		}
 
-		// 結果ページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/result.jsp");
+		// スレッドページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Thread.jsp");
 		dispatcher.forward(request, response);
 	}
 }
