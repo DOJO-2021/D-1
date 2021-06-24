@@ -56,7 +56,10 @@
   <!--右側ハンバーガーメニューここまで-->
 
   <!--スクロールボックスここから-->
-<div class="mother6">
+
+<table>
+<tb>
+<div class=mother6>
 <div class="scrollArea3">
 
   <!--スレッドここから
@@ -65,7 +68,7 @@
   name以下に記述してください-->
 
 <c:forEach var="e" items="${BoardList}" varStatus="status"><!--Userテーブルから結果をインポートするときの名称-->
-  <form method="POST" action="SearchServlet">
+  <form method="POST" action="ThreadServlet">
   <div class="TexitBox_before" >${e.m_number} </div>
   <div class="textBox">${e.contents}</div>
    </c:forEach>
@@ -75,28 +78,32 @@
 
   <!--スレッドここまで-->
 
-</div><!--スクロール閉じタグ-->
-</div><!--mother6閉じタグ-->
+</div>
+<!--スクロール閉じタグ-->
 </div><!--スクロールボックスここまで-->
+</tb>
 
   <!--投稿フォームここから-->
-  <div class="mother7">
-  <form method="POST" enctype="multipart/form-data"  action="ThreadServlet">
+  <tb>
+  <div class=mother7>
+  <form method="POST" enctype="multipart/form-data"  action="RegistServlet">
     <div class="form-wrapper6">
-      <div class="textBox2" name="" value="${e.type}">
-        <div class="TexitBox2_before" value="${e.contents}"></div>
-        <input type="hidden" name="type" value="${e.type}"></input>
-        <input type="remarks" class="PW" title="Regist" value="書き込む"></input>
+      <div class="textBox2">
+        <div class="TexitBox2_before" ></div>
+        <input type="text" name="type" title="内容を書き込んで投稿してみよう！" value="書き込む"></input>
       </div>
 
         <div class="button-panel2">
-          <input type="submit" class="button" title="sendmessage" value="投稿"></input>
+          <input type="submit" class="button" title="内容を投稿しますか？" value="投稿"></input>
         </div>
     </div>
     <!--hidden属性を付与ここから-->
-    <input type="hidden" class="PW" title="Regist" value=""></input>
+    <input type="hidden" name="type" value="${e.type}"></input>
     <!--hidden属性を付与ここまで-->
   </form>
+  </div>
+  </tb>
+  </table>
   </div>
   <!--投稿フォームここまで-->
 
