@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.BoardDAO;
 import model.BoardBeans;
-
+ 
 
 /**
  * Servlet implementation class RegistServlet
