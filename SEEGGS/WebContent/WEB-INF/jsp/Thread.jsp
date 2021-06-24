@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SEEGGS | THREAD</title>
 <link rel="stylesheet" type="text/css" href="css/common.css">
-<link rel="stylesheet" type="text/css" href="css/Thread.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -63,27 +63,13 @@
 	action以下に遷移先のサーブレットを記述してください。
 	対象のEL式を記述してください。
   name以下に記述してください-->
+
 <c:forEach var="e" items="${BoardList}" varStatus="status"><!--Userテーブルから結果をインポートするときの名称-->
   <form method="POST" action="ThreadServlet">
-
-   <div class="textBox">
-${e.m_number} ${e.contents}
-     <div class="TexitBox_before" >
-      </c:forEach>
-      </div>
-
-
-     <!--お気に入りボタンここから-->
-     <div class="mother4">
-     <div class="product__fav-item">
-       <button type="button" class="favorite-button" {favorite_button_attribute product_id=$product.id added_class="fav-items"}>
-         <!-- <svg role="img" aria-hidden="true"><use xlink:href="#heart"></use></svg> -->
-         <svg role="img" aria-hidden="true"></svg>
-         お気に入り
-       </button>
-     </div>
-     </div>
-     <!--お気に入りボタンここまで-->
+  <div class="TexitBox_before" >${e.m_number} </div>
+  <div class="textBox">${e.contents}</div>
+   </c:forEach>
+    </div>
    </div>
   </form>
 
@@ -91,16 +77,16 @@ ${e.m_number} ${e.contents}
 
 </div><!--スクロール閉じタグ-->
 </div><!--mother6閉じタグ-->
-　<!--スクロールボックスここまで-->
+</div><!--スクロールボックスここまで-->
 
   <!--投稿フォームここから-->
-
   <div class="mother7">
-  <form method="POST" enctype="multipart/form-data"  action="<c:url value='/'/>">
+  <form method="POST" enctype="multipart/form-data"  action="ThreadServlet">
     <div class="form-wrapper6">
-      <div class="textBox2" name="type" value="${e.type}">
-        <div class="TexitBox2_before" name="contents" value="${e.contents}"></div>
-        <input type="remarks" class="PW" title="Regist" value="投稿"></input>
+      <div class="textBox2" name="" value="${e.type}">
+        <div class="TexitBox2_before" value="${e.contents}"></div>
+        <input type="hidden" name="type" value="${e.type}"></input>
+        <input type="remarks" class="PW" title="Regist" value="書き込む"></input>
       </div>
 
         <div class="button-panel2">
@@ -108,12 +94,11 @@ ${e.m_number} ${e.contents}
         </div>
     </div>
     <!--hidden属性を付与ここから-->
-    <input type="hidden" class="PW" title="Regist" value="2"></input>
+    <input type="hidden" class="PW" title="Regist" value=""></input>
     <!--hidden属性を付与ここまで-->
   </form>
   </div>
   <!--投稿フォームここまで-->
-
 
   <!-- メイン（ここまで） -->
 

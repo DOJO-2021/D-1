@@ -60,14 +60,13 @@
   <div class="popup-overlay">
     <!--以下プロフィール中身を記述してください-->
      <div class="popup-content">
-        <p>マイプロフィール</p>
         <c:forEach var="e" items="${sessionScope.User}" ><!--Userテーブルから結果をインポートするときの名称-->
         <form method="POST" action="UserServlet">
         <table>
             <c:set var="path" value="upload\\" />
             <tr>
                 <td>
-                      <img width="50" height="100" alt="プロフィール画像" src="${path}${e.photo}"><br>
+                      <img width="75" height="100" alt="プロフィール画像" src="${path}${e.photo}"><br>
                 </td>
             </tr>
             <tr>
@@ -106,17 +105,17 @@
           </c:forEach>
        </div>
     </div>
-  
+
     <!--使い方ボタンここから-->
     <div class="mother11">
       <div class="form-wrapper2">
         <div class="button-panel4">
-          <figure><a href="Board.html"><img src="images/HomeHowToUseButton.png" width="180" height="250" alt="SEEGGS"></a></figure>
+          <figure><a href="BoardServelt"><img src="images/HomeHowToUseButton.png" width="180" height="250" alt="SEEGGS"></a></figure>
         </div>
       </div>
     </div>
       <!--使い方ボタンここまで-->
-  
+
     <!--以下オープンのためのボタン-->
     <div class="mother">
       <section id="modalArea" class="modalArea">
@@ -124,23 +123,24 @@
     　</section>
     </div>
     <!--プロフィールのポップアップここまで-->
-  
+
   <div class="mother">
     <!--ユーザー情報リンクボタンここから-->
       <div class="form-wrapper2">
           <div class="button-panel">
-            <figure><a href="User.html"><img src="images/HomeUserButton.png" width="300" height="360" alt="SEEGGS"></a></figure>
+            <figure><a href="UserServlet"><img src="images/HomeUserButton.png" width="300" height="360" alt="SEEGGS"></a></figure>
           </div>
       </div>
   </div>
     <!--ユーザー情報リンクボタンここまで-->
-  
+
     <!--掲示板リンクボタンここから-->
   <div class="mother">
       <div class="form-wrapper2">
         <div class="button-panel">
-          <figure><a href="Board.html"><img src="images/HomeBoardButton.png" width="300" height="360" alt="SEEGGS"></a></figure>
+          <figure><a href="BoardServlet"><img src="images/HomeboardButton.png" width="300" height="360" alt="SEEGGS"></a></figure>
         </div>
+  </div>
   </div>
     <!--掲示板リンクボタンここまで-->
   <!-- メイン（ここまで） -->
