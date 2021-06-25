@@ -29,6 +29,6 @@ public class BoardDAOTest {
 	else {
 		System.out.println("登録失敗！");
 	}
- 
+
 	}
 }
