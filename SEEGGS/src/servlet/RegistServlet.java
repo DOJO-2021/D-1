@@ -14,7 +14,7 @@ import dao.BoardDAO;
 import model.BoardBeans;
 import model.LoginBeans;
 
-
+ 
 /**
  * Servlet implementation class RegistServlet
  */
