@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <title>SEEGGS | HOME</title>
 <link rel="stylesheet" type="text/css" href="css/common.css">
+<link rel="stylesheet" href="css/modal.css" />
 </head>
 <body>
 <div class="wrapper">
@@ -36,7 +37,6 @@
           <li><a href="ProfileServlet">マイプロフィール</a></li>
           <li><a href="UserServlet">ユーザー情報</a></li>
           <li><a href="BoardServlet">掲示板</a></li>
-          <li><a href="FavorServlet">お気に入り一覧</a></li>
           <li><a href="LogoutServlet">ログアウト</a></li>
         </ul>
       </div>
@@ -107,10 +107,17 @@
     </div>
 
     <!--使い方ボタンここから-->
+
+    <!-- Modal HTML embedded directly into document -->
+<div id="ex1" class="modal">
+  <div style="position: relative; top: -10px;left: -500px;"><img src="images/HomeHowToUseillust.png" width="1000" height="500" alt="SEEGGS"></div>
+</div>
+
+<!-- Link to open the modal -->
     <div class="mother11">
       <div class="form-wrapper2">
         <div class="button-panel4">
-          <figure><a href="BoardServelt"><img src="images/HomeHowToUseButton.png" width="180" height="250" alt="SEEGGS"></a></figure>
+          <figure><a href="#ex1" rel="modal:open"><img src="images/HomeHowToUseButton.png" width="180" height="250" alt="SEEGGS"></a></figure>
         </div>
       </div>
     </div>
@@ -158,6 +165,18 @@
 
 
 <!-- 以下js及びjQuery処理の記述 -->
+
+<!-- Remember to include jQuery :) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+
+<!-- jQuery Modal -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js">
+
+$('#sub-modal').modal({
+	  closeExisting: false
+	});
+
+</script>
 
 <script src="js/jquery-3.4.1.min.js"></script>
 <script>
