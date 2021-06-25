@@ -14,7 +14,7 @@ import dao.BoardDAO;
 import model.BoardBeans;
 import model.LoginBeans;
 
- 
+
 /**
  * Servlet implementation class RegistServlet
  */
@@ -63,8 +63,12 @@ public class RegistServlet extends HttpServlet {
 		// 登録処理を行う
 		BoardDAO bDao = new BoardDAO();
 		if (bDao.insert(new BoardBeans(id, 0, type, contents))) {	// 登録成功
-			// ボードページにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Board.jsp");
+
+			//typeの値を渡す
+			request.setAttribute("type", type);
+
+			// 元のページにフォワードする
+			RequestDispatcher dispatcher = request.getRequestDispatcher("ThreadServlet");
 			dispatcher.forward(request, response);
 
 		}
