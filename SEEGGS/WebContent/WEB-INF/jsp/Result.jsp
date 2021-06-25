@@ -67,7 +67,7 @@ action以下に遷移先のサーブレットを記述してください。
   name以下に記述してください-->
 
 <c:forEach var="e" items="${BoardList}" varStatus="status"><!--Userテーブルから結果をインポートするときの名称-->
-  <form method="POST" action="SearchServlet">
+  <form method="POST" action="BoardServlet">
   <div class="TexitBox_before" >${e.m_number} </div>
   <div class="textBox">${e.contents}</div>
    </c:forEach>
@@ -81,7 +81,7 @@ action以下に遷移先のサーブレットを記述してください。
   <!--投稿フォームここから-->
   <tb>
   <div class=mother7>
-  <form method="POST" enctype="multipart/form-data"  action="RegistServlet">
+  <form method="POST"  action="RegistServlet">
     <div class="form-wrapper6">
       <div class="textBox2">
         <div class="TexitBox2_before" ></div>
@@ -93,7 +93,7 @@ action以下に遷移先のサーブレットを記述してください。
         </div>
     </div>
     <!--hidden属性を付与ここから-->
-    <input type="hidden" name="type" value="${e.type}"></input>
+    <input type="hidden" name="type" value="${type}"></input>
     <!--hidden属性を付与ここまで-->
   </form>
   </div>

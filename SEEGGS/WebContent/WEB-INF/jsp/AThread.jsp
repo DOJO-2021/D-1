@@ -68,12 +68,13 @@
   name以下に記述してください-->
 
 <c:forEach var="e" items="${BoardList}" varStatus="status"><!--Userテーブルから結果をインポートするときの名称-->
-  <form method="POST" action="AThreadServlet">
+  <form method="POST" action="ThreadUpdateDeleteServlet">
   <div class="TexitBox_before" >${e.m_number} </div>
   <div class="textBox">${e.contents}</div>
       <!-- 更新・削除ボタン -->
         <input type= "submit" name = "SUBMIT" value = "更新" onclick="alertFunction1()">
  	    <input type= "submit" name = "SUBMIT" value = "削除" onclick="alertFunction1()">
+ 	    <input type="hidden" name="type" value="${e.m_number}"></input>
    </c:forEach>
     </div>
    </div>
