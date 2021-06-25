@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.BoardDAO;
 import model.BoardBeans;
+import model.LoginBeans;
 
 
 /**
@@ -43,16 +44,18 @@ public class RegistServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
-		if (session.getAttribute("id") == null) {
+		LoginBeans login = (LoginBeans)session.getAttribute("id");
+
+		if(login  == null) {
 			response.sendRedirect("/SEEGGS/LoginServlet");
 			return;
 		}
 
+		// セッションからログイン中のユーザーIDを取得する
+		String id = login.getId();
+
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-
-		String id = request.getParameter("id");
-//		int m_number = Integer.parseInt(request.getParameter("m_number"));
 		int type = Integer.parseInt(request.getParameter("type"));
 		String contents = request.getParameter("contents");
 
