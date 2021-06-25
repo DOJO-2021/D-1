@@ -11,7 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.BoardUpdateDeleteDAO;
- 
+import model.BoardBeans;
+
 /**
  * Servlet implementation class UpdateDeleteServlet
  */
@@ -19,6 +20,21 @@ import dao.BoardUpdateDeleteDAO;
 public class ThreadUpdateDeleteServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// もしもログインしていなかったらログインサーブレットにリダイレクトする
+		HttpSession session = request.getSession();
+		if (session.getAttribute("id") == null) {
+			response.sendRedirect("/SEEGGS/LoginServlet");
+			return;
+		}
+
+		// スレッドページにフォワードする
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/AThread.jsp");
+		dispatcher.forward(request, response);
+	}
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -29,10 +45,11 @@ public class ThreadUpdateDeleteServlet extends HttpServlet {
 			response.sendRedirect("/SEEGGS/LoginServlet");
 			return;
 		}
+		BoardBeans d_number = (BoardBeans)session.getAttribute("m_number");
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		int m_number = Integer.parseInt(request.getParameter("m_number"));
+		int m_number = d_number.getM_number();
 //		int type = Integer.parseInt(request.getParameter("type"));
 //		String contents = request.getParameter("contents");
 
@@ -42,10 +59,19 @@ public class ThreadUpdateDeleteServlet extends HttpServlet {
 			if (budDao.delete (m_number)) {
 
 		//AThreadServletにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("AThreadServlet");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("ABoard.jsp");
 			dispatcher.forward(request, response);
 
 			}
 		}
-	}
+			if (request.getParameter("SUBMIT").equals("更新")) {
+				if (budDao.delete (m_number)) {
+
+			//AThreadServletにフォワードする
+				RequestDispatcher dispatcher = request.getRequestDispatcher("ABoard.jsp");
+				dispatcher.forward(request, response);
+
+				}
+			}
+		}
 }
