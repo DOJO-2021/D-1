@@ -22,7 +22,7 @@ public class BoardUpdatedeleteDAOTest {
 
 		//insert()のテスト
 		System.out.println("---------- insert()のテスト ----------");
-		BoardBeans insRec = new BoardBeans("asaa", 0, 3,"にほんごooo");
+		BoardBeans insRec = new BoardBeans("sda", 0, 3,"にほんごooo");
 		if (dao.insert(insRec)) {
 			System.out.println("登録成功！");
 		}
