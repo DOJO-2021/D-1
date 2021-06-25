@@ -9,7 +9,7 @@
 <link rel="stylesheet" type="text/css" href="css/common.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
- 
+
 <body>
 <div class="wrapper">
   <!-- ヘッダー（ここから） -->
@@ -86,7 +86,7 @@
   <!--投稿フォームここから-->
   <tb>
   <div class=mother7>
-  <form method="POST" enctype="multipart/form-data"  action="RegistServlet">
+  <form method="POST" action="RegistServlet">
     <div class="form-wrapper6">
       <div class="textBox2">
         <div class="TexitBox2_before" ></div>
@@ -98,7 +98,7 @@
         </div>
     </div>
     <!--hidden属性を付与ここから-->
-    <input type="hidden" name="type" value="${e.type}"></input>
+    <input type="hidden" name="type" value="${requestScope.type}"></input>
     <!--hidden属性を付与ここまで-->
   </form>
   </div>
@@ -106,7 +106,7 @@
   </table>
   </div>
   <!--投稿フォームここまで-->
- 
+
   <!-- メイン（ここまで） -->
 
 
