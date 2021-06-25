@@ -37,7 +37,6 @@
           <li><a href="ProfileServlet">マイプロフィール</a></li>
           <li><a href="UserServlet">ユーザー情報</a></li>
           <li><a href="BoardServlet">掲示板</a></li>
-          <li><a href="FavorServlet">お気に入り一覧</a></li>
           <li><a href="LogoutServlet">ログアウト</a></li>
         </ul>
       </div>
@@ -69,8 +68,7 @@
 
 <c:forEach var="e" items="${BoardList}" varStatus="status"><!--Userテーブルから結果をインポートするときの名称-->
   <form method="POST" action="ThreadServlet">
-  <div class="TexitBox_before" >${e.m_number} </div>
-  <div class="textBox">${e.contents}</div>
+  <div class="textBox"><h2>${e.m_number}</h2><br> ${e.contents}</div>
    </c:forEach>
     </div>
    </div>
@@ -90,7 +88,7 @@
     <div class="form-wrapper6">
       <div class="textBox2">
         <div class="TexitBox2_before" ></div>
-        <input type="text" name="contents" title="内容を書き込んで投稿してみよう！" value="書き込む"></input>
+        <input type="text" name="contents" name2="thread" title="内容を書き込んで投稿してみよう！" value="書き込む" style="width:330px; height:100px;" cols="40" rows="10"></input>
       </div>
 
         <div class="button-panel2">

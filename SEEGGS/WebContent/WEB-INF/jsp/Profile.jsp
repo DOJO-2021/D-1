@@ -36,7 +36,6 @@
           <li><a href="ProfileServlet">マイプロフィール</a></li>
           <li><a href="UserServlet">ユーザー情報</a></li>
           <li><a href="BoardServlet">掲示板</a></li>
-          <li><a href="FavorServlet">お気に入り一覧</a></li>
           <li><a href="LogoutServlet">ログアウト</a></li>
         </ul>
       </div>
@@ -54,57 +53,63 @@
 
   <!--右側ハンバーガーメニューここまで-->
 
-<div class=mother>
-  <p>マイプロフィール</p>
+<div class=mother style=  "position:relative; top: 100px; right: 0px;">
+  <h2>マイプロフィール</h2><br><br>
   		<c:forEach var= "e" items="${sessionScope.User}">
   	<form method="POST" action="ProfileServlet">
-  		<table>
-  		<tr>
-  			<td>
-  			 <c:set var="path" value="upload\\"/>
-  			 	写真<img width="128" height="128" alt="プロフィール画像" src="${path}${e.photo}"><br>
-  			 	 <input type="file" name="photo" accept="image/jpeg, image/png">
-  			</td>
-  			<td>
-  				名前<input type="text" name="name" value="${e.name}"><br>
-  			</td>
-  		</tr>
-  		<tr>
-  			<td>
-  				会社<input type="text" name="company" value="${e.company}"><br>
-  			</td>
-  			<td>
-  				ニックネーム<input type ="text" name="nickname" value="${e.nickname}"><br>
-  			</td>
-  		</tr>
-  		<tr>
-  			<td>
-  				出身地<input type ="text" name="birthplace" value="${e.birthplace}"><br>
-  			</td>
-  			<td>
-  				自分を一文字で表すと<input type= "text" name ="thisisme" value="${e.thisisme}"><br>
-  			</td>
-  		</tr>
-  		<tr>
-  			<td>
-  				趣味は？<input type ="text" name="hobby" value="${e.hobby}"><br>
-  			</td>
-  			<td>
-  				今後やりたいこと<input type="text" name ="future" value="${e.future}"><br>
-  			</td>
-  		</tr>
-  		<tr>
-  			<td>
-  				研修への意気込みをどうぞ!<input type="text" name="word" value="${e.word}">
-  			</td>
-  		</tr>
-  		</table>
+        <table>
+			<tr>
+				<c:set var="path" value="upload\\" />
+				<td colspan="2"><img src="${path}${e.photo}" width="75" height="100"></td>
+			</tr>
+			<tr>
+			<input type="file" name="photo" accept="image/jpeg, image/png">
+			</tr>
+			<tr>
+				<th>名前</th>
+				<td><input type="text" name="name" value="${e.name}"></td>
+			</tr>
+			<tr>
+				<th>会社名</th>
+				<td><input type="text" name="company" value="${e.company}"></td>
+			</tr>
+			<tr>
+				<th>ニックネーム</th>
+				<td><input type ="text" name="nickname" value="${e.nickname}"></td>
+			</tr>
+			<tr>
+				<th>出身地</th>
+				<td><input type ="text" name="birthplace" value="${e.birthplace}"></td>
+			</tr>
+			<tr>
+				<th>自分を一文字で表すと</th>
+				<td><input type= "text" name ="thisisme" value="${e.thisisme}"></td>
+			</tr>
+			<tr>
+				<th>趣味は？</th>
+				<td><input type ="text" name="hobby" value="${e.hobby}"></td>
+			</tr>
+			<tr>
+				<th>今後やりたいこと</th>
+				<td><input type="text" name ="future" value="${e.future}"></td>
+			</tr>
+			<tr>
+				<th>研修への意気込み</th>
+				<td><input type="text" name="word" value="${e.word}"></td>
+			</tr>
+		</table>
   		<input type="submit" name="SUBMIT" value="更新" onclick="alertFunction1()">
   	</form>
   		</c:forEach>
 
   </div>
   </div>
+
+    <!-- フッター（ここから） -->
+  <div id="footer">
+    <p>&copy; D1ユニコーンのたまご. All rights reserved.</p>
+  </div>
+  <!-- フッター（ここまで） -->
 
   <script>
  function alertFunction1(){
