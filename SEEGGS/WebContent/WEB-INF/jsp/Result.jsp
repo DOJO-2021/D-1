@@ -16,7 +16,7 @@
   <!-- ヘッダー（ここから） -->
 
     <!--左上ロゴここから
-      a href以下に遷移先のServletを記述してください。-->
+      a href以下に遷移先のServletを記述してください。 -->
 
         <a href="/SEEGGS/HomeServlet"><div style="position:absolute; top:20px; left:30px;"><img src="images/logo.png" width="300" height="100" alt="SEEGGS"></div></a>
 
