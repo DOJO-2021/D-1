@@ -38,7 +38,6 @@
           <li><a href="ProfileServlet">マイプロフィール</a></li>
           <li><a href="UserServlet">ユーザー情報</a></li>
           <li><a href="BoardServlet">掲示板</a></li>
-          <li><a href="FavorServlet">お気に入り一覧</a></li>
           <li><a href="LogoutServlet">ログアウト</a></li>
         </ul>
       </div>
@@ -59,48 +58,30 @@
   <!--スクロールボックスここから-->
 
 
-  <div class="scrollArea3">
+<table>
+<tb>
+<div class=mother6>
+<div class="scrollArea3">
 
-  <!--検索結果ここから
-action以下に遷移先のサーブレットを記述してください。
-に対象のEL式を記述してください。
+  <!--スレッドここから
+	action以下に遷移先のサーブレットを記述してください。
+	対象のEL式を記述してください。
   name以下に記述してください-->
 
 <c:forEach var="e" items="${BoardList}" varStatus="status"><!--Userテーブルから結果をインポートするときの名称-->
-  <form method="POST" action="BoardServlet">
-  <div class="TexitBox_before" >${e.m_number} </div>
-  <div class="textBox">${e.contents}</div>
+  <form method="POST" action="SearchServlet">
+  <div class="textBox"><h2>${e.m_number}</h2><br> ${e.contents}</div>
    </c:forEach>
-  </div>
+    </div>
    </div>
   </form>
 
   <!--スレッドここまで-->
-<!--検索結果ここまで-->
-<!--スクロールボックスここまで-->
-  <!--投稿フォームここから-->
-  <tb>
-  <div class=mother7>
-  <form method="POST"  action="RegistServlet">
-    <div class="form-wrapper6">
-      <div class="textBox2">
-        <div class="TexitBox2_before" ></div>
-        <input type="text" name="contents" title="内容を書き込んで投稿してみよう！" value="書き込む"></input>
-      </div>
 
-        <div class="button-panel2">
-          <input type="submit" class="button" title="内容を投稿しますか？" value="投稿"></input>
-        </div>
-    </div>
-    <!--hidden属性を付与ここから-->
-    <input type="hidden" name="type" value="${type}"></input>
-    <!--hidden属性を付与ここまで-->
-  </form>
-  </div>
-  </tb>
-  </table>
-  </div>
-  <!--投稿フォームここまで-->
+</div>
+<!--スクロール閉じタグ-->
+</div><!--スクロールボックスここまで-->
+</tb>
 
 
   <!-- フッター（ここから） -->

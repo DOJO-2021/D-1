@@ -105,6 +105,12 @@
   </div>
   </div>
 
+    <!-- フッター（ここから） -->
+  <div id="footer">
+    <p>&copy; D1ユニコーンのたまご. All rights reserved.</p>
+  </div>
+  <!-- フッター（ここまで） -->
+
   <script>
  function alertFunction1(){
 	alert("更新しますか？");
