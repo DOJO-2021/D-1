@@ -72,7 +72,7 @@ public class AHomeServlet extends HttpServlet {
 		}
 
 		//Homeページにフォワードする
-		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Home.jsp");
+		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/AHome.jsp");
 		dispatcher.forward(request, response);
 	}
 }
