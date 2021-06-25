@@ -58,8 +58,9 @@
   <!--スクロールボックスここから-->
 
 
-<table>
-<tb>
+<!-- <table>
+<tb> -->
+
 <div class=mother6>
 <div class="scrollArea3">
 

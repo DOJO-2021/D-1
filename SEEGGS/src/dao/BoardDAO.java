@@ -70,6 +70,68 @@ public class BoardDAO {
 		// 結果を返す
 		return BoardList;
 	}
+
+	public List<BoardBeans> select3(BoardBeans param) {
+		Connection conn = null;
+		List<BoardBeans> BoardList = new ArrayList<BoardBeans>();
+
+		try {
+			// JDBCドライバを読み込む
+			Class.forName("org.h2.Driver");
+
+			// データベースに接続する
+			conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
+
+			// SQL文を準備する(変更有・？)
+			String sql = "select * from Forum where contents like ?";
+			PreparedStatement pStmt = conn.prepareStatement(sql);
+
+			// SQL文を完成させる(変更有)
+			if (param.getContents() != null) {
+				pStmt.setString(1, "%"+ param.getContents()+"%");
+			}
+			else {
+				pStmt.setString(1, "%");
+			}
+
+			// SQL文を実行し、結果表を取得する
+			ResultSet rs = pStmt.executeQuery();
+
+			// 結果表をコレクションにコピーする (変更有)
+			while (rs.next()) {
+				BoardBeans Ccard = new BoardBeans(
+				rs.getString("id"),
+				rs.getInt("m_number"),
+				rs.getInt("type"),
+				rs.getString("contents")
+				);
+				BoardList.add(Ccard);
+			}
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+			BoardList = null;
+		}
+		catch (ClassNotFoundException e) {
+			e.printStackTrace();
+			BoardList = null;
+		}
+		finally {
+			// データベースを切断
+			if (conn != null) {
+				try {
+					conn.close();
+				}
+				catch (SQLException e) {
+					e.printStackTrace();
+					BoardList = null;
+				}
+			}
+		}
+
+		// 結果を返す
+		return BoardList;
+	}
 	//掲示板への投稿
 			public boolean insert(BoardBeans bcard) {
 				Connection conn = null;
@@ -130,6 +192,6 @@ public class BoardDAO {
 				}
 
 				// 結果を返す
-				return result; 
+				return result;
 			}
 }
