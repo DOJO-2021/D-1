@@ -74,7 +74,7 @@
       <!-- 更新・削除ボタン -->
         <input type= "submit" name = "SUBMIT" value = "更新" onclick="alertFunction1()">
  	    <input type= "submit" name = "SUBMIT" value = "削除" onclick="alertFunction1()">
- 	    <input type="hidden" name="type" value="${e.m_number}"></input>
+ 	    <input type="hidden" name="m_number" value="${e.m_number}"></input>
    </c:forEach>
     </div>
    </div>
@@ -90,7 +90,7 @@
   <!--投稿フォームここから-->
   <tb>
   <div class=mother7>
-  <form method="POST" enctype="multipart/form-data"  action="RegistServlet">
+  <form method="POST" action="RegistServlet">
     <div class="form-wrapper6">
       <div class="textBox2">
         <div class="TexitBox2_before" ></div>
@@ -102,7 +102,7 @@
         </div>
     </div>
     <!--hidden属性を付与ここから-->
-    <input type="hidden" name="type" value="${e.type}"></input>
+    <input type="hidden" name="type" value="${type}"></input>
     <!--hidden属性を付与ここまで-->
   </form>
   </div>
