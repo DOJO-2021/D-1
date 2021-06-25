@@ -16,7 +16,7 @@ public class BoardUpdateDeleteDAO {
 	public List<BoardBeans> select(BoardBeans param) {
 		Connection conn = null;
 		List<BoardBeans> BoardList = new ArrayList<BoardBeans>();
- 
+
 		try {
 			// JDBCドライバを読み込む
 			Class.forName("org.h2.Driver");
@@ -133,7 +133,7 @@ public class BoardUpdateDeleteDAO {
 			}
 
 			// 引数numberで指定されたレコードを削除し、成功したらtrueを返す
-			public boolean delete(int M_number) {
+			public boolean delete(int m_number) {
 				Connection conn = null;
 				boolean result = false;
 
@@ -145,11 +145,11 @@ public class BoardUpdateDeleteDAO {
 					conn = DriverManager.getConnection("jdbc:h2:file:C:/pleiades/workspace/D-1/SEEGGS", "sa", "");
 
 					// SQL文を準備する
-					String sql = "delete from Forum where M_number = ?";
+					String sql = "delete from Forum where m_number = ?";
 					PreparedStatement pStmt = conn.prepareStatement(sql);
 
 					// SQL文を完成させる
-					pStmt.setInt(1, M_number);
+					pStmt.setInt(1, m_number);
 
 					// SQL文を実行する
 					if (pStmt.executeUpdate() == 1) {
