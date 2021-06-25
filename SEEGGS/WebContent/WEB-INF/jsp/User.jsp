@@ -6,7 +6,7 @@
 <head>
 <meta charset="UTF-8">
 <title>SEEGGS | USER</title>
-<link rel="stylesheet" type="text/css" href="css/User.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
 </head>
 <body>
 <div class="wrapper">
@@ -57,11 +57,12 @@
   <!--スクロールボックスここから
   a href以下に遷移先のServletを記述してください。-->
 
-<div class="scrollArea4">
+<div class="scrollArea3">
 
     <c:forEach var="e" items="${UserList}" ><!--Userテーブルから結果をインポートするときの名称-->
     <form method="POST" action="UserServlet">
     	<div style="text-align: center">
+    	<!-- div class="textBox" -->
         <table>
 			<tr>
 				<c:set var="path" value="upload\\" />
@@ -100,6 +101,7 @@
 				<td>${e.word}</td>
 			</tr>
 		</table>
+		<!--  /div -->
 		</div>
     </form>
     </c:forEach>
