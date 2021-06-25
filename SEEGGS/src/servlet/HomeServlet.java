@@ -1,8 +1,8 @@
 package servlet;
-​
+
 import java.io.IOException;
 import java.util.List;
-​
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,18 +10,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-​
+
 import dao.UserDAO;
 import model.LoginBeans;
 import model.UserBeans;
-​
+
 /**
  * Servlet implementation class HomeServlet
  */
 @WebServlet("/HomeServlet")//変更有
 public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-​
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -32,16 +32,16 @@ public class HomeServlet extends HttpServlet {
 		// もしもログインしていなかったらログインサーブレットにリダイレクトする
 		HttpSession session = request.getSession();
 		LoginBeans login = (LoginBeans)session.getAttribute("id");
-​
+
 		if (login == null) {
 			response.sendRedirect("/SEEGGS/LoginServlet");
 			return;//リダイレクトとフォワードをおなじServlet内で同時に起こさないための処理
-​
+
 		}else {
 			// セッションからログイン中のユーザーIDを取得する（パスワードも念のため）
 			String id = login.getId();
 			String password = login.getPw();
-​
+
 			// リクエストパラメータを取得する
 			request.setCharacterEncoding("UTF-8");
 			String photo = request.getParameter("photo");
@@ -53,14 +53,14 @@ public class HomeServlet extends HttpServlet {
 			String hobby = request.getParameter("hobby");
 			String future = request.getParameter("future");
 			String word = request.getParameter("word");
-​
+
 			// 検索処理を行う
 			UserDAO uDao = new UserDAO();
 			List<UserBeans> UserList = uDao.select1(new UserBeans(id,password,photo, name, company, nickname, birthplace, thisisme, hobby, future, word));
-​
+
 			// 検索結果をリクエストスコープに格納する
 			request.setAttribute("UserList", UserList);
-​
+
 			// 初回ログイン時はログイン中のユーザー情報をセッションに格納する
 			// （厳密ではないが、取得できたUserListの件数が1件、
 			// かつ、その１件のIDと、セッションにすでにあるログインIDとが一致していればという判定で代用）
@@ -68,7 +68,7 @@ public class HomeServlet extends HttpServlet {
 				session.setAttribute("User", UserList);
 			}
 		}
-​
+
 		//Homeページにフォワードする
 		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Home.jsp");
 		dispatcher.forward(request, response);
