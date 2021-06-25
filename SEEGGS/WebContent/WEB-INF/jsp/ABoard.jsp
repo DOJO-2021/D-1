@@ -35,8 +35,8 @@
         <ul>
           <li><a href="AHomeServlet">ホーム</a></li>
           <li><a href="ProfileServlet">マイプロフィール</a></li>
-          <li><a href="UserServlet">ユーザー情報</a></li>
-          <li><a href="BoardServlet">掲示板</a></li>
+          <li><a href="AUserServlet">ユーザー情報</a></li>
+          <li><a href="ABoardServlet">掲示板</a></li>
           <li><a href="FavorServlet">お気に入り一覧</a></li>
           <li><a href="LogoutServlet">ログアウト</a></li>
         </ul>
@@ -66,7 +66,7 @@
   </div>
 
   <!--検索バーここまで-->
- 
+
   <!--掲示板カテゴリここから
   a href以下に遷移先を記述してください-->
 
@@ -74,7 +74,7 @@
       <!--ノウハウ共有スレッドボタンここから-->
         <div class="form-wrapper2">
             <div class="button-panel3">
-              <a href="/SEEGGS/ThreadServlet?type=1"><input type="submit" class="button" title="Login" value="ノウハウ共有掲示板"></input></a>
+              <a href="/SEEGGS/AThreadServlet?type=1"><input type="submit" class="button" title="Login" value="ノウハウ共有掲示板"></input></a>
             </div>
         </div>
       <!--ノウハウ共有スレッドボタンここまで-->
@@ -82,7 +82,7 @@
       <!--エラー共有スレッドボタンここから-->
         <div class="form-wrapper3">
           <div class="button-panel3">
-              <a href="/SEEGGS/ThreadServlet?type=2"><input type="submit" class="button" title="Login" value="エラー共有掲示板"></input></a>
+              <a href="/SEEGGS/AThreadServlet?type=2"><input type="submit" class="button" title="Login" value="エラー共有掲示板"></input></a>
           </div>
         </div>
       <!--エラー共有スレッドボタンここまで-->
@@ -90,7 +90,7 @@
       <!--お悩み相談スレッドボタンここから-->
       <div class="form-wrapper3">
         <div class="button-panel3">
-            <a href="/SEEGGS/ThreadServlet?type=3"><input type="submit" class="button" title="Login" value="お悩み相談掲示板"></input></a>
+            <a href="/SEEGGS/AThreadServlet?type=3"><input type="submit" class="button" title="Login" value="お悩み相談掲示板"></input></a>
         </div>
       </div>
       <!--お悩み相談スレッドボタンここまで-->
@@ -100,7 +100,7 @@
       <!--質問スレッドボタンここから-->
         <div class="form-wrapper2">
             <div class="button-panel3">
-              <a href="/SEEGGS/ThreadServlet?type=4"><input type="submit" class="button" title="Login" value="講師に質問！"></input></a>
+              <a href="/SEEGGS/AThreadServlet?type=4"><input type="submit" class="button" title="Login" value="講師に質問！"></input></a>
             </div>
         </div>
       <!--質問スレッドボタンここまで-->
@@ -108,7 +108,7 @@
       <!--ジモトークスレッドボタンここから-->
         <div class="form-wrapper3">
           <div class="button-panel3">
-              <a href="/SEEGGS/ThreadServlet?type=5"><input type="submit" class="button" title="Login" value="ジモトーーーク！"></input></a>
+              <a href="/SEEGGS/AThreadServlet?type=5"><input type="submit" class="button" title="Login" value="ジモトーーーク！"></input></a>
           </div>
         </div>
       <!--ジモトークスレッドスレッドボタンここまで-->
@@ -116,7 +116,7 @@
       <!--休日何してるスレッドボタンここから-->
       <div class="form-wrapper3">
         <div class="button-panel3">
-            <a href="/SEEGGS/ThreadServlet?type=6"><input type="submit" class="button" title="Login" value="休日何してる？"></input></a>
+            <a href="/SEEGGS/AThreadServlet?type=6"><input type="submit" class="button" title="Login" value="休日何してる？"></input></a>
         </div>
       </div>
       <!--休日何してるスレッドボタンここまで-->

@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -8,6 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SEEGGS | THREAD</title>
 <link rel="stylesheet" type="text/css" href="css/common.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -35,8 +35,8 @@
         <ul>
           <li><a href="AHomeServlet">ホーム</a></li>
           <li><a href="ProfileServlet">マイプロフィール</a></li>
-          <li><a href="UserServlet">ユーザー情報</a></li>
-          <li><a href="BoardServlet">掲示板</a></li>
+          <li><a href="AUserServlet">ユーザー情報</a></li>
+          <li><a href="ABoardServlet">掲示板</a></li>
           <li><a href="FavorServlet">お気に入り一覧</a></li>
           <li><a href="LogoutServlet">ログアウト</a></li>
         </ul>
@@ -57,59 +57,56 @@
 
   <!--スクロールボックスここから-->
 
-
-  <div class="scrollArea3">
+<table>
+<tb>
+<div class=mother6>
+<div class="scrollArea3">
 
   <!--スレッドここから
-　action以下に遷移先のサーブレットを記述してください。
-  に対象のEL式を記述してください。
+	action以下に遷移先のサーブレットを記述してください。
+	対象のEL式を記述してください。
   name以下に記述してください-->
 
-    <c:forEach var="e" items="${BoardList}" varStatus="status" > <!--Userテーブルから結果をインポートするときの名称-->
-    <form method="GET" action="ThreadServlet">
-      <div class="textBox" c:out value=${e.m_number}>
-        <div class="TexitBox_before" c:out value=${e.contents}></div>
-
-        <!--お気に入りボタンここから-->
-        <div class="mother4">
-        <div class="product__fav-item">
-          <button type="button" class="favorite-button" {favorite_button_attribute product_id=$product.id added_class="fav-items"}>
-            <svg role="img" aria-hidden="true"><use xlink:href="#heart"></use></svg>
-            お気に入り
-          </button>
-        </div>
-        </div>
-        <!--お気に入りボタンここまで-->
-
-         <!-- 更新・削除ボタン -->
-      <input type= "button" name = "Update" value = "更新">
-      <input type= "button" name = "Delete" value = "削除">
-		</div>
-	  </form>
-     </c:forEach>
+<c:forEach var="e" items="${BoardList}" varStatus="status"><!--Userテーブルから結果をインポートするときの名称-->
+  <form method="POST" action="AThreadServlet">
+  <div class="TexitBox_before" >${e.m_number} </div>
+  <div class="textBox">${e.contents}</div>
+      <!-- 更新・削除ボタン -->
+        <input type= "submit" name = "SUBMIT" value = "更新" onclick="alertFunction1()">
+ 	    <input type= "submit" name = "SUBMIT" value = "削除" onclick="alertFunction1()">
+   </c:forEach>
+    </div>
+   </div>
+  </form>
 
   <!--スレッドここまで-->
-</div><!-- スクロール閉じタグ -->
-</div><!-- mother6閉じタグ -->
-<!--スクロールボックスここまで-->
 
-<!-- 投稿フォームここから -->
-	<div class="mother7">
-  <form method="POST" enctype="multipart/form-data"  action="<c:url value='/'/>">
+</div>
+<!--スクロール閉じタグ-->
+</div><!--スクロールボックスここまで-->
+</tb>
+
+  <!--投稿フォームここから-->
+  <tb>
+  <div class=mother7>
+  <form method="POST" enctype="multipart/form-data"  action="RegistServlet">
     <div class="form-wrapper6">
-      <div class="textBox2" name="" value=${e.type}>
-        <div class="TexitBox2_before" value=${e.contents}></div>
-        <input type="remarks" class="PW" title="Regist" value="投稿"></input>
+      <div class="textBox2">
+        <div class="TexitBox2_before" ></div>
+        <input type="text" name="contents" title="内容を書き込んで投稿してみよう！" value="書き込む"></input>
       </div>
 
         <div class="button-panel2">
-          <input type="submit" class="button" title="sendmessage" value="投稿"></input>
-        </div>s
+          <input type="submit" class="button" title="内容を投稿しますか？" value="投稿"></input>
+        </div>
     </div>
     <!--hidden属性を付与ここから-->
-    <input type="hidden" class="PW" title="Regist" value="2"></input>
+    <input type="hidden" name="type" value="${e.type}"></input>
     <!--hidden属性を付与ここまで-->
   </form>
+  </div>
+  </tb>
+  </table>
   </div>
   <!--投稿フォームここまで-->
 
@@ -125,7 +122,7 @@
 
 
 <!--お気に入りボタンSVGアニメーションここから-->
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="heart" viewBox="0 0 1792 1792"><path d="M896 1664q-26 0-44-18l-624-602q-10-8-27.5-26T145 952.5 77 855 23.5 734 0 596q0-220 127-344t351-124q62 0 126.5 21.5t120 58T820 276t76 68q36-36 76-68t95.5-68.5 120-58T1314 128q224 0 351 124t127 344q0 221-229 450l-623 600q-18 18-44 18z"/></symbol>>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none"><symbol id="heart" viewBox="0 0 1792 1792"><path d="M896 1664q-26 0-44-18l-624-602q-10-8-27.5-26T145 952.5 77 855 23.5 734 0 596q0-220 127-344t351-124q62 0 126.5 21.5t120 58T820 276t76 68q36-36 76-68t95.5-68.5 120-58T1314 128q224 0 351 124t127 344q0 221-229 450l-623 600q-18 18-44 18z"/></symbol>
 </svg>
 <!--お気に入りボタンSVGアニメーションここまで-->
 

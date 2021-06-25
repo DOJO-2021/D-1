@@ -62,7 +62,7 @@
   <div class="scrollArea3">
 
   <!--検索結果ここから
-　action以下に遷移先のサーブレットを記述してください。
+action以下に遷移先のサーブレットを記述してください。
 に対象のEL式を記述してください。
   name以下に記述してください-->
 
@@ -71,16 +71,36 @@
   <div class="TexitBox_before" >${e.m_number} </div>
   <div class="textBox">${e.contents}</div>
    </c:forEach>
-    </div>
+  </div>
    </div>
   </form>
 
   <!--スレッドここまで-->
 <!--検索結果ここまで-->
-　<!--スクロールボックスここまで-->
+<!--スクロールボックスここまで-->
+  <!--投稿フォームここから-->
+  <tb>
+  <div class=mother7>
+  <form method="POST" enctype="multipart/form-data"  action="RegistServlet">
+    <div class="form-wrapper6">
+      <div class="textBox2">
+        <div class="TexitBox2_before" ></div>
+        <input type="text" name="contents" title="内容を書き込んで投稿してみよう！" value="書き込む"></input>
+      </div>
 
-
-  <!-- メイン（ここまで） -->
+        <div class="button-panel2">
+          <input type="submit" class="button" title="内容を投稿しますか？" value="投稿"></input>
+        </div>
+    </div>
+    <!--hidden属性を付与ここから-->
+    <input type="hidden" name="type" value="${e.type}"></input>
+    <!--hidden属性を付与ここまで-->
+  </form>
+  </div>
+  </tb>
+  </table>
+  </div>
+  <!--投稿フォームここまで-->
 
 
   <!-- フッター（ここから） -->
