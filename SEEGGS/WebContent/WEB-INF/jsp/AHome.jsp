@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -56,37 +56,93 @@
   <!--プロフィールのポップアップここから
   a href以下に遷移先のServletを記述してください。-->
 
-
   <div class="popup-overlay">
     <!--以下プロフィール中身を記述してください-->
      <div class="popup-content">
-        <p>マイプロフィール</p>
-     </div>
-  </div>
-  <!--以下オープンのためのボタン-->
-  <button class="open"><img src="images/プロフィール.png" width="200" height="300" alt="SEEGGS"></button>
-
-  <!--プロフィールのポップアップここまで-->
-
-<div class="mother">
-  <!--ユーザー情報リンクボタンここから-->
-    <div class="form-wrapper2">
-        <div class="button-panel">
-          <a href="/SEEGGS/UserServlet"><input type="submit" class="button" title="Login" value="ユーザー情報"></input></a>
-        </div>
+        <c:forEach var="e" items="${sessionScope.User}" ><!--Userテーブルから結果をインポートするときの名称-->
+        <form method="POST" action="UserServlet">
+        <table>
+            <c:set var="path" value="upload\\" />
+            <tr>
+                <td>
+                      <img width="75" height="100" alt="プロフィール画像" src="${path}${e.photo}"><br>
+                </td>
+            </tr>
+            <tr>
+              <tb>
+                      名前<br><input type="text" name="remarks" value="${e.name}"><br>
+              </td>
+              <td>
+                      会社<br><input type="text" name="remarks" value="${e.company}"><br>
+              </td>
+              <td>
+                      ニックネーム<br><input type="text" name="remarks" value="${e.nickname}"><br>
+              </td>
+              <td>
+                      研修への意気込みをどうぞ！<br><input type="text" name="word" value="${e.word}"><br>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      自分を一文字で表すと…<br><input type="text" name="remarks" value="${e.thisisme}"><br>
+              </td>
+              <td>
+                      出身地<br><input type="text" name="remarks" value="${e.birthplace}"><br>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                      今後やりたいこと<br><input type="text" name="remarks" value="${e.future}"><br>
+              </td>
+              <td>
+                      趣味は？<br><input type="text" name="remarks" value="${e.hobby}"><br>
+              </td>
+              <td>
+            </tr>
+          </table>
+          </form>
+          </c:forEach>
+       </div>
     </div>
-  <!--ユーザー情報リンクボタンここまで-->
 
-  <!--掲示板リンクボタンここから-->
-
-    <div class="form-wrapper3">
-      <div class="button-panel">
-          <a href="/SEEGGS/BoardServlet"><input type="submit" class="button" title="Login" value="掲示板"></input></a>
+    <!--使い方ボタンここから-->
+    <div class="mother11">
+      <div class="form-wrapper2">
+        <div class="button-panel4">
+          <figure><a href="BoardServelt"><img src="images/HomeHowToUseButton.png" width="180" height="250" alt="SEEGGS"></a></figure>
+        </div>
       </div>
     </div>
+      <!--使い方ボタンここまで-->
 
-  <!--掲示板リンクボタンここまで-->
-</div>
+    <!--以下オープンのためのボタン-->
+    <div class="mother">
+      <section id="modalArea" class="modalArea">
+      <figure2><button class="open"><img src="images/HomeProfileButton.png" width="300" height="360" alt="SEEGGS"></button></figure2>
+    　</section>
+    </div>
+    <!--プロフィールのポップアップここまで-->
+
+
+  <div class="mother">
+    <!--ユーザー情報リンクボタンここから-->
+      <div class="form-wrapper2">
+          <div class="button-panel">
+            <figure><a href="AUserServlet"><img src="images/HomeUserButton.png" width="300" height="360" alt="SEEGGS"></a></figure>
+          </div>
+      </div>
+  </div>
+    <!--ユーザー情報リンクボタンここまで-->
+
+    <!--掲示板リンクボタンここから-->
+  <div class="mother">
+      <div class="form-wrapper2">
+        <div class="button-panel">
+          <figure><a href="ABoardServlet"><img src="images/HomeboardButton.png" width="300" height="360" alt="SEEGGS"></a></figure>
+        </div>
+  </div>
+  </div>
+    <!--掲示板リンクボタンここまで-->
   <!-- メイン（ここまで） -->
 
 
