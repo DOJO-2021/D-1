@@ -35,7 +35,6 @@
           <li><a href="ProfileServlet">マイプロフィール</a></li>
           <li><a href="UserServlet">ユーザー情報</a></li>
           <li><a href="BoardServlet">掲示板</a></li>
-          <li><a href="FavorServlet">お気に入り一覧</a></li>
           <li><a href="LogoutServlet">ログアウト</a></li>
         </ul>
       </div>
@@ -57,7 +56,7 @@
   <!--スクロールボックスここから
   a href以下に遷移先のServletを記述してください。-->
 
-<div class="scrollArea3">
+<div class="scrollArea">
 
     <c:forEach var="e" items="${UserList}" ><!--Userテーブルから結果をインポートするときの名称-->
     <form method="POST" action="UserServlet">
