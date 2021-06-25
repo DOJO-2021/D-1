@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import dao.BoardUpdateDeleteDAO;
-import model.BoardBeans;
 
 /**
  * Servlet implementation class UpdateDeleteServlet
@@ -45,12 +44,12 @@ public class ThreadUpdateDeleteServlet extends HttpServlet {
 			response.sendRedirect("/SEEGGS/LoginServlet");
 			return;
 		}
-		BoardBeans d_number = (BoardBeans)session.getAttribute("m_number");
+		//BoardBeans d_number = (BoardBeans)session.getAttribute("m_number");
 
 		// リクエストパラメータを取得する
 		request.setCharacterEncoding("UTF-8");
-		int m_number = d_number.getM_number();
-//		int type = Integer.parseInt(request.getParameter("type"));
+//		int m_number = d_number.getM_number();
+		int m_number = Integer.parseInt(request.getParameter("m_number"));
 //		String contents = request.getParameter("contents");
 
 		// 削除を行う
@@ -59,7 +58,7 @@ public class ThreadUpdateDeleteServlet extends HttpServlet {
 			if (budDao.delete (m_number)) {
 
 		//AThreadServletにフォワードする
-			RequestDispatcher dispatcher = request.getRequestDispatcher("ABoard.jsp");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ABoard.jsp");
 			dispatcher.forward(request, response);
 
 			}
@@ -68,7 +67,7 @@ public class ThreadUpdateDeleteServlet extends HttpServlet {
 				if (budDao.delete (m_number)) {
 
 			//AThreadServletにフォワードする
-				RequestDispatcher dispatcher = request.getRequestDispatcher("ABoard.jsp");
+				RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/ABoard.jsp");
 				dispatcher.forward(request, response);
 
 				}
