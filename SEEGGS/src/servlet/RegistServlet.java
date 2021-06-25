@@ -66,6 +66,7 @@ public class RegistServlet extends HttpServlet {
 			// ボードページにフォワードする
 			RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Board.jsp");
 			dispatcher.forward(request, response);
+
 		}
 
 	}

@@ -138,7 +138,7 @@ public class ThreadServlet extends HttpServlet {
 		}
 
 		if (type == 6) {
- 
+
 			// 検索処理を行う
 			BoardDAO bDao = new BoardDAO();
 			List<BoardBeans> BoardList = bDao.select(new BoardBeans(null, 0,type,null));
