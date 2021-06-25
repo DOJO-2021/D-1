@@ -1,7 +1,6 @@
 package servlet;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -11,21 +10,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import dao.BoardDAO;
-import model.BoardBeans;
-
-
 /**
  * Servlet implementation class BoardServlet
  */
-@WebServlet("/SearchServlet")
-public class SearchServlet extends HttpServlet {
+@WebServlet("/ABoardServlet")
+public class ABoardServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SearchServlet() {
+    public ABoardServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -40,9 +35,10 @@ public class SearchServlet extends HttpServlet {
 				response.sendRedirect("/SEEGGS/LoginServlet");
 				return;
 			}
-			doPost(request,response);
-//			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/Result.jsp");
-//			d.forward(request, response);
+
+			RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/ABoard.jsp");
+			d.forward(request, response);
+			return;
 	}
 
 	/**
@@ -55,20 +51,8 @@ public class SearchServlet extends HttpServlet {
 			response.sendRedirect("/SEEGGS/LoginServlet");
 			return;
 		}
-		//リクエストパラメータを取得する
-		request.setCharacterEncoding("UTF-8");
-		String contents = request.getParameter("contents");
-
-		// 検索処理を行う
-		BoardDAO bDao = new BoardDAO();
-		List<BoardBeans> BoardList = bDao.select(new BoardBeans("",0,0,contents));
-
-	//	if(contents != null){
-
-		// 検索結果をリクエストスコープに格納する
-		request.setAttribute("BoardList", BoardList);
-		RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/Result.jsp");
+		RequestDispatcher d = request.getRequestDispatcher("/WEB-INF/jsp/ABoard.jsp");
 		d.forward(request, response);
 		return;
-		}
+	}
 }
