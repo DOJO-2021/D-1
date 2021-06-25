@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import dao.BoardDAO;
 import model.BoardBeans;
- 
+
 
 /**
  * Servlet implementation class RegistServlet
@@ -65,8 +65,5 @@ public class RegistServlet extends HttpServlet {
 			dispatcher.forward(request, response);
 		}
 
-//		// ボードページにフォワードする
-//		RequestDispatcher dispatcher = request.getRequestDispatcher("/WEB-INF/jsp/Board.jsp");
-//		dispatcher.forward(request, response);
 	}
 }
