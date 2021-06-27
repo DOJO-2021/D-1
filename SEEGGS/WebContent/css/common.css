@@ -16,9 +16,25 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 /* body */
+
+#body   { position:absolute; top:0; left:0; }
+
 body {
-  background: #e9e9e9;
-  background-image: url(/images/BackGroundUser.png);
+  background-color: #e9e9e9;
+    /* 画像ファイルの指定 */
+  background-image: url(images/BackGroundUser.png);
+
+  /* 画像を常に天地左右の中央に配置 */
+  background-position: center center;
+
+  /* 画像をタイル状に繰り返し表示しない */
+  background-repeat: no-repeat;
+
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  background-size: cover;
   color: #5e5e5e;
   font: 400 87.5%/1.5em 'Open Sans', sans-serif;
   margin: 0 0 0 0;					/* マージンなし（後で個別に設定） */
@@ -105,6 +121,16 @@ body {
   top: 30px;
   right: 30px;
 }
+
+/*Result.jsp使い方ボタン用*/
+.mother12 {
+  display: inline-block;
+  position:relative;
+  top: 50px;
+  right: 350px;
+}
+
+
 
 /* フォームレイアウト */
 .form-wrapper {
@@ -372,7 +398,9 @@ html{
   visibility:hidden;
   position:absolute;
   background:#ffffff;
-  border:3px solid #666666;
+  box-shadow: 0px 0px 0px 10px #ffffff;
+  border: dashed 2px #dd9c5f;/*点線*/
+  border-radius: 8px;
   width:50%;
   height:55%;
   left:25%;
@@ -399,8 +427,6 @@ html{
 button{
   border: none;
   cursor: pointer;
-  height: 50px;
-  width: 100%;
   position:relative;
   top: 90px;
   right: 10px;
@@ -678,6 +704,7 @@ nav .inner ul li a:hover {
 
 .scrollArea{
   z-index: 1;
+  background-color: #fff;
   width: 320px;                /* 横幅指定 */
   height: 400px;               /* 縦幅指定 */
   border: 1px solid #000;      /* わかりやすくボーダーを引く */
@@ -829,4 +856,14 @@ textarea1[name=remarks]{
     }
 
     /*Thread.jspテキストボックスレイアウトここまで*/
+
+/*背景*/
+
+#canvas {
+position:fixed;
+top:0;
+ left:0;
+ width:100%;
+ height:100%;
+}
 

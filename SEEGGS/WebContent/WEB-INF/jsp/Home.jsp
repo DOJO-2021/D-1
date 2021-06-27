@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="css/modal.css" />
 </head>
 <body>
+<canvas id="canvas"></canvas>
 <div class="wrapper">
   <!-- ヘッダー（ここから） -->
 
@@ -65,40 +66,23 @@
         <table>
             <c:set var="path" value="upload\\" />
             <tr>
-                <td>
-                      <img width="75" height="100" alt="プロフィール画像" src="${path}${e.photo}"><br>
-                </td>
+            <td>
+                      <img width="75" height="100" alt="プロフィール画像" src="${path}${e.photo}" style="  position: relative; width: 600px; height: inline;"><br>
+            </td>
             </tr>
             <tr>
-              <tb>
+            <td>
                       名前<br><input type="text" name="remarks" value="${e.name}"><br>
-              </td>
-              <td>
                       会社<br><input type="text" name="remarks" value="${e.company}"><br>
-              </td>
-              <td>
                       ニックネーム<br><input type="text" name="remarks" value="${e.nickname}"><br>
-              </td>
-              <td>
                       研修への意気込みをどうぞ！<br><input type="text" name="word" value="${e.word}"><br>
-              </td>
-            </tr>
-            <tr>
-              <td>
+           </td>
+            <td>
                       自分を一文字で表すと…<br><input type="text" name="remarks" value="${e.thisisme}"><br>
-              </td>
-              <td>
                       出身地<br><input type="text" name="remarks" value="${e.birthplace}"><br>
-              </td>
-            </tr>
-            <tr>
-              <td>
                       今後やりたいこと<br><input type="text" name="remarks" value="${e.future}"><br>
-              </td>
-              <td>
                       趣味は？<br><input type="text" name="remarks" value="${e.hobby}"><br>
-              </td>
-              <td>
+            </td>
             </tr>
           </table>
           </form>
@@ -126,7 +110,7 @@
     <!--以下オープンのためのボタン-->
     <div class="mother">
       <section id="modalArea" class="modalArea">
-      <figure2><button class="open"><img src="images/HomeProfileButton.png" width="300" height="360" alt="SEEGGS"></button></figure2>
+      <figure2><button class="open"><img src="images/HomeProfileButton.png" width="320" height="380" alt="SEEGGS"></button></figure2>
     　</section>
     </div>
     <!--プロフィールのポップアップここまで-->
@@ -135,7 +119,7 @@
     <!--ユーザー情報リンクボタンここから-->
       <div class="form-wrapper2">
           <div class="button-panel">
-            <figure><a href="UserServlet"><img src="images/HomeUserButton.png" width="300" height="360" alt="SEEGGS"></a></figure>
+            <figure><a href="UserServlet"><img src="images/HomeUserButton.png" width="320" height="380" alt="SEEGGS"></a></figure>
           </div>
       </div>
   </div>
@@ -150,6 +134,7 @@
   </div>
   </div>
     <!--掲示板リンクボタンここまで-->
+
   <!-- メイン（ここまで） -->
 
 
@@ -234,6 +219,100 @@ $(".close, .popup-overlay").on("click", function(){
 
 //プロフィールポップアップのjsここまで
 
+/*背景*/
+var Canvas = document.getElementById('canvas');
+var ctx = Canvas.getContext('2d');
+
+var resize = function() {
+    Canvas.width = Canvas.clientWidth;
+    Canvas.height = Canvas.clientHeight;
+};
+window.addEventListener('resize', resize);
+resize();
+
+var elements = [];
+var presets = {};
+
+presets.o = function (x, y, s, dx, dy) {
+    return {
+        x: x,
+        y: y,
+        r: 12 * s,
+        w: 5 * s,
+        dx: dx,
+        dy: dy,
+        draw: function(ctx, t) {
+            this.x += this.dx;
+            this.y += this.dy;
+
+            ctx.beginPath();
+            ctx.arc(this.x + + Math.sin((50 + x + (t / 10)) / 100) * 3, this.y + + Math.sin((45 + x + (t / 10)) / 100) * 4, this.r, 0, 2 * Math.PI, false);
+            ctx.lineWidth = this.w;
+            ctx.strokeStyle = '#ebc7a5';
+            ctx.stroke();
+        }
+    }
+};
+
+presets.x = function (x, y, s, dx, dy, dr, r) {
+    r = r || 0;
+    return {
+        x: x,
+        y: y,
+        s: 20 * s,
+        w: 5 * s,
+        r: r,
+        dx: dx,
+        dy: dy,
+        dr: dr,
+        draw: function(ctx, t) {
+            this.x += this.dx;
+            this.y += this.dy;
+            this.r += this.dr;
+
+            var _this = this;
+            var line = function(x, y, tx, ty, c, o) {
+                o = o || 0;
+                ctx.beginPath();
+                ctx.moveTo(-o + ((_this.s / 2) * x), o + ((_this.s / 2) * y));
+                ctx.lineTo(-o + ((_this.s / 2) * tx), o + ((_this.s / 2) * ty));
+                ctx.lineWidth = _this.w;
+                ctx.strokeStyle = c;
+                ctx.stroke();
+            };
+
+            ctx.save();
+
+            ctx.translate(this.x + Math.sin((x + (t / 10)) / 100) * 5, this.y + Math.sin((10 + x + (t / 10)) / 100) * 2);
+            ctx.rotate(this.r * Math.PI / 180);
+
+            line(-1, -1, 1, 1, '#ebc7a5');
+            line(1, -1, -1, 1, '#ebc7a5');
+
+            ctx.restore();
+        }
+    }
+};
+
+for(var x = 0; x < Canvas.width; x++) {
+    for(var y = 0; y < Canvas.height; y++) {
+        if(Math.round(Math.random() * 8000) == 1) {
+            var s = ((Math.random() * 5) + 1) / 10;
+            if(Math.round(Math.random()) == 1)
+                elements.push(presets.o(x, y, s, 0, 0));
+            else
+                elements.push(presets.x(x, y, s, 0, 0, ((Math.random() * 3) - 1) / 10, (Math.random() * 360)));
+        }
+    }
+}
+
+setInterval(function() {
+    ctx.clearRect(0, 0, Canvas.width, Canvas.height);
+
+    var time = new Date().getTime();
+    for (var e in elements)
+    elements[e].draw(ctx, time);
+}, 10);
 </script>
 </body>
 </html>
