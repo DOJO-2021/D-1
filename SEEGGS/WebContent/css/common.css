@@ -737,8 +737,8 @@ nav .inner ul li a:hover {
   border: 1px solid #000;      /* わかりやすくボーダーを引く */
   overflow-y: scroll;          /* 縦方向にスクロール可能にする */
   position: relative;
-  top: 150px;
-  left: 380px;
+  top: 120px;
+  left: 370px;
 }
 /*Result.htmlスクロールボックスここまで*/
 
