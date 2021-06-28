@@ -61,7 +61,7 @@ public class SearchServlet extends HttpServlet {
 
 		// 検索処理を行う
 		BoardDAO bDao = new BoardDAO();
-		List<BoardBeans> BoardList = bDao.select3(new BoardBeans("",0,0,contents));
+		List<BoardBeans> BoardList = bDao.select3(new BoardBeans(null,0,0,contents));
 
 	//	if(contents != null){
 
