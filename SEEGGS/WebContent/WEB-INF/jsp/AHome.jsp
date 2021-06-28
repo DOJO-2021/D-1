@@ -126,7 +126,7 @@
     <!--以下オープンのためのボタン-->
     <div class="mother">
       <section id="modalArea" class="modalArea">
-      <figure2><button class="open"><img src="images/HomeProfileButton.png" width="300" height="360" alt="SEEGGS"></button></figure2>
+      <figure2><button class="open"><img src="images/HomeProfileButton2.png" width="300" height="360" alt="SEEGGS"></button></figure2>
     　</section>
     </div>
     <!--プロフィールのポップアップここまで-->
