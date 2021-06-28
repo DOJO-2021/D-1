@@ -67,7 +67,7 @@
             <c:set var="path" value="upload\\" />
             <tr>
             <td>
-                      <img width="75" height="100" alt="プロフィール画像" src="${path}${e.photo}" style="  position: relative; width: 600px; height: inline;"><br>
+                      <img width="100px" height="120px" alt="プロフィール画像" src="${path}${e.photo}" ><br>
             </td>
             </tr>
             <tr>
