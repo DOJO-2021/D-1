@@ -1,0 +1,866 @@
+@charset "UTF-8";
+
+
+/*ログイン画面*/
+
+/* Fonts */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400);
+
+/* fontawesome */
+@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+[class*="fontawesome-"]:before {
+  font-family: 'FontAwesome', sans-serif;
+}
+
+/* Simple Reset */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* body */
+
+#body   { position:absolute; top:0; left:0; }
+
+body {
+  background-color: rgb(73, 64, 53);
+    /* 画像ファイルの指定 */
+  background-image: url(images/BackGroundUser.png);
+
+  /* 画像を常に天地左右の中央に配置 */
+  background-position: center center;
+
+  /* 画像をタイル状に繰り返し表示しない */
+  background-repeat: no-repeat;
+
+  /* コンテンツの高さが画像の高さより大きい時、動かないように固定 */
+  background-attachment: fixed;
+
+  /* 表示するコンテナの大きさに基づいて、背景画像を調整 */
+  background-size: cover;
+  color: #5e5e5e;
+  font: 400 87.5%/1.5em 'Open Sans', sans-serif;
+  margin: 0 0 0 0;					/* マージンなし（後で個別に設定） */
+  padding: 0 0 0 0;					/* パディングなし（後で個別に設定） */
+  font-size: 16px;
+}
+
+.mother {
+  display: inline-block;
+}
+
+/* Board.htmlパネル位置調整用マザー */
+.mother2 {
+  display: inline-block;
+  position:relative;
+  top: 90px;
+  right: 350px;
+}
+
+.mother3 {
+  display: inline-block;
+  position:relative;
+  top: 90px;
+  right: 250px;
+}
+
+
+/*Thread.jspお気に入りボタン*/
+.mother4 {
+  display: inline-block;
+  position:relative;
+  top: -80px;
+  left: 160px;
+}
+
+.mother5 {
+  display: inline-block;
+  position:relative;
+  top: 0px;
+  right: 100px;
+}
+
+/*Thread.jsp投稿一覧部分*/
+.mother6 {
+  display: inline-block;
+  position:relative;
+  top: 10px;
+  right: 500px;
+}
+
+/*Thread.jsp投稿部分*/
+.mother7 {
+  display: inline-block;
+  position:relative;
+  top: 130px;
+  right: 100px;
+}
+
+/*favor.jsp一覧部分*/
+.mother8 {
+  display: inline-block;
+  position:relative;
+  top: 10px;
+  right: 360px;
+}
+
+/*Threadの一覧部分*/
+.mother9 {
+  display: inline-block;
+  position:relative;
+}
+
+/*Home.jspボタン用*/
+.mother10 {
+  display: inline-block;
+  position:relative;
+  left: 0px;
+}
+
+/*Home.jsp使い方ボタン用*/
+.mother11 {
+  display: inline-block;
+  position:relative;
+  top: 30px;
+  right: 30px;
+}
+
+/*Result.jsp使い方ボタン用*/
+.mother12 {
+  display: inline-block;
+  position:relative;
+  top: 50px;
+  right: 350px;
+}
+
+
+
+/* フォームレイアウト */
+.form-wrapper {
+  margin: 2em auto;
+  padding: 0 1em;
+  max-width: 370px;
+
+}
+
+/* ホーム画面ユーザー情報ボタン　*/
+.form-wrapper2 {
+  margin: 0em auto;
+  padding: 0 1em;
+  max-width: 470px;
+  position: relative;
+  top: 85px;
+}
+
+/*ホーム画面掲示板ボタン・掲示板カテゴリボタン1*/
+.form-wrapper3 {
+  margin: 0em auto;
+  padding: 0 1em;
+  max-width: 470px;
+  margin-top: 15px;
+  position: relative;
+  top: 85px;
+}
+
+/* 新規アカウント登録画面フォーム */
+.form-wrapper4 {
+  background: #fafafa;
+  margin: 2em auto;
+  padding: 0 1em;
+  max-width: 500px;
+}
+
+/* 新規アカウント登録画面フォーム */
+.form-wrapper5 {
+  background: #fafafa;
+  margin: 2em auto;
+  padding: 0 1em;
+  max-width: 500px;
+}
+
+/* スレッド投稿画面フォーム */
+.form-wrapper6 {
+  margin: 2em auto;
+  padding: 0 1em;
+  max-width: 150px;
+}
+
+h1 {
+  text-align: center;
+  padding: 1em 0;
+}
+
+form {
+  padding: 0 1.5em;
+}
+
+.form-item {
+  margin-bottom: 0.75em;
+  width: 100%;
+}
+
+
+.form-item input {
+  background: #fafafa;
+  border: none;
+  border-bottom: 2px solid #e9e9e9;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  height: 20px;
+  transition: border-color 0.3s;
+  width: 100%;
+}
+
+.form-item input:focus {
+  border-bottom: 2px solid #c0c0c0;
+  outline: none;
+}
+
+
+/**/
+.form-item2 input {
+  background: #fafafa;
+  border: none;
+  border-bottom: 2px solid #e9e9e9;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  height: 20px;
+  transition: border-color 0.3s;
+  width: 120%;
+}
+
+.form-item input:focus {
+  border-bottom: 2px solid #c0c0c0;
+  outline: none;
+}
+
+/**/
+.form-item3 input {
+  background: #e9e9e9;
+  border: none;
+  border-bottom: 2px solid #e9e9e9;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  height: 20px;
+  transition: border-color 0.3s;
+  width: 120%;
+}
+
+.form-item input:focus {
+  border-bottom: 2px solid #c0c0c0;
+  outline: none;
+}
+
+.button-panel {
+  margin: 2em 0 0;
+  width: 100%;
+}
+
+.button-panel .button {
+  background: #dd9c5f;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 200%;
+  height: 130px;
+}
+
+.button-panel2 .button {
+  background: #dd9c5f;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  height: 50px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 100%;
+}
+
+.button-panel3 .button {
+  background: #dd9c5f;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+  width: 150%;
+  height: 100px;
+}
+
+/*Home.jsp使い方ボタン*/
+.button-panel4 .button {
+  background: #dd9c5f;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.2em;
+  letter-spacing: 0.05em;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background 0.3s ease-in-out;
+}
+
+/*Home.jspボタン拡大*/
+figure {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+figure img {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+figure:hover img {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+/*Home.jspボタン拡大*/
+figure2 {
+  width: 500px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+figure2 img {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+figure2:hover img {
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+
+
+.button:hover {
+  background: #e9e9e9;
+}
+
+.form-footer {
+  font-size: 1em;
+  padding: 2em 0;
+  text-align: center;
+}
+
+.form-footer a {
+  color: #8c8c8c;
+  text-decoration: none;
+  transition: border-color 0.3s;
+}
+
+.form-footer a:hover {
+  border-bottom: 1px dotted #8c8c8c;
+}
+
+.images {
+  margin: 0 auto 0 auto;	/* 中央揃え */
+  width: 700px;			/* 幅を固定 */
+}
+
+/*ログイン画面ここまで*/
+
+
+
+/*プロフィールのクリックポップアップここから*/
+
+html{
+  font-family: "Helvetica Neue", sans-serif;
+  width:100%;
+  color:#666666;
+  text-align:center;
+}
+
+.popup-overlay{
+  z-index: 2;
+  visibility:hidden;
+  position:absolute;
+  background:#ffffff;
+  box-shadow: 0px 0px 0px 10px #ffffff;
+  border: dashed 2px #dd9c5f;/*点線*/
+  border-radius: 8px;
+  width:50%;
+  height:55%;
+  left:25%;
+  float: 1 1 auto;
+}
+.popup-overlay.active{
+  z-index: 2;
+  visibility:visible;
+  text-align:center;
+  margin-top: 10%;
+  margin-right: 120px;
+}
+
+.popup-content {
+ visibility:hidden;
+}
+
+.popup-content.active {
+  visibility:visible;
+  margin: 2%;
+  flex: 1 1 auto;
+}
+
+button{
+  background-color: rgb(73, 64, 53);
+  border: none;
+  cursor: pointer;
+  position:relative;
+  top: 90px;
+  right: 10px;
+}
+
+/*プロフィールのクリックポップアップここまで*/
+
+
+
+/* 名刺管理のすべてのページに適用 */
+
+/* wrapperクラス */
+.wrapper {
+  margin: 0 auto 0 auto;	/* 中央揃え */
+  min-height: 100vh;  /*小さいの*/
+  position: relative;/*←相対位置*/
+  padding-bottom: 0px;/*footerの高さ*/
+  box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+}
+
+/* h2タグを付けたページの見出し */
+h2 {
+  font-size: 18px;
+  border-bottom-width: 2px;	/* 茶色でドットの下線を付ける */
+  border-bottom-style: dotted;
+  border-bottom-color: saddlebrown;
+  margin-top: 20px 0px 20px 0px;
+  padding-top: 10px 10px 10px 10px;
+}
+
+/* 画像 */
+img {
+  border-style: none;		/* 枠なし */
+}
+
+
+/* id="footer" */
+#footer {
+  /*background-image: url(../images/footer-bg.png);*/
+  background-repeat: repeat-x;
+  background-color: #e9e9e9;
+  margin-top: 30px;
+  text-align: center;	/* 中央揃え */
+  width: 100%;
+  padding: 20px 0px;
+  font-size: smaller;
+  color: black;
+  position: absolute; /*位置*/
+  bottom: 0; /*下固定*/
+}
+
+
+
+/* form */
+form {
+  padding: 6px;
+  color: black;
+}
+input[name=word]{
+  width: 12em;
+  /*height: 10em;*/
+}
+input[name=remarks]{
+  width: 12em;
+}
+
+
+div#table {
+  width: 700px;
+  height: 350px;
+  overflow: auto;		/* はみ出した場合は、スクロールバーを表示する */
+}
+table#list th, table#list td {
+  border-bottom-width: 1px;	/* 黒色でドットの下線を付ける */
+  border-bottom-style: dotted;
+  border-bottom-color: black;
+  padding: 4px 16px 4px 0;
+  text-align: left;
+  white-space: nowrap;		/* 折り返さない */
+}
+/* 一覧のデータ行 */
+table#list tr.data_row:hover {
+  background-color: yellow;
+}
+
+/* エラーメッセージ */
+#error_message {
+  color: red;
+}
+
+/*Thread.jsp投稿並びdiv class*/
+.textBox {
+  text: auto;
+  border: 2px solid #333;
+  border-radius: 5px;
+  padding: 20px;
+  position: relative;
+  width: 600px;
+  height: inline;
+  }
+
+  .textBox::before {
+  font-color: #fff;
+  content: "投稿";
+  font-weight: bold;
+  left: 30px;
+  position: absolute;
+  top: -15px;
+  }
+
+  .TexitBox_before {
+    font-color: #fff;
+    font-weight: bold;
+    left: 10px;
+    padding: 0px;
+    position: absolute;
+    top: 15px;
+    }
+
+
+/*Thread.jsp投稿div class*/
+.textBox2 {
+  border: 2px solid #333;
+  border-radius: 5px;
+  padding: 30px;
+  position: relative;
+  width: 400px;
+  height: 150px;
+  }
+
+  .textBox2::before {
+  background-color: #e9e9e9;
+  color: #333;
+  content: "投稿";
+  font-weight: bold;
+  left: 30px;
+  padding: 3px 15px;
+  position: absolute;
+  top: -15px;
+  }
+
+  .TexitBox2_before {
+    background-color: #e9e9e9;
+    color: #333;
+    font-weight: bold;
+    left: 10px;
+    padding: 0px;
+    position: absolute;
+    top: 15px;
+    }
+
+/*============
+nav
+=============*/
+nav {
+  display: block;
+  position: fixed;
+  top: 0;
+  right: -300px;
+  bottom: 0;
+  width: 300px;
+  background: #ffffff;
+  overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  transition: all .5s;
+  z-index: 3;
+  opacity: 0;
+}
+.open nav {
+  right: 0;
+  opacity: 1;
+}
+nav .inner {
+  padding: 25px;
+}
+nav .inner ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+nav .inner ul li {
+  position: relative;
+  margin: 0;
+  border-bottom: 1px solid #333;
+}
+nav .inner ul li a {
+  display: block;
+  color: #333;
+  font-size: 14px;
+  padding: 1em;
+  text-decoration: none;
+  transition-duration: 0.2s;
+}
+nav .inner ul li a:hover {
+  background: #e4e4e4;
+}
+@media screen and (max-width: 767px) {
+  nav {
+    left: -220px;
+    width: 220px;
+  }
+}
+/*============
+.toggle_btn
+=============*/
+.toggle_btn {
+  display: block;
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 30px;
+  height: 30px;
+  transition: all .5s;
+  cursor: pointer;
+  z-index: 3;
+}
+.toggle_btn span {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 4px;
+  transition: all .5s;
+}
+.toggle_btn span:nth-child(1) {
+  top: 4px;
+}
+.toggle_btn span:nth-child(2) {
+  top: 14px;
+}
+.toggle_btn span:nth-child(3) {
+  bottom: 4px;
+}
+.open .toggle_btn span {
+  background-color: #dd9c5f;
+}
+.open .toggle_btn span:nth-child(1) {
+  -webkit-transform: translateY(10px) rotate(-315deg);
+  transform: translateY(10px) rotate(-315deg);
+}
+.open .toggle_btn span:nth-child(2) {
+  opacity: 0;
+}
+.open .toggle_btn span:nth-child(3) {
+  -webkit-transform: translateY(-10px) rotate(315deg);
+  transform: translateY(-10px) rotate(315deg);
+}
+/*============
+#mask
+=============*/
+#mask {
+  display: none;
+  transition: all .5s;
+}
+.open #mask {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: .8;
+  z-index: 2;
+  cursor: pointer;
+}
+
+/*User.htmlスクロールボックスここから*/
+
+.scrollArea{
+  z-index: 1;
+  background-color: #fff;
+  width: 320px;                /* 横幅指定 */
+  height: 400px;               /* 縦幅指定 */
+  border: 1px solid #000;      /* わかりやすくボーダーを引く */
+  overflow-y: scroll;          /* 縦方向にスクロール可能にする */
+  position: relative;
+  top: 150px;
+  left: 520px;
+}
+/*User.htmlスクロールボックスここまで*/
+
+/*Account.htmlスクロールボックスここから*/
+
+.scrollArea2{
+  z-index: 1;
+  width: 500px;                /* 横幅指定 */
+  height: 400px;               /* 縦幅指定 */
+  border: 0.5px solid #666666;      /* わかりやすくボーダーを引く */
+  overflow-y: scroll;          /* 縦方向にスクロール可能にする */
+  position: relative;
+  left: 450px;
+}
+/*Account.htmlスクロールボックスここまで*/
+
+/*Result.htmlスクロールボックスここから*/
+.scrollArea3{
+  z-index: 1;
+  background-color: #fff;
+  width: 630px;                /* 横幅指定 */
+  height: 400px;               /* 縦幅指定 */
+  border: 1px solid #000;      /* わかりやすくボーダーを引く */
+  overflow-y: scroll;          /* 縦方向にスクロール可能にする */
+  position: relative;
+  top: 150px;
+  left: 380px;
+}
+/*Result.htmlスクロールボックスここまで*/
+
+/*AUser.htmlスクロールボックスここから*/
+
+.scrollArea4{
+  z-index: 1;
+   background-color: #fff;
+  width: 400px;                /* 横幅指定 */
+  height: 400px;               /* 縦幅指定 */
+  border: 1px solid #000;      /* わかりやすくボーダーを引く */
+  overflow-y: scroll;          /* 縦方向にスクロール可能にする */
+  position: relative;
+  top: -510px;
+  left: 470px;
+}
+/*AUser.htmlスクロールボックスここまで*/
+
+/*Board.htmlの検索バーここから*/
+.search_container{
+  position: relative;
+  top: -190px;
+  left: 280px;
+  box-sizing: border-box;
+}
+.search_container input[type="text"]{
+  border: 1px solid #999;
+  padding: 3px 5px;
+  border-radius: 20px;
+  height: 3.0em;
+  width: 500px;
+  overflow: hidden;
+}
+.search_container input[type="text"]:focus {
+  outline: 0;
+}
+.search_container input[type="submit"]{
+  cursor: pointer;
+  font-family: FontAwesome;
+  font-size: 1.3em;
+  border: none;
+  background: none;
+  color: #dd9c5f;
+  outline : none;
+  display: inline-block;
+  vertical-align: middle;
+}
+/*Board.htmlの検索バーここまで*/
+
+
+/*Thread.jspのお気に入りボタンここから*/
+.product__fav-item {
+  margin-top: 10px;
+}
+
+.product__fav-item button {
+  padding: 0;
+  cursor: pointer;
+  transition: .2s;
+  color: #999;
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+
+.product__fav-item .fav-items {
+  color: #ff7373;
+}
+
+.product__fav-item svg {
+  width: 20px;
+  height: 20px;
+  vertical-align: -.35em;
+  fill: currentColor;
+}
+view rawfavorite-prod
+
+ul li.remove span {
+  color: #F00;
+}
+/*Thread.jspのお気に入りボタンここまで*/
+
+
+/*Thread.jspテキストボックスレイアウトここから*/
+
+.form-item input1 {
+  background: #fafafa;
+  border: none;
+  border-bottom: 2px solid #e9e9e9;
+  color: #666;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  height: 20px;
+  transition: border-color 0.3s;
+  width: 50%;
+}
+
+textarea1[name=remarks]{
+  width: 100px;
+  height: 50px;
+}
+
+textarea1[name=remarks]{
+  width: 100px;
+  height: 200px;
+}
+
+  .TexitBox_before {
+    background-color: #fff;
+    color: #333;
+    font-weight: bold;
+    left: 10px;
+    padding: 0px;
+    position: absolute;
+    top: 15px;
+    }
+
+    /*Thread.jspテキストボックスレイアウトここまで*/
+
+/*背景*/
+
+#canvas {
+position:fixed;
+top:0;
+ left:0;
+ width:100%;
+ height:100%;
+}
