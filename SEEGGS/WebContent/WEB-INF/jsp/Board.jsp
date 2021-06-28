@@ -60,7 +60,7 @@
 
   <div class="mother">
   <form method="POST" action="SearchServlet" class="search_container">
-    <input type="text" name="contents" size="25" placeholder="　キーワード検索">
+    <input type="text" name="contents" size="25" placeholder="　 キーワード検索">
     <input type="submit" name="regist" value="&#xf002">
   </form>
   </div>
